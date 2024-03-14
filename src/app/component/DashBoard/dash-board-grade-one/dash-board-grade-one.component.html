@@ -1,11 +1,13 @@
+
 <div class="jumbotron">
-    <h5 class="fs-4">Grade one</h5>
-    <hr class="my-4 w-75">
-    <p>Math</p>
-    <p>Arabic</p>
-    <p>Science</p>
-    <p>English</p>
-    <p>Social Studies</p>
-    <p></p>
-    <p></p>
+    <form action="" >
+        <h5 class="fs-4">Grade one</h5>
+        <hr class="my-4 w-75">
+        <p class="fst-italic">choose the subject</p>
+        <div class="form-check" *ngFor="let subject of subjects">
+            <input class="form-check-input" type="radio" id="{{subject}}" name="flexRadioDefault" [value]="subject" [(ngModel)]="selectedSubject">
+            <label class="form-check-label" for="{{subject}}" [for]="subject">{{ subject }}</label>
+        </div>
+        <button type="submit" class="btn btn-primary mt-4 m-auto w-100" [disabled]="!selectedSubject">Add Course</button>
+    </form>
 </div>
