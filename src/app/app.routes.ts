@@ -4,7 +4,7 @@ import { DashBoardGradeTwoComponent } from './component/DashBoard/dash-board-gra
 import { DashBoardGradeThreeComponent } from './component/DashBoard/dash-board-grade-three/dash-board-grade-three.component';
 
 export const routes: Routes = [
-    {path:"/First",component:DashBoardGradeOneComponent},
-    {path:"/Second",component:DashBoardGradeTwoComponent},
-    {path:"/Third",component:DashBoardGradeThreeComponent}
+    {path:"First",component:DashBoardGradeOneComponent},
+    {path:"Second",component:DashBoardGradeTwoComponent},
+    {path:"Third",component:DashBoardGradeThreeComponent}
 ];
