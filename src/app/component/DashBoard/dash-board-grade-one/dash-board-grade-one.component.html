@@ -1,6 +1,33 @@
-
+<!-- <div class="jumbotron">
+    <form action="">
+        <h5 class="fs-4">Grade one</h5>
+        <hr class="my-4 w-75">
+        <p class="fst-italic" >chosse the subject</p>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" value="Math"  id="Math">
+            <label class="form-check-label" for="Math">Math</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" value="Arabic" id="Arabic" >
+            <label class="form-check-label" for="Arabic">Arabic</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" value="Science" id="Science" >
+            <label class="form-check-label" for="Science">Science</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" value="English" id="English" >
+            <label class="form-check-label" for="English">English</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" value="Social Studies" id="Social Studies" >
+            <label class="form-check-label" for="Social Studies">Social Studies</label>
+        </div>
+        <button type="submit" class="btn btn-primary mt-4 m-auto w-100">Add Course</button>
+    </form>
+</div> -->
 <div class="jumbotron">
-    <form action="" >
+    <form #form="ngForm"  (ngSubmit)="submitForm(form)">
         <h5 class="fs-4">Grade one</h5>
         <hr class="my-4 w-75">
         <p class="fst-italic">choose the subject</p>
@@ -8,6 +35,6 @@
             <input class="form-check-input" type="radio" id="{{subject}}" name="flexRadioDefault" [value]="subject" [(ngModel)]="selectedSubject">
             <label class="form-check-label" for="{{subject}}" [for]="subject">{{ subject }}</label>
         </div>
-        <button type="submit" class="btn btn-primary mt-4 m-auto w-100" [disabled]="!selectedSubject">Add Course</button>
+        <button type="submit" class="btn btn-primary mt-4 m-auto w-100"  [disabled]="!selectedSubject">Add Course</button>
     </form>
 </div>

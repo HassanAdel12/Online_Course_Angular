@@ -14,6 +14,6 @@ export class DashBoardGradeOneComponent {
   subjects = ['Math', 'Arabic', 'Science', 'English', 'Social Studies'];
 
   submitForm(form: NgForm) {
-    // Handle form submission logic here
+    console.log(form);
   }
 }
