@@ -40,7 +40,9 @@
       "subject": "Science",
       "Grade": "GradeTow",
       "CourseName": "new",
-      "CoursePrice": 20
+      "CoursePrice": 20,
+      "instructorID":1,
+      "instructorName":"mm"
     }
   ]
 }
