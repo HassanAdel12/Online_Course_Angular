@@ -1,0 +1,50 @@
+#profheader{
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    -webkit-box-direction: normal !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-box-align: stretch !important;
+    align-items: stretch !important;
+    border-width: 0px !important;
+    border-style: solid !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+  
+    flex-direction: column !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    position: relative !important;
+    min-height: 0px !important;
+    min-width: 0px !important;
+    z-index: 1 !important;
+    background: #f7f7f7;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    color: #444;
+    width: auto;
+}
+#profheader img{
+    width: 100px;
+    text-align: center;
+    border: 1px solid gray;
+}
+#profheader img,h1{
+display: inline-block;
+transform: translate(0px,22px);
+
+}
+#profheader button{
+    float: right;
+transform: translate(-30px,-45px);
+color: rgb(23, 83, 248);
+font-weight: 500;
+padding: 8px 30px;
+border: 1px solid rgb(158, 158, 158);
+
+}
+#profheader button:hover
+{
+    background-color:rgb(23, 83, 248); 
+    color: white;
+}

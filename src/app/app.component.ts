@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Directive } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { TeacherDashBoardComponent } from './component/teacher-dash-board/teacher-dash-board.component';
@@ -7,11 +7,35 @@ import { FooterComponent } from './component/footer/footer.component';
 import { DashBoardGradeOneComponent } from './component/DashBoard/dash-board-grade-one/dash-board-grade-one.component';
 import { DashBoardGradeTwoComponent } from './component/DashBoard/dash-board-grade-two/dash-board-grade-two.component';
 import { DashBoardGradeThreeComponent } from './component/DashBoard/dash-board-grade-three/dash-board-grade-three.component';
+import { MainComponent } from './Students/main/main.component';
+import { UnitsComponent } from './Students/units/units.component';
+import { MainUComponent } from './Students/main-u/main-u.component';
+import { CustomDirective } from './Directives/custom.directive';
+import { ProfheaderComponent } from './Profile/profheader/profheader.component';
+import { ProfmainComponent } from './Profile/profmain/profmain.component';
+import { ProfsidebarComponent } from './Profile/profsidebar/profsidebar.component';
 
 @Component({
   selector: 'app-root',
   standalone: true, 
-  imports: [RouterOutlet,HeaderComponent,TeacherDashBoardComponent,Home2Component,FooterComponent,DashBoardGradeOneComponent,DashBoardGradeTwoComponent,DashBoardGradeThreeComponent,RouterModule],
+  imports: [RouterOutlet,
+    HeaderComponent,
+    TeacherDashBoardComponent,
+    Home2Component,
+    FooterComponent,
+    DashBoardGradeOneComponent,
+    DashBoardGradeTwoComponent,
+    DashBoardGradeThreeComponent,
+    RouterModule,
+MainUComponent,
+  MainComponent,
+  CustomDirective,
+  UnitsComponent,
+  ProfheaderComponent,
+  ProfmainComponent,
+  ProfsidebarComponent
+  
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
