@@ -7,49 +7,7 @@
       "GroupName": "kkkk",
       "GroupPrice": 555
     },
-    {
-
-      "groupName": "frist",
-      "num_Students": 0,
-      "creation_Date": "2024-03-17",
-      "instructor_ID": 1,
-      "course_ID": 1
-    },
-    {
-      "id": "1291",
-      "subject": "Science",
-      "Grade": "GradeOne",
-      "GroupName": "Algamden",
-      "GroupPrice": 200
-    },
-    {
-      "id": "768e",
-      "subject": "English",
-      "Grade": "GradeOne",
-      "GroupName": "new",
-      "GroupPrice": 98
-    },
-    {
-      "id": "eda2",
-      "subject": "Science",
-      "Grade": "GradeThree",
-      "GroupName": "new",
-      "GroupPrice": 20
-    },
-    {
-      "id": "7282",
-      "subject": "Science",
-      "Grade": "GradeOne",
-      "GroupName": "newmm",
-      "GroupPrice": 20
-    },
-    {
-      "id": "ec60",
-      "subject": "Science",
-      "Grade": "GradeOne",
-      "GroupName": "mmmmmm",
-      "GroupPrice": 30
-    },
+    
     {
       "id": "0a8b",
       "subject": "Science",
