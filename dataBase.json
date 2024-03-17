@@ -1,0 +1,54 @@
+{
+  "Groups": [
+    {
+      "id": "e3cc",
+      "subject": "Science",
+      "Grade": "GradeOne",
+      "GroupName": "kkkk",
+      "GroupPrice": 555
+    },
+    
+    {
+      "id": "6ec5",
+      "subject": "Science",
+      "Grade": "GradeOne",
+      "GroupName": "mmmmmm",
+      "GroupPrice": 30
+    },
+    {
+      "id": "e39b",
+      "subject": "Science",
+      "Grade": "GradeOne",
+      "GroupName": "mmmmmm",
+      "GroupPrice": 30
+    },
+    {
+      "id": "4945",
+      "subject": "Science",
+      "Grade": "GradeOne",
+      "GroupName": "mmmmmm",
+      "GroupPrice": 30
+    },
+    {
+      "id": "5144",
+      "subject": "Science",
+      "Grade": "GradeOne",
+      "GroupName": "vvvvvv",
+      "GroupPrice": 50
+    },
+    {
+      "id": "46c8",
+      "subject": "English",
+      "Grade": "GradeOne",
+      "GroupName": "aaaaaaaa",
+      "GroupPrice": 30
+    },
+    {
+      "id": "749b",
+      "subject": "English",
+      "Grade": "GradeOne",
+      "GroupName": "mxmx",
+      "GroupPrice": 50
+    }
+  ]
+}
