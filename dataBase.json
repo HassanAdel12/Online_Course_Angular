@@ -1,48 +1,103 @@
 {
-  "courses": [
+  "Groups": [
     {
-      "id": "a4f0",
-      "subject": "Social_Studies",
+      "id": "e3cc",
+      "subject": "Science",
       "Grade": "GradeOne",
-      "CourseName": "bbbbbbbbb",
-      "CoursePrice": 20
+      "GroupName": "kkkk",
+      "GroupPrice": 555
     },
     {
-      "id": "5dff",
-      "subject": "Social_Studies",
-      "Grade": "GradeOne",
-      "CourseName": "dddddddd",
-      "CoursePrice": 20
+
+      "groupName": "frist",
+      "num_Students": 0,
+      "creation_Date": "2024-03-17",
+      "instructor_ID": 1,
+      "course_ID": 1
     },
     {
-      "id": "ea64",
+      "id": "1291",
+      "subject": "Science",
+      "Grade": "GradeOne",
+      "GroupName": "Algamden",
+      "GroupPrice": 200
+    },
+    {
+      "id": "768e",
       "subject": "English",
       "Grade": "GradeOne",
-      "CourseName": "mrt",
-      "CoursePrice": 12
+      "GroupName": "new",
+      "GroupPrice": 98
     },
     {
-      "id": "1ec6",
+      "id": "eda2",
       "subject": "Science",
       "Grade": "GradeThree",
-      "CourseName": "mmm",
-      "CoursePrice": 21
+      "GroupName": "new",
+      "GroupPrice": 20
     },
     {
-      "id": "8c58",
-      "subject": "Arabic",
-      "Grade": "GradeOne",
-      "CourseName": "mmmm",
-      "CoursePrice": 50
-    },
-    {
-      "id": "3f7e",
+      "id": "7282",
       "subject": "Science",
-      "Grade": "GradeTow",
-      "CourseName": "new",
-      "CoursePrice": 20,
-      "instructorID":1,
-      "instructorName":"mm"
+      "Grade": "GradeOne",
+      "GroupName": "newmm",
+      "GroupPrice": 20
+    },
+    {
+      "id": "ec60",
+      "subject": "Science",
+      "Grade": "GradeOne",
+      "GroupName": "mmmmmm",
+      "GroupPrice": 30
+    },
+    {
+      "id": "0a8b",
+      "subject": "Science",
+      "Grade": "GradeOne",
+      "GroupName": "mmmmmm",
+      "GroupPrice": 30
+    },
+    {
+      "id": "6ec5",
+      "subject": "Science",
+      "Grade": "GradeOne",
+      "GroupName": "mmmmmm",
+      "GroupPrice": 30
+    },
+    {
+      "id": "e39b",
+      "subject": "Science",
+      "Grade": "GradeOne",
+      "GroupName": "mmmmmm",
+      "GroupPrice": 30
+    },
+    {
+      "id": "4945",
+      "subject": "Science",
+      "Grade": "GradeOne",
+      "GroupName": "mmmmmm",
+      "GroupPrice": 30
+    },
+    {
+      "id": "5144",
+      "subject": "Science",
+      "Grade": "GradeOne",
+      "GroupName": "vvvvvv",
+      "GroupPrice": 50
+    },
+    {
+      "id": "46c8",
+      "subject": "English",
+      "Grade": "GradeOne",
+      "GroupName": "aaaaaaaa",
+      "GroupPrice": 30
+    },
+    {
+      "id": "749b",
+      "subject": "English",
+      "Grade": "GradeOne",
+      "GroupName": "mxmx",
+      "GroupPrice": 50
     }
   ]
 }

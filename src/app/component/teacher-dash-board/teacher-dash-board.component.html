@@ -1,17 +1,24 @@
 <div class="container" >
+    
     <div class="jumbotron">
         <h1 class="display-4">What classes are you teaching?</h1>
         <p>** Academy has world-class, standards-aligned content for K-14 Math, Science, History, AP®, SAT®, and more.</p>
         <hr class="my-4">
     </div>
-    <div class="w-75 m-auto">
-        <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search for courses" aria-label="Search">
-        </form>
+    <form class="d-flex w-75 m-auto mt-4 mb-4" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search for courses" aria-label="Search">
+    </form>
+        <div class="d-grid gap-2 w-75 m-auto" *ngIf="!showDashBoard">
+            <button class="btn btn-lg btn-outline-primary mb-4"  type="button" (click)="showAddGroup()">Create New Group</button>
+        </div>
+        <div class="d-grid gap-2 w-75 m-auto" *ngIf="showDashBoard">
+            <button class="btn btn-lg btn-primary mb-4"  type="button" (click)="hideAddGroup()">Show Less</button>
+        </div>
+    <div class="w-75 m-auto"  *ngIf="showDashBoard" style="height: 575px;">
         <div class="row">
             <div class=" col-md-6 col-12 mt-4 ">
                 <div class="jumbotron">
-                    <h5 class="fs-4">What classes are you teaching?</h5>
+                    <h5 class="fs-4">What Grade are you teaching?</h5>
                     <hr class="my-4 w-75">
                     <a routerLink="/First" routerLinkActive="activ" class=" fs-4">First Grade of Middle School</a><br><br>
                     <a routerLink="/Second" routerLinkActive="activ" class=" fs-4"  >Second Grade of Middle School</a><br><br>
@@ -22,8 +29,16 @@
                 <router-outlet></router-outlet>
             </div>
         </div>
-    <app-all-courses></app-all-courses>
     </div>
+    
+</div>
+<div class="container" >
+    <div class="w-75 m-auto" >
+    @for(g of groups;track g.id){
+        <app-all-courses [oneGroup]="g"></app-all-courses>
+    }
+    </div>
+</div>
 
     <!-- <form action="">
         <div class="row">
@@ -43,4 +58,4 @@
             <input type="email" class="form-control" id="Course-Name"  placeholder="Enter Course Name">
         </div>
     </form> -->
-</div>
+

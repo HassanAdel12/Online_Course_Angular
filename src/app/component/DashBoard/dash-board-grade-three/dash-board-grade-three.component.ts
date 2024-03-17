@@ -26,8 +26,8 @@ export class DashBoardGradeThreeComponent {
     const formData = {
       subject: this.profileForm.value.subject,
       Grade:this.Grade,
-      CourseName:this.profileForm.value.courseName,
-      CoursePrice:this.profileForm.value.coursePrice
+      GroupName:this.profileForm.value.courseName,
+      GroupPrice:this.profileForm.value.coursePrice
     };
     this.courseService.addCourse(formData).subscribe(
       {
