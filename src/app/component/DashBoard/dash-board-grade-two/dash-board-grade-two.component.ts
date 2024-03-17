@@ -31,7 +31,8 @@ export class DashBoardGradeTwoComponent {
     this.courseService.addCourse(formData).subscribe(
       {
         next:(data)=>{
-          this.profileForm.reset();
+          window.alert("New Group: "+this.profileForm.value.courseName+" Added Sucsessfly");
+          window.location.reload();
         },
         error:(err)=>{console.log(err)}
       }
