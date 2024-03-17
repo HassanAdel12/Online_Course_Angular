@@ -58,7 +58,7 @@ export class DashBoardGradeOneComponent {
           window.alert("New Group: "+this.profileForm.value.courseName+" Added Sucsessfly");
           window.location.reload();
         },
-        error:(err)=>{console.log(err)}
+        error:(err)=>{window.alert("sorry there is an error when add: "+this.profileForm.value.courseName+" group");}
       }
     );
   }
