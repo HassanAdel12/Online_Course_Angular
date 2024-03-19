@@ -67,4 +67,7 @@
    position: absolute;
    right: 50px;
 }
-
+#coursedetails p
+{
+font-size: 25px;
+}

@@ -5,7 +5,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CourseService {
-  private apiUrl = 'http://localhost:3000/Groups'; 
+  private apiUrl = 'http://localhost:3000/Groups';
+  
+  private coursedb_url="http://localhost:3000/course";
 
   constructor(private http: HttpClient) { }
 
@@ -15,4 +17,9 @@ export class CourseService {
   getAllGroups(){
     return this.http.get(this.apiUrl);
   }
+  getcourses()
+  {
+    return this.http.get(this.coursedb_url);
+  }
+  
 }

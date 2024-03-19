@@ -14,6 +14,11 @@ import { CustomDirective } from './Directives/custom.directive';
 import { ProfheaderComponent } from './Profile/profheader/profheader.component';
 import { ProfmainComponent } from './Profile/profmain/profmain.component';
 import { ProfsidebarComponent } from './Profile/profsidebar/profsidebar.component';
+import { CourseselectedComponent } from './component/courseselected/courseselected.component';
+import { CoursesComponent } from './courses/courses.component';
+import { AllCoursesComponent } from './component/DashBoard/all-courses/all-courses.component';
+import { CoursedetailsComponent } from './component/StudentComponent/coursedetails/coursedetails.component';
+import { GradComponent } from './grad/grad.component';
 
 @Component({
   selector: 'app-root',
@@ -33,7 +38,12 @@ MainUComponent,
   UnitsComponent,
   ProfheaderComponent,
   ProfmainComponent,
-  ProfsidebarComponent
+  ProfsidebarComponent,
+  CourseselectedComponent,
+  CoursesComponent,
+  AllCoursesComponent,
+  CoursedetailsComponent,
+  GradComponent
   
 ],
   templateUrl: './app.component.html',
