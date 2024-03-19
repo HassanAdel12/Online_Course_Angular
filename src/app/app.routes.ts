@@ -6,11 +6,10 @@ import { DashBoardGradeThreeComponent } from './component/DashBoard/dash-board-g
 import { CourseDetailsComponent } from './component/DashBoard/course-details/course-details.component';
 
 export const routes: Routes = [
-    {path:"First",component:DashBoardGradeOneComponent},
+    {path:"First",component:DashBoardGradeOneComponent },
     {path:"Second",component:DashBoardGradeTwoComponent},
     {path:"Third",component:DashBoardGradeThreeComponent},
     { path: 'Details/:id', component: CourseDetailsComponent }
 ];
-export const routes2: Routes = [
-];
+
 
