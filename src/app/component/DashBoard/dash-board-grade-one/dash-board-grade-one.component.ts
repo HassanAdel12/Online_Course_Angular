@@ -47,16 +47,18 @@ export class DashBoardGradeOneComponent {
     const formData = {
       subject: this.profileForm.value.subject,
       Grade:this.Grade,
-      CourseName:this.profileForm.value.courseName,
-      CoursePrice:this.profileForm.value.coursePrice
+      GroupName:this.profileForm.value.courseName,
+      GroupPrice:this.profileForm.value.coursePrice
     };
     this.courseService.addCourse(formData).subscribe(
       {
         next:(data)=>{
           // this.profileForm.reset({subject:-1, CourseName:null});
-          this.profileForm.reset();
+          // this.profileForm.reset();
+          window.alert("New Group: "+this.profileForm.value.courseName+" Added Sucsessfly");
+          window.location.reload();
         },
-        error:(err)=>{console.log(err)}
+        error:(err)=>{window.alert("sorry there is an error when add: "+this.profileForm.value.courseName+" group");}
       }
     );
   }

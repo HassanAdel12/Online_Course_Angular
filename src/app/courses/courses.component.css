@@ -1,0 +1,20 @@
+#header-dropdown
+{
+    color: #21242c;
+    white-space: nowrap !important;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    position: absolute !important;
+    z-index: 1000 !important;
+    display: block !important;
+    background-color: #f7f8fa !important;
+    border-bottom: 1px solid rgba(33,36,44,0.16) !important;
+    border-top: 1px solid rgba(33,36,44,0.16) !important;
+    left: 0px !important;
+    opacity: 0.99 !important;
+    width: 100% !important;
+    box-sizing: initial;
+}

@@ -1,0 +1,73 @@
+#header{
+    color: #21242c;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    -webkit-box-direction: normal !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-box-align: stretch !important;
+    align-items: stretch !important;
+    border-width: 0px !important;
+    border-style: solid !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    position: relative !important;
+    z-index: 0 !important;
+    min-height: 0px !important;
+    min-width: 0px !important;
+    padding-bottom: 8px !important;
+    padding-left: 48px !important;
+    padding-right: 48px !important;
+    padding-top: 24px !important;
+ 
+}
+#header a{  text-decoration: none;}
+#header ul{ list-style-type: none;}
+#c{
+        border: 0px;
+    font: inherit;
+    vertical-align: baseline;
+    -webkit-box-direction: normal !important;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-align: center !important;
+    border-width: 0px !important;
+    border-style: solid !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    position: relative !important;
+    z-index: 0 !important;
+    min-width: 0px !important;
+    align-items: center !important;
+    border-radius: 4px !important;
+    box-shadow: 4px 0px 0px 0px hsla(0, 100%, 100%, 0.12) inset !important;
+    color: #ffffff !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    gap: 16px !important;
+    min-height: 64px !important;
+    padding-bottom: 16px !important;
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+    padding-top: 16px !important;
+    background-color: #1865f2 !important;
+    position: relative;
+}
+#c a{
+    background-color: white;
+    color: #1865f2;
+    border-radius: 10px;
+    padding: 8px 15px;
+    font-weight: 500;
+
+   position: absolute;
+   right: 50px;
+}
+#coursedetails p
+{
+font-size: 25px;
+}
