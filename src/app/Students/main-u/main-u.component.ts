@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, signal } from '@angular/core';
 
 @Component({
   selector: 'app-main-u',
@@ -8,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrl: './main-u.component.css'
 })
 export class MainUComponent {
+@Input() courses:any;
+
+
 
 }

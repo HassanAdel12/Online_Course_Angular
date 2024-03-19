@@ -1,15 +1,23 @@
-
-<a id="a"  aria-current="true" aria-disabled="false"   href="#">
+<div id="d">
+<a id="a"  aria-current="true" aria-disabled="false"  href="#">
      <div class="center-image"  >
         <img alt=""  class=" rounded-circle ms-2 mt-4 " src="https://cdn.kastatic.org/genfiles/topic-icons/icons/science_green.png-4ca7bf-128c.png" height="45" width="45">
-        <div class="ms-2 "></div></div><div aria-hidden="true"  class="_j45ygct p-4">
-            <div class="ms-4" ></div><span class="_1jl5re5q" style="text-align: center;">** - ** </span>
-            <div aria-hidden="true" class="_1lf56ego"></div>
-            <span class="_1o9uji3c " style="text-align: center;">** · **</span></div></a>
+        <div class="ms-2 "></div></div><div aria-hidden="true"  class=" p-4">
+            <div class="ms-4" ></div><span  style="text-align: center;font-size: 30px;">course name </span>
+            <div aria-hidden="true" ></div>
+            <span  style="text-align: center;">grad name</span></div></a>
 
-<a id="b" appCustom aria-disabled="false"   href="/science/ms-biology/x0c5bb03129646fd6:organism-growth-and-reproduction">
-    <div >
-        <div >
-        <span >Unit number</span>
-        <div aria-hidden="true" ></div>
-        <span >unit name</span></div></div></a>
+          
+            @for (item of courses; track courses.id) 
+            {
+                 <a id="b" appCustom aria-disabled="false"   href="/science/ms-biology/x0c5bb03129646fd6:organism-growth-and-reproduction">
+                    <div >
+                        <div >
+                        <span >{{item.name}}</span>
+                       
+                        </div></div></a>
+            }
+               
+            
+
+</div>

@@ -13,18 +13,20 @@
         </li>
         
         <li class=" dropdown">
-          <button class="btn btn-primary  dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
+          <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only">Toggle Dropdown</span>
           </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <li><a class="dropdown-item" routerLink="/First" >1nd grade</a></li>
+            <li><a class="dropdown-item" routerLink="/Second">2nd grade</a></li>
+            <li><a class="dropdown-item" routerLink="/">3nd grade</a></li>
+          </div>
         
+      
+        </li>
+     
         <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
+          <a class="nav-link" routerLink="grade">Grad</a>
         </li>
       </ul>
       <form class="d-flex">
