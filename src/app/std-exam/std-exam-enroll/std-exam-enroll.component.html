@@ -1,0 +1,12 @@
+<div id="e" class="" >
+    <div id="e2" class="container m-auto ">
+
+    @for (item of exam; track item.id) 
+    {
+ <div class="alert alert-primary w-75 m-auto mt-4">
+<a routerLink="/stdexam/{{item.id}}">{{item.name}}</a>
+  </div>
+    }
+
+    </div>
+     </div>

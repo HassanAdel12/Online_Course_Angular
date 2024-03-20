@@ -1,0 +1,45 @@
+
+     
+ <div id="e" class="" >
+<div id="e2" class="container m-auto ">
+
+<div id="header" class="m-auto" >
+<h2>{{examid.name}}</h2>
+
+</div>
+
+<form action="">
+@for (item of examid.questions; track item.id) {
+   
+<div id="body" class="m-auto">
+   
+
+    
+<h3>{{item.name}}</h3>
+@for (i of examid.questions; track i.id) {
+<div >
+    <ol class="mt-4 " type="A">
+       
+        <li >
+           
+            <label for="q" > {{i.text}}<input class="ms-2" id="q" name="" type="radio"> </label>
+           
+        </li>
+        
+    </ol>
+</div>
+}
+</div>
+
+}
+<div id="button" >
+    <input type="submit" class="btn btn-primary " >
+</div>
+
+</form>
+
+</div>
+ </div>
+    
+                                                                                                           
+    

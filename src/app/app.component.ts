@@ -19,6 +19,9 @@ import { CoursesComponent } from './courses/courses.component';
 import { AllCoursesComponent } from './component/DashBoard/all-courses/all-courses.component';
 import { CoursedetailsComponent } from './component/StudentComponent/coursedetails/coursedetails.component';
 import { GradComponent } from './grad/grad.component';
+import { StdExamComponent } from './std-exam/std-exam.component';
+import { StdExamEnrollComponent } from './std-exam/std-exam-enroll/std-exam-enroll.component';
+import { ExamPageComponent } from './std-exam/exam-page/exam-page.component';
 
 @Component({
   selector: 'app-root',
@@ -43,7 +46,11 @@ MainUComponent,
   CoursesComponent,
   AllCoursesComponent,
   CoursedetailsComponent,
-  GradComponent
+  GradComponent,
+  ProfheaderComponent,
+  StdExamComponent,
+  StdExamEnrollComponent,
+  ExamPageComponent
   
 ],
   templateUrl: './app.component.html',

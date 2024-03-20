@@ -5,13 +5,18 @@ import { DashBoardGradeTwoComponent } from './component/DashBoard/dash-board-gra
 import { DashBoardGradeThreeComponent } from './component/DashBoard/dash-board-grade-three/dash-board-grade-three.component';
 import { CourseDetailsComponent } from './component/DashBoard/course-details/course-details.component';
 import { GradComponent } from './grad/grad.component';
+import { CourseselectedComponent } from './component/courseselected/courseselected.component';
+import { StdExamComponent } from './std-exam/std-exam.component';
 
 export const routes: Routes = [
     {path:"First",component:DashBoardGradeOneComponent},
     {path:"Second",component:DashBoardGradeTwoComponent},
     {path:"Third",component:DashBoardGradeThreeComponent},
     { path: 'Details/:id', component: CourseDetailsComponent },
-    { path: 'grade', component:GradComponent }
+    { path: 'grade', component:GradComponent },
+    { path: 'courseselected/:id', component:CourseselectedComponent },
+    { path: 'stdexam/:id', component:StdExamComponent },
+
 ];
 export const routes2: Routes = [
 ];

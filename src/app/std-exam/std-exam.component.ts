@@ -1,0 +1,37 @@
+import { HttpClientModule } from '@angular/common/http';
+import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { CourseService } from '../Service/course.service';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
+@Component({
+  selector: 'app-std-exam',
+  standalone: true,
+  imports: [
+HttpClientModule,
+CommonModule,
+FormsModule
+  ],
+  providers:[
+    CourseService
+  ],
+  templateUrl: './std-exam.component.html',
+  styleUrl: './std-exam.component.css'
+})
+export class StdExamComponent {
+  ID=0;
+  examid:any
+  
+constructor(active:ActivatedRoute, private myservice:CourseService)
+{
+this.ID=active.snapshot.params["id"]
+}
+ngOnInit():void
+{
+  this.myservice.getExambyid(this.ID).subscribe({
+    next:(data)=>this.examid=data,
+    error:(err)=>console.log(err)
+  })
+}
+}
