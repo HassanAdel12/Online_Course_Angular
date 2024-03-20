@@ -7,6 +7,10 @@ import { FooterComponent } from './component/footer/footer.component';
 import { DashBoardGradeOneComponent } from './component/DashBoard/dash-board-grade-one/dash-board-grade-one.component';
 import { DashBoardGradeTwoComponent } from './component/DashBoard/dash-board-grade-two/dash-board-grade-two.component';
 import { DashBoardGradeThreeComponent } from './component/DashBoard/dash-board-grade-three/dash-board-grade-three.component';
+
+import { LoginComponent } from './component/login/login.component';
+import { RegestarComponent } from './component/regestar/regestar.component';
+
 import { MainComponent } from './Students/main/main.component';
 import { UnitsComponent } from './Students/units/units.component';
 import { MainUComponent } from './Students/main-u/main-u.component';
@@ -23,9 +27,11 @@ import { StdExamComponent } from './std-exam/std-exam.component';
 import { StdExamEnrollComponent } from './std-exam/std-exam-enroll/std-exam-enroll.component';
 import { ExamPageComponent } from './std-exam/exam-page/exam-page.component';
 
+
 @Component({
   selector: 'app-root',
   standalone: true, 
+
   imports: [RouterOutlet,
     HeaderComponent,
     TeacherDashBoardComponent,
@@ -51,8 +57,21 @@ MainUComponent,
   StdExamComponent,
   StdExamEnrollComponent,
   ExamPageComponent
+  ],
+
+
+
+  imports: [
+    RouterOutlet,
+    RouterOutlet,HeaderComponent,TeacherDashBoardComponent,
+    Home2Component,FooterComponent,DashBoardGradeOneComponent,
+    DashBoardGradeTwoComponent,DashBoardGradeThreeComponent,
+    RouterModule,LoginComponent,RegestarComponent 
+  
+
   
 ],
+
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

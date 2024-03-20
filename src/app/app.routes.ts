@@ -9,7 +9,7 @@ import { CourseselectedComponent } from './component/courseselected/courseselect
 import { StdExamComponent } from './std-exam/std-exam.component';
 
 export const routes: Routes = [
-    {path:"First",component:DashBoardGradeOneComponent},
+    {path:"First",component:DashBoardGradeOneComponent },
     {path:"Second",component:DashBoardGradeTwoComponent},
     {path:"Third",component:DashBoardGradeThreeComponent},
     { path: 'Details/:id', component: CourseDetailsComponent },
@@ -18,6 +18,5 @@ export const routes: Routes = [
     { path: 'stdexam/:id', component:StdExamComponent },
 
 ];
-export const routes2: Routes = [
-];
+
 

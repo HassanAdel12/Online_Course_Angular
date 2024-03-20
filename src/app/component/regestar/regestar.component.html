@@ -1,1 +1,90 @@
-<p>regestar works!</p>
+<body style="background-image: url('assets/images/photo.jpeg');">
+    
+            
+    <div class="wrapper" >
+        <form action="" [formGroup]="myform">
+                                     <h1 style="color:black">Registation</h1>
+            <div class="inputbox" >
+                <div class="inputfield">
+                    <input type="text"  formControlName="name" 
+                    placeholder="Fullname" required>
+                    <img src="assets/images/user.png"  margin-top="10px">
+                   
+                </div>
+                @if(!namevalied&&myform.get('name')?.touched){
+                    <span  style="margin-left:150px"
+                      class="form-text text-muted">
+                      name is not in the right format.</span>
+                }
+                
+            </div>
+                <div class="inputbox">
+                    <div class="inputfield">
+                        <input type="text" formControlName="username"  placeholder="username" required id="username">
+                        <img src="assets/images/user.png"  margin-top="10px">
+                        
+                    </div>
+                 
+                    @if(!username&&myform.get('username')?.touched){
+                        <small id="Course-Name" style="margin-left:150px" 
+                          class="form-text text-muted" >user name is not in the right format.</small>
+                    }
+                </div>
+                    <div class="inputbox">
+                        <div class="inputfield">
+                            <input type="email"
+                             formControlName="email"placeholder="Email" required >
+                            <img src="assets/images/email.png">
+                           
+                        </div>
+                        @if(!email&&myform.get('email')?.touched){
+                            <div style="color: blue; margin-top: 30px;">
+        
+                                Invalid email format.
+                             </div>
+                        }
+                    </div>
+                        <div class="inputbox">
+                            <div class="inputfield">
+                                <input type="text" formControlName="phone" placeholder="phonenumber" required>
+                                <img src="assets/images/phone.png">
+                            </div>
+                            @if(!phone&&myform.get('phone')?.touched){
+                                <div style="color: blue; margin-top: 30px;">
+            
+                                    Invalid phone format.
+                                 </div>
+                            }
+                            
+      
+                        </div>
+                            <div class="inputbox">
+                                <div class="inputfield">
+                                    <input type="password" #password1
+                                     formControlName="password"
+                                      placeholder="password" required id="pass1">
+                                    <img src="assets/images/lock.png"  margin-top="10px">
+                                   
+                                </div>
+                                @if(!password&&myform.get('password')?.touched){
+                                    <div style="color: blue; margin-left:500px;" >
+                
+                                        Invalid password format.
+                                     </div>
+                                }
+                            </div>
+                                <div class="inputbox">
+                                    <div class="inputfield">
+                                        <input type="password" #password2 formControlName="password"  placeholder="confirm your password" id="pass2" required>
+                                        <img src="assets/images/lock.png"  margin-top="10px">
+                                        <span id="span"></span>
+                                    </div>
+                                </div>
+
+                                <label><input type="checkbox" required>I admit that all the data is correct</label>
+                                <button type="submit" id="button" (click)="addnewuser()">submit</button>
+                              
+                   
+        </form>
+      </div>
+  
