@@ -1,0 +1,9 @@
+<header>
+    <h1>الصف الاول الاعدادي </h1>
+</header>
+<div class="container">
+    <div class="box" *ngFor="let item of items">
+        <img [src]="item.imageUrl" alt="Image">
+        <p>{{item.text}}</p>
+    </div>
+</div>

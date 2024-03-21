@@ -1,3 +1,4 @@
+import { SubjectComponent } from './component/subjects/subject/subject.component';
 import { Component, Directive } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
@@ -23,6 +24,8 @@ import { CoursesComponent } from './courses/courses.component';
 import { AllCoursesComponent } from './component/DashBoard/all-courses/all-courses.component';
 import { CoursedetailsComponent } from './component/StudentComponent/coursedetails/coursedetails.component';
 import { GradComponent } from './grad/grad.component';
+import { ExamComponent } from './component/Exam/exam/exam.component';
+import { InstructorchooseComponent } from './component/choose instractor/instructorchoose/instructorchoose.component';
 
 
 @Component({
@@ -36,7 +39,7 @@ import { GradComponent } from './grad/grad.component';
     RouterOutlet,HeaderComponent,TeacherDashBoardComponent,
     Home2Component,FooterComponent,DashBoardGradeOneComponent,
     DashBoardGradeTwoComponent,DashBoardGradeThreeComponent,
-    RouterModule,LoginComponent,RegestarComponent 
+    RouterModule,LoginComponent,RegestarComponent ,ExamComponent,SubjectComponent,InstructorchooseComponent
   
   
 ],
