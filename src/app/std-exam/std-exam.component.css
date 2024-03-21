@@ -19,7 +19,7 @@
 #e2
 {
     padding:20px 0 ;
-    border-radius: 15px;
+   
     background-color: white;
 }
 #header
@@ -62,4 +62,9 @@
 #button input
 {
     padding: 10px 30px;
+}
+#e3
+{
+    text-align: center;
+    width: 50%;
 }

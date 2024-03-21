@@ -61,16 +61,6 @@ MainUComponent,
 
 
 
-  imports: [
-    RouterOutlet,
-    RouterOutlet,HeaderComponent,TeacherDashBoardComponent,
-    Home2Component,FooterComponent,DashBoardGradeOneComponent,
-    DashBoardGradeTwoComponent,DashBoardGradeThreeComponent,
-    RouterModule,LoginComponent,RegestarComponent 
-  
-
-  
-],
 
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

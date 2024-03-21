@@ -11,6 +11,8 @@ export class CourseService {
 
   private examdb="http://localhost:3000/examdb";
 
+  private std="http://localhost:3000/Student"
+
   constructor(private http: HttpClient) { }
 
   addCourse(courseData: any) {
@@ -25,14 +27,18 @@ export class CourseService {
   }
   getcoursebyid(id:any)
   {
-    return this.http.get(this.coursedb_url+"/"+id)
+    return this.http.get(this.coursedb_url+"/"+id);
   }
   getExams()
   {
-  return this.http.get(this.examdb)
+  return this.http.get(this.examdb);
   }
   getExambyid(id:any)
   {
- return this.http.get(this.examdb+"/"+id)
+ return this.http.get(this.examdb+"/"+id);
+  }
+  getstudent_quiz()
+  {
+    return this.http.get(this.std);
   }
 }
