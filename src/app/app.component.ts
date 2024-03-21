@@ -26,6 +26,9 @@ import { GradComponent } from './grad/grad.component';
 import { StdExamComponent } from './std-exam/std-exam.component';
 import { StdExamEnrollComponent } from './std-exam/std-exam-enroll/std-exam-enroll.component';
 import { ExamPageComponent } from './std-exam/exam-page/exam-page.component';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { SendComponent } from './std-exam/send/send.component';
 
 
 @Component({
@@ -33,6 +36,8 @@ import { ExamPageComponent } from './std-exam/exam-page/exam-page.component';
   standalone: true, 
 
   imports: [RouterOutlet,
+    CommonModule,
+    FormsModule,
     HeaderComponent,
     TeacherDashBoardComponent,
     Home2Component,
@@ -51,12 +56,11 @@ MainUComponent,
   CourseselectedComponent,
   CoursesComponent,
   AllCoursesComponent,
-  CoursedetailsComponent,
-  GradComponent,
-  ProfheaderComponent,
+  CoursedetailsComponent, 
   StdExamComponent,
   StdExamEnrollComponent,
-  ExamPageComponent
+  ExamPageComponent,
+ SendComponent
   ],
 
 
@@ -67,4 +71,5 @@ MainUComponent,
 })
 export class AppComponent {
   title = 'Online_Course_Angular';
+  angry=1;
 }

@@ -7,6 +7,8 @@ import { CourseDetailsComponent } from './component/DashBoard/course-details/cou
 import { GradComponent } from './grad/grad.component';
 import { CourseselectedComponent } from './component/courseselected/courseselected.component';
 import { StdExamComponent } from './std-exam/std-exam.component';
+import { ExamPageComponent } from './std-exam/exam-page/exam-page.component';
+import { SendComponent } from './std-exam/send/send.component';
 
 export const routes: Routes = [
     {path:"First",component:DashBoardGradeOneComponent },
@@ -16,6 +18,9 @@ export const routes: Routes = [
     { path: 'grade', component:GradComponent },
     { path: 'courseselected/:id', component:CourseselectedComponent },
     { path: 'stdexam/:id', component:StdExamComponent },
+    { path: 'group', component:CourseselectedComponent },
+    { path: 'exam', component:ExamPageComponent },
+    { path: 'send', component:SendComponent },
 
 ];
 
