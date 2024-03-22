@@ -1,3 +1,4 @@
+import { SubjectComponent } from './component/subjects/subject/subject.component';
 import { Component, Directive } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
@@ -23,12 +24,17 @@ import { CoursesComponent } from './courses/courses.component';
 import { AllCoursesComponent } from './component/DashBoard/all-courses/all-courses.component';
 import { CoursedetailsComponent } from './component/StudentComponent/coursedetails/coursedetails.component';
 import { GradComponent } from './grad/grad.component';
+
+import { ExamComponent } from './component/Exam/exam/exam.component';
+import { InstructorchooseComponent } from './component/choose instractor/instructorchoose/instructorchoose.component';
+
 import { StdExamComponent } from './std-exam/std-exam.component';
 import { StdExamEnrollComponent } from './std-exam/std-exam-enroll/std-exam-enroll.component';
 import { ExamPageComponent } from './std-exam/exam-page/exam-page.component';
 import { CommonModule } from '@angular/common';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SendComponent } from './std-exam/send/send.component';
+
 
 
 @Component({
@@ -60,9 +66,21 @@ MainUComponent,
   StdExamComponent,
   StdExamEnrollComponent,
   ExamPageComponent,
+
  SendComponent,
- ReactiveFormsModule
+ ReactiveFormsModule,
+
+
+  ExamComponent,
+  SubjectComponent,
+  InstructorchooseComponent,
+ SendComponent
+
+
   ],
+
+
+
 
 
 
