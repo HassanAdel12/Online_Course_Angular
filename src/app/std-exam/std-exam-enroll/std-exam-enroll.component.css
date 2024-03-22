@@ -23,7 +23,7 @@ flex: 1 ;
 padding: 16px ;
 box-shadow: inset 4px 0 #1865f2 ;
 position: relative ;
-background-color: #1865f2 ;
+background-color: #eeeeee ;
 color: #21242c ;
 text-decoration: none;
 list-style-type: none;
@@ -59,12 +59,22 @@ border-bottom:  1px solid rgb(209, 209, 209);
     border-bottom:  1px solid rgb(209, 209, 209);
 }
 
-#a,#b:hover{
-    background-color:white;
-    box-shadow: inset 4px 0 #1865f2 ;
+#b:hover{
+    background-color:  #eeeeee;
+    
 }
 #d
 {
     overflow-y: scroll;
-    height: 1000px;
+    height: 800px;
+}
+#b a{
+    text-decoration: none;
+  
+  
+    
+}
+#text
+{
+    
 }

@@ -24,25 +24,55 @@ import { CoursesComponent } from './courses/courses.component';
 import { AllCoursesComponent } from './component/DashBoard/all-courses/all-courses.component';
 import { CoursedetailsComponent } from './component/StudentComponent/coursedetails/coursedetails.component';
 import { GradComponent } from './grad/grad.component';
+
 import { ExamComponent } from './component/Exam/exam/exam.component';
 import { InstructorchooseComponent } from './component/choose instractor/instructorchoose/instructorchoose.component';
+
+import { StdExamComponent } from './std-exam/std-exam.component';
+import { StdExamEnrollComponent } from './std-exam/std-exam-enroll/std-exam-enroll.component';
+import { ExamPageComponent } from './std-exam/exam-page/exam-page.component';
+
 
 
 @Component({
   selector: 'app-root',
   standalone: true, 
 
+  imports: [RouterOutlet,
+    HeaderComponent,
+    TeacherDashBoardComponent,
+    Home2Component,
+    FooterComponent,
+    DashBoardGradeOneComponent,
+    DashBoardGradeTwoComponent,
+    DashBoardGradeThreeComponent,
+    RouterModule,
+MainUComponent,
+  MainComponent,
+  CustomDirective,
+  UnitsComponent,
+  ProfheaderComponent,
+  ProfmainComponent,
+  ProfsidebarComponent,
+  CourseselectedComponent,
+  CoursesComponent,
+  AllCoursesComponent,
+  CoursedetailsComponent,
+  GradComponent,
+  ProfheaderComponent,
+  StdExamComponent,
+  StdExamEnrollComponent,
+  ExamPageComponent,
+  ExamComponent,
+  SubjectComponent,
+  InstructorchooseComponent
+  ],
 
 
-  imports: [
-    RouterOutlet,
-    RouterOutlet,HeaderComponent,TeacherDashBoardComponent,
-    Home2Component,FooterComponent,DashBoardGradeOneComponent,
-    DashBoardGradeTwoComponent,DashBoardGradeThreeComponent,
-    RouterModule,LoginComponent,RegestarComponent ,ExamComponent,SubjectComponent,InstructorchooseComponent
-  
-  
-],
+
+
+
+
 
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

@@ -7,7 +7,6 @@
       "GroupName": "kkkk",
       "GroupPrice": 555
     },
-    
     {
       "id": "6ec5",
       "subject": "Science",
@@ -49,6 +48,13 @@
       "Grade": "GradeOne",
       "GroupName": "mxmx",
       "GroupPrice": 50
+    },
+    {
+      "id": "2ecc",
+      "subject": "English",
+      "Grade": "GradeThree",
+      "GroupName": "hassan",
+      "GroupPrice": 500
     }
   ],
   "course":[
@@ -121,5 +127,189 @@
         "rate":"excelient"
 
     }
+],
+"examdb": [
+  {
+      "id":1,
+    "name":"second_exam",
+
+      "questions":[
+        {
+          "id":1,
+          "name":"select the correct answer of 4x5-10+20 ",
+          "choice":[
+            {
+              
+                "id":1,
+                "text":"10",
+                "iscorrect":"false"
+              },
+              {
+                "id":2,
+                "text":"30",
+                "iscorrect":"true"
+
+              },
+              {
+                "id":3,
+                "text":"20",
+                "iscorrect":"false"
+
+              }
+
+          ]
+
+        },
+        {
+          "id":2,
+          "name":"select the correct answer of 20+30x2",
+          "choise":[
+            {
+              
+              "id":1,
+              "text":"50",
+              "iscorrect":"false"
+            },
+            {
+              "id":2,
+              "text":"80",
+              "iscorrect":"false"
+
+            },
+            {
+              "id":3,
+              "text":"100",
+              "iscorrect":"true"
+
+            }
+          ]
+        },
+        {
+          "id":3,
+          "name":"whats the result of 10-5x4",
+          "choise":[
+            {
+              
+              "id":1,
+              "text":"20",
+              "iscorrect":"false"
+            },
+            {
+              "id":2,
+              "text":"-10",
+              "iscorrect":"true"
+
+            },
+            {
+              "id":3,
+              "text":"10",
+              "iscorrect":"false"
+
+            }
+          ]
+        }
+
+      ]
+ 
+    },
+    {
+      "id":2,
+    "name":"first_exam",
+
+      "questions":[
+        {
+          "id":1,
+          "name":"whats the color of sky",
+          "choise":[
+            {
+              
+                "id":1,
+                "text":"red",
+                "iscorrect":"false"
+              },
+              {
+                "id":2,
+                "text":"blue",
+                "iscorrect":"true"
+
+              },
+              {
+                "id":3,
+                "text":"white",
+                "iscorrect":"false"
+
+              }
+
+          ]
+
+        },
+        {
+          "id":2,
+          "name":"whats the color of clouds",
+          "choise":[
+            {
+              
+              "id":1,
+              "text":"red",
+              "iscorrect":"false"
+            },
+            {
+              "id":2,
+              "text":"blue",
+              "iscorrect":"true"
+
+            },
+            {
+              "id":3,
+              "text":"white",
+              "iscorrect":"false"
+
+            }
+          ]
+        },
+        {
+          "id":3,
+          "name":"whats the dangours animals in the history",
+          "choise":[
+            {
+              
+              "id":1,
+              "text":"dinasours",
+              "iscorrect":"true"
+            },
+            {
+              "id":2,
+              "text":"elephant",
+              "iscorrect":"false"
+
+            },
+            {
+              "id":3,
+              "text":"tigers",
+              "iscorrect":"false"
+
+            }
+          ]
+        }
+
+      ]
+ 
+    }
+
+        
+    
+  
+ 
+],
+"Student":[
+  {
+    "id":1,
+    "username":"ahmed"
+  },
+  {
+    "id":2,
+    "username":"mohamed"
+  }
+  
 ]
 }

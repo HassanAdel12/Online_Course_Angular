@@ -15,17 +15,22 @@ import { CommonModule } from '@angular/common';
 export class TeacherDashBoardComponent implements OnInit {
   groups:any;
   constructor(private courseservice:CourseService){};
+  
   ngOnInit(): void {
     this.courseservice.getAllGroups().subscribe({
       next:(data)=>{this.groups=data},
         error:(err)=>{}
     });
   }
+  
   showDashBoard:boolean=false;
+  
   showAddGroup(){
     this.showDashBoard=true;
   }
+  
   hideAddGroup(){
     this.showDashBoard=false;
   }
+  
 }
