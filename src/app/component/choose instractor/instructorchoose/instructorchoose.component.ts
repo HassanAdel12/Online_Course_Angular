@@ -15,8 +15,8 @@ export class InstructorchooseComponent {
       photo: 'assets/images/teacher1.jpeg',
       alt: 'Photo 1',
       description: 'مستر محمد عبدالحميد',
-      button1: { label: 'Button 1', clicked: false }, // Add clicked property
-      button2: { label: 'Button 2', clicked: false } // Add clicked property
+      button1: { label: 'سجل الان', clicked: false }, // Add clicked property
+      button2: { label: ' التفاصيل', clicked: false } // Add clicked property
     },
     // Add more items as needed
   ];
@@ -25,8 +25,9 @@ export class InstructorchooseComponent {
   clicked: boolean = false;
   ngOnInit(): void {
   }
-  toggleClicked() {
-    this.clicked = !this.clicked;
-  }
+  toggleClicked(button: any) {
+    button.clicked = !button.clicked;
+}
+
 
 }

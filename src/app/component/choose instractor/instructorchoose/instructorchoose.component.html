@@ -18,15 +18,15 @@
                 تاريخ انشاء الجروب :20/2/2024<br>
                 ميعاد انتهاء الجروب :25/5/2024
             </p>
-            <button class="button1"[class.clicked]="clicked"
-            (click)="toggleClicked()">{{ item.button1 }}</button>
-           <button class="button2"[class.clicked]="clicked"
-           (click)="toggleClicked()">{{ item.button2 }}</button>
+            <button class="button1" style="background-color:azure; color:black" [class.clicked]="item.button1.clicked" (click)="toggleClicked(item.button1)">{{ item.button1.label }}</button>
+            <button class="button2" [class.clicked]="item.button2.clicked" (click)="toggleClicked(item.button2)">{{ item.button2.label }}</button>
+
+            
         </div>
     </div>
 
     <!-- Repeat the box structure for the second box -->
-    <div class="box" *ngFor="let item of items">
+ <div class="box" *ngFor="let item of items">
         <div class="box-header">
             <img [src]="item.photo" [alt]="item.alt">
             <h2>{{ item.description }}</h2>
@@ -37,14 +37,27 @@
                 تاريخ انشاء الجروب :20/2/2024<br>
                 ميعاد انتهاء الجروب :25/5/2024
             </p>
-            <button class="button1"[class.clicked]="clicked"
-            (click)="toggleClicked()">{{ item.button1 }}</button>
-           <button class="button2"[class.clicked]="clicked"
-           (click)="toggleClicked()">{{ item.button2 }}</button>
+            <button class="button1" style="background-color:azure; color:black" [class.clicked]="item.button1.clicked" (click)="toggleClicked(item.button1)">{{ item.button1.label }}</button>
+            <button class="button2" [class.clicked]="item.button2.clicked" (click)="toggleClicked(item.button2)">{{ item.button2.label }}</button>
+            
+        </div>
         </div>
 
-
-        
+        <div class="box" *ngFor="let item of items">
+            <div class="box-header">
+                <img [src]="item.photo" [alt]="item.alt">
+                <h2>{{ item.description }}</h2>
+            </div>
+            <div class="box-body">
+                <p style="text-align: center;">أسم الجروب :لغة عربية 1</p>
+                <p style="text-align: center">عدد الطلبة في الجروب 20<br>
+                    تاريخ انشاء الجروب :20/2/2024<br>
+                    ميعاد انتهاء الجروب :25/5/2024
+                </p>
+                <button class="button1" style="background-color:azure; color:black" [class.clicked]="item.button1.clicked" (click)="toggleClicked(item.button1)">{{ item.button1.label }}</button>
+                <button class="button2" [class.clicked]="item.button2.clicked" (click)="toggleClicked(item.button2)">{{ item.button2.label }}</button>
+                
+        </div>
     </div>
     <div class="box" *ngFor="let item of items">
         <div class="box-header">
@@ -57,30 +70,18 @@
                 تاريخ انشاء الجروب :20/2/2024<br>
                 ميعاد انتهاء الجروب :25/5/2024
             </p>
-            <button class="button1"[class.clicked]="clicked"
-         (click)="toggleClicked()">{{ item.button1 }}</button>
-        <button class="button2"[class.clicked]="clicked"
-        (click)="toggleClicked()">{{ item.button2 }}</button>
-        </div>
-        
+            <button class="button1" style="background-color:azure; color:black" [class.clicked]="item.button1.clicked" (click)="toggleClicked(item.button1)">{{ item.button1.label }}</button>
+            <button class="button2" [class.clicked]="item.button2.clicked" (click)="toggleClicked(item.button2)">{{ item.button2.label }}</button>
+            
+    </div>
 </div>
-<div class="box" *ngFor="let item of items">
-    <div class="box-header">
-        <img [src]="item.photo" [alt]="item.alt">
-        <h2>{{ item.description }}</h2>
+            
+        
     </div>
-    <div class="box-body">
-        <p style="text-align: center;">أسم الجروب :لغة عربية 1</p>
-        <p style="text-align: center">عدد الطلبة في الجروب 20<br>
-            تاريخ انشاء الجروب :20/2/2024<br>
-            ميعاد انتهاء الجروب :25/5/2024
-        </p>
-        <button class="button1"[class.clicked]="clicked"
-         (click)="toggleClicked()">{{ item.button1 }}</button>
-        <button class="button2"[class.clicked]="clicked"
-        (click)="toggleClicked()">{{ item.button2 }}</button>
-    </div>
+   
+
+
     
-</div>
-        </div>
+
+        
 

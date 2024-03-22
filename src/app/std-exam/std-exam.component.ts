@@ -1,6 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route, Router, RouterModule } from '@angular/router';
 import { CourseService } from '../Service/course.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -21,13 +21,15 @@ FormsModule
   styleUrl: './std-exam.component.css'
 })
 export class StdExamComponent {
+
   ID=0;
   examid:any
   student:any[]=[];
   std:any
   username="";
-  an=4
-constructor(active:ActivatedRoute, private myservice:CourseService)
+
+
+constructor(active:ActivatedRoute, private myservice:CourseService,private router:Router)
 {
 this.ID=active.snapshot.params["id"]
 }
@@ -44,9 +46,9 @@ ngOnInit():void
     error:(err)=>console.log(err)
   })
 }
-startexam()
-{
-  
+Submit() {
+ 
+  this.router.navigate(['/send']);
   this.std = this.student.find(s=>s.username===this.username);
   if(this.std)
   {
@@ -56,5 +58,7 @@ startexam()
   {
     return this.std=undefined
   }
+
+
 }
 }
