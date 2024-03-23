@@ -184,3 +184,23 @@ body {
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
 }
+
+
+
+/* Add color to scrollbar */
+#tips::-webkit-scrollbar {
+    width: 12px; /* Set the width of the scrollbar */
+}
+
+/* Track */
+#tips::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Set the background color of the track */
+}
+
+/* Handle */
+#tips::-webkit-scrollbar-thumb {
+    background: #fbc6e1; /* Set the color of the scrollbar handle */
+    border-radius: 6px; /* Set border radius of the scrollbar handle */
+}
+
+
