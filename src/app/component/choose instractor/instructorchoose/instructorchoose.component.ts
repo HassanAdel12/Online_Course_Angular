@@ -14,9 +14,9 @@ export class InstructorchooseComponent {
     {
       photo: 'assets/images/teacher1.jpeg',
       alt: 'Photo 1',
-      description: 'مستر محمد عبدالحميد',
-      button1: { label: 'سجل الان', clicked: false }, // Add clicked property
-      button2: { label: ' التفاصيل', clicked: false } // Add clicked property
+      description: ' MR/Mohamed AbdElhamid ',
+      button1: { label: ' Enroll', clicked: false }, // Add clicked property
+      button2: { label: ' Details', clicked: false } // Add clicked property
     },
     // Add more items as needed
   ];

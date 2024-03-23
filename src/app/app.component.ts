@@ -34,9 +34,14 @@ import { ExamPageComponent } from './std-exam/exam-page/exam-page.component';
 import { CommonModule } from '@angular/common';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SendComponent } from './std-exam/send/send.component';
+
 import { InstructorDataComponent } from './component/instructor-data/instructor-data.component';
 import { InstructorDateHeaderComponent } from './component/instructor-data/instructor-date-header/instructor-date-header.component';
 import { InstructordatatwoComponent } from './component/instructor-data/instructordatatwo/instructordatatwo.component';
+
+import { TrainingSettingsComponent } from './component/Training settings/training-settings/training-settings.component';
+import { TermsAndAdvicesComponent } from './component/Terms and Advices/terms-and-advices/terms-and-advices.component';
+
 
 
 
@@ -72,16 +77,21 @@ MainUComponent,
 
  SendComponent,
  ReactiveFormsModule,
+ //TermsAndAdvicesComponent,
 
 
   ExamComponent,
   SubjectComponent,
   InstructorchooseComponent,
  SendComponent,
+
  RouterLink,
  InstructorDataComponent,
  InstructorDateHeaderComponent,
  InstructordatatwoComponent
+
+ 
+
 
 
   ],
