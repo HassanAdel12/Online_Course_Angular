@@ -15,11 +15,11 @@
             
             @for (item of exam; track item.exam) {
               
-                   <div id="b" class="d-flex justify-content-around"  style="border-bottom: 4px solid #1865f2;"  href="/science/ms-biology/x0c5bb03129646fd6:organism-growth-and-reproduction">
+                   <div id="b" class="d-flex justify-content-around"  style="border-bottom: 4px solid #1865f2;"  >
                    
                         <div><h3>{{item.name}}</h3></div>
-                          <div  >
-                          <a class="btn btn-primary" routerLink="/stdexam/item.id">GO TO EXAM</a>
+                          <div id="go" >
+                          <a class="btn btn-primary " routerLink="/stdexam/{{item.id}}">GO TO EXAM</a>
                          
                           </div>
                         

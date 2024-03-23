@@ -13,7 +13,7 @@
 </div>
 
 <div id="header"  class="m-auto" >
-<h2>{{examid.name}}fggdfg</h2>
+<h2>{{oneExam.name}}</h2>
 
 </div>
 
@@ -21,23 +21,27 @@
 
 
 <div id="body"  class="m-auto">
-   @for (i of examid.questions; track i.id) {
+   @for (i of oneExam.questions; track i.id) {
  
     
-<h3>{{i.name}}</h3>
-}
+<h3>{{i.name}} </h3>
+
 <div >
-    <ol class="mt-4 " type="A">
-       
-        <li >
+   
+    <ul class="mt-4 " type="A">
+        @for (u of i.choise; track u.id) {
+        <li class="mt-2">
            
-            <label for="q" > i.text<input class="ms-2" name="answer" formControlName="answer" id="q"  type="radio"> </label>
-           
-        </li>
+            <label for="q" > {{u.text}} <input class="ms-2" name="{{i.id}}" id="q"   type="radio"> </label> 
     
-    </ol>
+        </li>
+     } 
+    </ul>
+
+  
 </div>
- 
+
+}
 </div>
  
 

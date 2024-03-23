@@ -1,6 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CourseService } from '../../Service/course.service';
 
 @Component({
@@ -18,11 +18,17 @@ import { CourseService } from '../../Service/course.service';
 })
 export class StdExamEnrollComponent {
   exam:any
-constructor(private myservice:CourseService){}
+  oneExam:any
+  ID=0
+constructor(private myservice:CourseService){
+
+}
 ngOnInit():void
 {
   this.myservice.getExams().subscribe({
     next:(data)=>this.exam=data
   })
+
+
 }
 }

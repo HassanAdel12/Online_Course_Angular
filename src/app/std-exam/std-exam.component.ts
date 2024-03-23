@@ -1,9 +1,9 @@
 import { HttpClientModule } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router, RouterModule } from '@angular/router';
 import { CourseService } from '../Service/course.service';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import {  FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-std-exam',
@@ -26,16 +26,18 @@ export class StdExamComponent implements OnInit {
     answer:new FormControl(null,[Validators.required])
   })
   ID=0;
-  examid:any
+  selectedAnswers:any
   student:any[]=[];
   std:any
   username="";
- 
+ oneExam:any
 
-constructor(active:ActivatedRoute, private myservice:CourseService,private router:Router)
+
+
+constructor( private myservice:CourseService,private router:Router,Active:ActivatedRoute)
 {
   
-this.ID=active.snapshot.params["id"]
+  this.ID=Active.snapshot.params["id"]
 }
 ngOnInit():void
 {
@@ -46,7 +48,7 @@ ngOnInit():void
   })
 
   this.myservice.getExambyid(this.ID).subscribe({
-    next:(data)=>this.examid=data,
+    next:(data)=>this.oneExam=data,
     error:(err)=>console.log(err)
   })
 
