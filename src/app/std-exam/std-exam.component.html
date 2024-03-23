@@ -1,7 +1,7 @@
 
     
  <div id="e" class="" >
- <form  (ngSubmit)="Submit()">
+ <form [formGroup]="myForm" (ngSubmit)="Submit()">
 <div id="e2" class="container m-auto ">
   
     <h3  style="text-align: center;">User Name</h3>
@@ -13,7 +13,7 @@
 </div>
 
 <div id="header"  class="m-auto" >
-<h2>{{examid.name}}</h2>
+<h2>{{examid.name}}fggdfg</h2>
 
 </div>
 
@@ -25,19 +25,19 @@
  
     
 <h3>{{i.name}}</h3>
-  
+}
 <div >
     <ol class="mt-4 " type="A">
        
         <li >
            
-            <label for="q" > i.text<input class="ms-2" id="q" name="" type="radio"> </label>
+            <label for="q" > i.text<input class="ms-2" name="answer" formControlName="answer" id="q"  type="radio"> </label>
            
         </li>
     
     </ol>
 </div>
- }
+ 
 </div>
  
 

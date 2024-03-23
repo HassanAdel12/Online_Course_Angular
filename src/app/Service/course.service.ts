@@ -11,7 +11,10 @@ export class CourseService {
 
   private examdb="http://localhost:3000/examdb";
 
-  private std="http://localhost:3000/Student"
+  private std="http://localhost:3000/Student";
+
+  private stdanswer ="http://localhost:3000/Student/StudentAnswers";
+  
 
   constructor(private http: HttpClient) { }
 
@@ -40,5 +43,9 @@ export class CourseService {
   getstudent_quiz()
   {
     return this.http.get(this.std);
+  }
+  addstudentanswer(answers:any)
+  {
+ return this.http.post(this.stdanswer,answers)
   }
 }

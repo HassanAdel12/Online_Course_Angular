@@ -32,7 +32,7 @@ import { StdExamComponent } from './std-exam/std-exam.component';
 import { StdExamEnrollComponent } from './std-exam/std-exam-enroll/std-exam-enroll.component';
 import { ExamPageComponent } from './std-exam/exam-page/exam-page.component';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SendComponent } from './std-exam/send/send.component';
 import { TrainingSettingsComponent } from './component/Training settings/training-settings/training-settings.component';
 
@@ -68,11 +68,16 @@ MainUComponent,
   StdExamEnrollComponent,
   ExamPageComponent,
 
+ SendComponent,
+ ReactiveFormsModule,
+
+
   ExamComponent,
   SubjectComponent,
   InstructorchooseComponent,
  SendComponent,
  TrainingSettingsComponent
+
 
   ],
 
