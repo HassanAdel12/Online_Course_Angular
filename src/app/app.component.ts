@@ -34,6 +34,7 @@ import { ExamPageComponent } from './std-exam/exam-page/exam-page.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SendComponent } from './std-exam/send/send.component';
+import { TrainingSettingsComponent } from './component/Training settings/training-settings/training-settings.component';
 
 
 
@@ -70,7 +71,8 @@ MainUComponent,
   ExamComponent,
   SubjectComponent,
   InstructorchooseComponent,
- SendComponent
+ SendComponent,
+ TrainingSettingsComponent
 
   ],
 
