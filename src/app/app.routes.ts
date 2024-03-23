@@ -9,6 +9,9 @@ import { CourseselectedComponent } from './component/courseselected/courseselect
 import { StdExamComponent } from './std-exam/std-exam.component';
 import { ExamPageComponent } from './std-exam/exam-page/exam-page.component';
 import { SendComponent } from './std-exam/send/send.component';
+import { InstructorDataComponent } from './component/instructor-data/instructor-data.component';
+import { InstructorDateHeaderComponent } from './component/instructor-data/instructor-date-header/instructor-date-header.component';
+import { InstructordatatwoComponent } from './component/instructor-data/instructordatatwo/instructordatatwo.component';
 
 export const routes: Routes = [
     {path:"First",component:DashBoardGradeOneComponent },
@@ -21,6 +24,9 @@ export const routes: Routes = [
     { path: 'group', component:CourseselectedComponent },
     { path: 'exam', component:ExamPageComponent },
     { path: 'send', component:SendComponent },
+    { path: 'instructordata', component:InstructorDataComponent },
+    { path: 'instructordataheader', component:InstructorDateHeaderComponent},
+    { path: 'instructordatatwo', component:InstructordatatwoComponent},
 
 ];
 
