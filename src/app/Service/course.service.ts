@@ -13,7 +13,7 @@ export class CourseService {
 
   private std="http://localhost:3000/Student";
 
-  private stdanswer ="http://localhost:3000/Student/StudentAnswers";
+  private stdanswer ="http://localhost:3000/StudentAnswers";
   
 
   constructor(private http: HttpClient) { }
@@ -32,14 +32,18 @@ export class CourseService {
   {
     return this.http.get(this.coursedb_url+"/"+id);
   }
+
+
   getExams()
   {
   return this.http.get(this.examdb);
   }
+
   getExambyid(id:any)
   {
  return this.http.get(this.examdb+"/"+id);
   }
+  
   getstudent_quiz()
   {
     return this.http.get(this.std);

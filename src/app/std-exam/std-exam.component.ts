@@ -45,6 +45,7 @@ ngOnInit():void
     error:(err)=>console.log(err)
   })
 
+  
   this.myservice.getExambyid(this.ID).subscribe({
     next:(data)=>this.examid=data,
     error:(err)=>console.log(err)
