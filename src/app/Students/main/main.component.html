@@ -1,5 +1,5 @@
 <div>
-<div id="header" >
+<div class="container mb-4" id="header"  >
     
     
         <nav aria-label="Breadcrumbs">
@@ -20,44 +20,31 @@
     
     
 
-<div>
-     <h1 class=" ms-4" data-test-id="course-unit-title">group name </h1></div>
-<div >
 
-<div class="mb-4"></div>
+     <h1 class=" ms-4" data-test-id="course-unit-title">{{course.path}} </h1></div>
 
-<div id="c" ><span >session start time - session end time  </span><a  role="button" href="/science/ms-biology/x0c5bb03129646fd6:cells-and-organisms/x0c5bb03129646fd6:cells-organisms/e/understand-cells-and-organisms"><span  >Go To Session</span></a>
+
+
+
+<div id="c" class="container "><span >session start time - session end time  </span><a class="btn btn-danger " role="button" ><span  >Go To Session</span></a>
 </div>
 
 <div class="m-4 p-2 d-flex flex-row justify-content-between" style="text-align: center;">
-    <div class="alert alert-primary col-6 m-2" style="height: 300px;border-radius: 0px;">
-        <h2>Description</h2>
-        <p> {{course.Description}}</p>
-        
-    </div>
-    <div class="m-2">
-        
-        <video class="col-12 " height="300px" controls>
-            <source src="movie.mp4" type="video/mp4">
-            <source src="movie.ogg" type="video/ogg">
+  
+    <div id="video" class="m-auto">
+        <h1>{{course.path}}</h1>
+        <video class="col-lg-12 col-md-6 col-sm-4" height="700px" controls>
+            <source [src]="course.path" >
+          
             
           </video>
+         
+<p>fdgglllds</p>
+
+
     </div>
 </div>
-<div id="coursedetails" style="text-align: center;margin: 40px;">
-    <div class="alert alert-primary " style="border-radius: 0px;">
-        <h2>Group Name</h2>
-        <p>{{course.name}}</p>
-        <h2>Instructor Name</h2>
-        <p></p>
-        <h2>group Duration</h2>
-        <p>{{course.Duration}}</p>
-        <h2>Price</h2>
-        <p>{{course.Price}}</p>
-        
-       
-    </div>
-</div>
+
   
      
 </div>

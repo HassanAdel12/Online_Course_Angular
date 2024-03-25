@@ -3,6 +3,8 @@ import { MainComponent } from '../../Students/main/main.component';
 import { MainUComponent } from '../../Students/main-u/main-u.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CourseService } from '../../Service/course.service';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-courseselected',
@@ -11,6 +13,8 @@ import { CourseService } from '../../Service/course.service';
  MainComponent,
  MainUComponent,
  HttpClientModule,
+ CommonModule,
+ FormsModule
     
   ],
   providers:[
@@ -21,6 +25,7 @@ CourseService
 })
 export class CourseselectedComponent {
   course_name:any
+
 constructor(private myservec:CourseService){}
 ngOnInit():void
 {

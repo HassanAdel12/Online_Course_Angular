@@ -60,31 +60,87 @@
   "course": [
     {
       "id": "1",
-      "name": "arabic",
+      "name": "first lesson",
       "description": "dfmdpobvdofpl,p[,g[rpe,g[pe,rg[p,erg[,erg,[pr,eg[per,gp[er,g",
       "duration": "7 weeks",
-      "price": 400
+      "path": "assets\\videos\\lessonone.mp4"
     },
     {
       "id": "2",
-      "name": "english",
+      "name": "second lesson",
       "description": "dfmdpobvdofpl,p[,g[rpe,g[pe,rg[p,erg[,erg,[pr,eg[per,gp[er,g",
       "duration": "4 weeks",
-      "price": 800
+      "path": "assets\\videos\\lessontwo.mp4"
     },
     {
       "id": "3",
-      "name": "phisics",
+      "name": "lesson three",
       "description": "dfmdpobvdofpl,p[,g[rpe,g[pe,rg[p,erg[,erg,[pr,eg[per,gp[er,g",
       "duration": "6 weeks",
-      "price": 1200
+      "path": "lessonthree.mp4"
     },
     {
       "id": "4",
-      "name": "science",
+      "name": "lesson four",
       "description": "dfmdpobvdofpl,p[,g[rpe,g[pe,rg[p,erg[,erg,[pr,eg[per,gp[er,g",
       "duration": "3 weeks",
-      "price": 2000
+      "path": "lessonfour.mp4"
+    },
+    {
+      "id": "5",
+      "name": "lesson five",
+      "description": "dfmdpobvdofpl,p[,g[rpe,g[pe,rg[p,erg[,erg,[pr,eg[per,gp[er,g",
+      "duration": "3 weeks",
+      "path": "lessonfive.mp4"
+    },
+    {
+      "id": "6",
+      "name": "lesson six",
+      "description": "dfmdpobvdofpl,p[,g[rpe,g[pe,rg[p,erg[,erg,[pr,eg[per,gp[er,g",
+      "duration": "3 weeks",
+      "path": "lessonsix.mp4"
+    },
+    {
+      "id": "7",
+      "name": "lesson seven",
+      "description": "dfmdpobvdofpl,p[,g[rpe,g[pe,rg[p,erg[,erg,[pr,eg[per,gp[er,g",
+      "duration": "3 weeks",
+      "path": "lessonseven.mp4"
+    },
+    {
+      "id": "8",
+      "name": "lesson eight",
+      "description": "dfmdpobvdofpl,p[,g[rpe,g[pe,rg[p,erg[,erg,[pr,eg[per,gp[er,g",
+      "duration": "3 weeks",
+      "path": "lessoneight.mp4"
+    },
+    {
+      "id": "9",
+      "name": "lesson nine",
+      "description": "dfmdpobvdofpl,p[,g[rpe,g[pe,rg[p,erg[,erg,[pr,eg[per,gp[er,g",
+      "duration": "3 weeks",
+      "path": "lessonnine.mp4"
+    },
+    {
+      "id": "10",
+      "name": "lesson ten",
+      "description": "dfmdpobvdofpl,p[,g[rpe,g[pe,rg[p,erg[,erg,[pr,eg[per,gp[er,g",
+      "duration": "3 weeks",
+      "path": "lessonten.mp4"
+    },
+    {
+      "id": "11",
+      "name": "lesson eleven",
+      "description": "dfmdpobvdofpl,p[,g[rpe,g[pe,rg[p,erg[,erg,[pr,eg[per,gp[er,g",
+      "duration": "3 weeks",
+      "path": "lessoneleven.mp4"
+    },
+    {
+      "id": "12",
+      "name": "lesson twenteen",
+      "description": "dfmdpobvdofpl,p[,g[rpe,g[pe,rg[p,erg[,erg,[pr,eg[per,gp[er,g",
+      "duration": "3 weeks",
+      "path": "lessontwenteen.mp4"
     }
   ],
   "session": [

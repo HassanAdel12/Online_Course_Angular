@@ -7,21 +7,16 @@
     -webkit-box-orient: vertical !important;
     -webkit-box-align: stretch !important;
     align-items: stretch !important;
-    border-width: 0px !important;
+  
     border-style: solid !important;
     box-sizing: border-box !important;
     display: flex !important;
     flex-direction: column !important;
-    margin: 0px !important;
-    padding: 0px !important;
+ 
     position: relative !important;
-    z-index: 0 !important;
-    min-height: 0px !important;
-    min-width: 0px !important;
-    padding-bottom: 8px !important;
-    padding-left: 48px !important;
-    padding-right: 48px !important;
-    padding-top: 24px !important;
+   
+  
+ 
  
 }
 #header a{  text-decoration: none;}
@@ -37,31 +32,30 @@
     border-style: solid !important;
     box-sizing: border-box !important;
     display: flex !important;
-    margin: 0px !important;
-    padding: 0px !important;
+
     position: relative !important;
     z-index: 0 !important;
     min-width: 0px !important;
     align-items: center !important;
-    border-radius: 4px !important;
+    border-radius: 10px !important;
     box-shadow: 4px 0px 0px 0px hsla(0, 100%, 100%, 0.12) inset !important;
-    color: #ffffff !important;
+    color: #e01212 !important;
     flex-direction: row !important;
     flex-wrap: wrap !important;
     gap: 16px !important;
     min-height: 64px !important;
-    padding-bottom: 16px !important;
-    padding-left: 24px !important;
-    padding-right: 24px !important;
-    padding-top: 16px !important;
-    background-color: #1865f2 !important;
+ 
+    font-size: 20px;
+    font-weight: 500;
+   
+    background-color: #f2dc18 !important;
     position: relative;
 }
 #c a{
-    background-color: white;
-    color: #1865f2;
+   
+    
     border-radius: 10px;
-    padding: 8px 15px;
+   
     font-weight: 500;
 
    position: absolute;
@@ -69,5 +63,10 @@
 }
 #coursedetails p
 {
-font-size: 25px;
+font-size: 20px;
+font-weight: 400;
+}
+#c span
+{
+    padding: 5px 20px;
 }
