@@ -2,12 +2,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CourseService } from '../../Service/course.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-std-exam-enroll',
   standalone: true,
   imports: [
-    RouterLink,
+    RouterLink,CommonModule,
     HttpClientModule
   ],
   providers:[
@@ -18,11 +19,14 @@ import { CourseService } from '../../Service/course.service';
 })
 export class StdExamEnrollComponent {
   exam:any
+
+item: any;
+constructor(private myservice:CourseService){}
+
   oneExam:any
   ID=0
-constructor(private myservice:CourseService){
 
-}
+
 ngOnInit():void
 {
   this.myservice.getExams().subscribe({

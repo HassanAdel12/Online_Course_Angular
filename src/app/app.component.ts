@@ -1,3 +1,4 @@
+
 import { SubjectComponent } from './component/subjects/subject/subject.component';
 import { Component, Directive } from '@angular/core';
 import { RouterLink, RouterModule, RouterOutlet } from '@angular/router';
@@ -41,6 +42,9 @@ import { InstructordatatwoComponent } from './component/instructor-data/instruct
 
 import { TrainingSettingsComponent } from './component/Training settings/training-settings/training-settings.component';
 import { TermsAndAdvicesComponent } from './component/Terms and Advices/terms-and-advices/terms-and-advices.component';
+import { InstructordashboardComponent } from './component/instructorfinalDashboard/instructordashboard/instructordashboard.component';
+
+
 
 
 
@@ -77,9 +81,8 @@ MainUComponent,
 
  SendComponent,
  ReactiveFormsModule,
+
  //TermsAndAdvicesComponent,
-
-
   ExamComponent,
   SubjectComponent,
   InstructorchooseComponent,
@@ -88,20 +91,16 @@ MainUComponent,
  RouterLink,
  InstructorDataComponent,
  InstructorDateHeaderComponent,
- InstructordatatwoComponent
+ InstructordatatwoComponent,
+ InstructordashboardComponent
+
+
 
  
 
 
 
   ],
-
-
-
-
-
-
-
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

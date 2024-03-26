@@ -35,14 +35,18 @@ export class CourseService {
   {
     return this.http.get(this.coursedb_url+"/"+id);
   }
+
+
   getExams()
   {
   return this.http.get(this.examdb);
   }
+
   getExambyid(id:any)
   {
  return this.http.get(this.examdb+"/"+id);
   }
+  
   getstudent_quiz()
   {
     return this.http.get(this.std);

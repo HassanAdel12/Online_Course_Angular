@@ -1,9 +1,10 @@
 <!-- exam.component.html -->
 
 <div class="container">
-  <h2 style="text-shadow: 1px 1px 2px black, 0 0 50px blue, 0 0 5px darkblue;">
+  <h2 style="border: 1px solid black; height: 60px;  background-color: #333;
+  color: white; text-align: center;" >
     Exam Information</h2>
-  <div class="form-group">
+  <div class="form-group"> 
     <label for="examName">Exam Name:</label>
     <input type="text" class="form-control" id="examName" [(ngModel)]="exam.name" placeholder="Enter exam name">
   </div>
@@ -14,8 +15,8 @@
 
   <hr>
 
-  <h2 style="text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px 
-  darkblue;">Exam Questions</h2>
+  <h2  style="border: 1px solid black; height:60px; width: 300px; text-align: center;   background-color: #333;
+  color: white;">Exam Questions</h2>
   <div class="row">
     <div class="col-md-6">
       <div class="question-form">
@@ -42,7 +43,11 @@
     </div>
     <div class="col-md-6">
       <div class="question-preview">
-        <h2 style="text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;">Questions Preview</h2>
+
+        <h2 style="border: 1px solid black; width: 400px;  
+         background-color: #333; height:60px;
+        color: white; text-align: center;">
+          Questions Preview</h2>
         <div *ngFor="let question of exam.questions" class="question-preview-item">
           <h4>{{ question.question }}</h4>
           <ul>

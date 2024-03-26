@@ -1,4 +1,6 @@
-import { Routes } from '@angular/router';
+
+import { RouterModule, Routes } from '@angular/router';
+
 
 import { DashBoardGradeOneComponent } from './component/DashBoard/dash-board-grade-one/dash-board-grade-one.component';
 import { DashBoardGradeTwoComponent } from './component/DashBoard/dash-board-grade-two/dash-board-grade-two.component';
@@ -12,7 +14,11 @@ import { SendComponent } from './std-exam/send/send.component';
 import { InstructorDataComponent } from './component/instructor-data/instructor-data.component';
 import { InstructorDateHeaderComponent } from './component/instructor-data/instructor-date-header/instructor-date-header.component';
 import { InstructordatatwoComponent } from './component/instructor-data/instructordatatwo/instructordatatwo.component';
+import { ExamComponent } from './component/Exam/exam/exam.component';
+import { NgModule } from '@angular/core';
+
 import { MainComponent } from './Students/main/main.component';
+ 
 
 export const routes: Routes = [
     {path:"First",component:DashBoardGradeOneComponent },
@@ -28,8 +34,19 @@ export const routes: Routes = [
     { path: 'instructordata', component:InstructorDataComponent },
     { path: 'instructordataheader', component:InstructorDateHeaderComponent},
     { path: 'instructordatatwo', component:InstructordatatwoComponent},
+ 
+    { path: 'exam', component:ExamComponent},
+    
+
     { path: 'corseselected', component:CourseselectedComponent},
 
+
 ];
+@NgModule({
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
+  })
+  export class AppRoutingModule { }
+
 
 
