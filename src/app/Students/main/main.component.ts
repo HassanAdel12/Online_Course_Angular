@@ -24,7 +24,7 @@ this.id=myActivat.snapshot.params["id"];
   ngOnInit():void
   {
 
-  
+
   this.myservic.getcoursebyid(this.id).subscribe(
     {
       next:(data:any)=>this.course=data,
