@@ -19,16 +19,14 @@ import { CommonModule } from '@angular/common';
 })
 export class StdExamEnrollComponent {
   exam:any
-<<<<<<< HEAD
+
 item: any;
 constructor(private myservice:CourseService){}
-=======
+
   oneExam:any
   ID=0
-constructor(private myservice:CourseService){
 
-}
->>>>>>> 09d31080cfcf8eb5686948b28b56179c8e767356
+
 ngOnInit():void
 {
   this.myservice.getExams().subscribe({
