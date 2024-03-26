@@ -63,15 +63,15 @@
       "name": "first lesson",
       "description": "dfmdpobvdofpl,p[,g[rpe,g[pe,rg[p,erg[,erg,[pr,eg[per,gp[er,g",
       "duration": "7 weeks",
-      "path": "lessonone.mp4",
-      "image":"assets\\images\\anjali-3.png"
+      "path": "assets/videos/lessonone.mp4",
+      "image":"assets/images/anjali-3.png"
     },
     {
       "id": "2",
       "name": "second lesson",
       "description": "dfmdpobvdofpl,p[,g[rpe,g[pe,rg[p,erg[,erg,[pr,eg[per,gp[er,g",
       "duration": "4 weeks",
-      "path": "lessontwo.mp4",
+      "path": "assets/videos/lessontwor.mp4",
       "image":"assets\\images\\Arabic.jpeg"
     },
     {

@@ -32,7 +32,7 @@
         @for (u of i.choise; track u.id) {
         <li class="mt-2">
            
-            <label for="q" > {{u.text}} <input class="ms-2" name="{{i.id}}" id="q"   type="radio"> </label> 
+            <label for="q" > {{u.text}} <input class="ms-2" name="{{i.id}}" id="q" (change)="getAnswer($event)" value="{{u.iscorrect}}"  type="radio"> </label> 
     
         </li>
      } 

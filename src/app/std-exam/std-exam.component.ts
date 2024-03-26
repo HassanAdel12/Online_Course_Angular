@@ -22,6 +22,11 @@ ReactiveFormsModule
   styleUrl: './std-exam.component.css'
 })
 export class StdExamComponent implements OnInit {
+getAnswer(event: any) {
+  let value=event.value
+  
+console.log(event)
+}
   myForm=new FormGroup({
     answer:new FormControl(null,[Validators.required])
   })
@@ -32,6 +37,7 @@ export class StdExamComponent implements OnInit {
   username="";
  oneExam:any
 
+ questionIndex:any
 
 
 constructor( private myservice:CourseService,private router:Router,Active:ActivatedRoute)
