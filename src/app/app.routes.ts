@@ -17,6 +17,9 @@ import { InstructordatatwoComponent } from './component/instructor-data/instruct
 import { ExamComponent } from './component/Exam/exam/exam.component';
 import { NgModule } from '@angular/core';
 
+import { MainComponent } from './Students/main/main.component';
+ 
+
 export const routes: Routes = [
     {path:"First",component:DashBoardGradeOneComponent },
     {path:"Second",component:DashBoardGradeTwoComponent},
@@ -25,14 +28,18 @@ export const routes: Routes = [
     { path: 'grade', component:GradComponent },
     { path: 'courseselected/:id', component:CourseselectedComponent },
     { path: 'stdexam/:id', component:StdExamComponent },
-    { path: 'group', component:CourseselectedComponent },
+    { path: 'group/:id', component:MainComponent },
     { path: 'exam', component:ExamPageComponent },
     { path: 'send', component:SendComponent },
     { path: 'instructordata', component:InstructorDataComponent },
     { path: 'instructordataheader', component:InstructorDateHeaderComponent},
     { path: 'instructordatatwo', component:InstructordatatwoComponent},
+ 
     { path: 'exam', component:ExamComponent},
     
+
+    { path: 'corseselected', component:CourseselectedComponent},
+
 
 ];
 @NgModule({
