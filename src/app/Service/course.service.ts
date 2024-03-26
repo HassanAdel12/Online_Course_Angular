@@ -15,6 +15,9 @@ export class CourseService {
 
   private stdanswer ="http://localhost:3000/StudentAnswers";
   
+  private instructordata ="http://localhost:3000/instrutordata";
+
+  private instructoraddress="http://localhost:3000/address";
 
   constructor(private http: HttpClient) { }
 
@@ -51,5 +54,13 @@ export class CourseService {
   addstudentanswer(answers:any)
   {
  return this.http.post(this.stdanswer,answers)
+  }
+  addinstrutordata(data:any)
+  {
+    return this.http.post(this.instructordata,data)
+  }
+  addistructoraddress(address:any)
+  {
+   return this.http.post(this.instructoraddress,address)
   }
 }

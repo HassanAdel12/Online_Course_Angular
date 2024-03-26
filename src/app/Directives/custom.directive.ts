@@ -9,12 +9,17 @@ export class CustomDirective {
   constructor(private myref:ElementRef)
    {
   
-    myref.nativeElement.style="box-shadow: inset 4px 0 #1865f2 ; "   
+   
    
   }
-    @HostListener('click') click()
+   
+    @HostListener('mouseover') changecolor()
     {
-     this.myref.nativeElement.style="box-shadow: inset 4px 0 #1865f2 ; "   
+        this.myref.nativeElement.style.color="black"
+        this.myref.nativeElement.style.backgroundcolor="red"
+
     }
 
 }
+
+
