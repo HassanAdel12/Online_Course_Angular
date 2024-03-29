@@ -5,12 +5,22 @@
       <h1 style="color:black">Sign UP</h1>
       <div class="inputbox">
         <div class="inputfield">
+          <input type="text" placeholder="name" formControlName="name">
+          <img src="assets/images/user.png" style="margin-top: 5px;">
+        </div>
+        <div *ngIf="registrationForm.get('name')?.errors && registrationForm.get('name')?.touched" 
+               class="form-text text-center text-danger">Username is required and must be at least 3 chars</div>
+      </div>
+
+      <div class="inputbox">
+        <div class="inputfield">
           <input type="text" placeholder="Username" formControlName="username">
           <img src="assets/images/user.png" style="margin-top: 5px;">
         </div>
         <div *ngIf="registrationForm.get('username')?.errors && registrationForm.get('username')?.touched" 
-               class="form-text text-center text-danger">Username is required and must be at least 3 chars</div>
+               class="form-text text-center text-danger">Username is required and must be at least 3 chars and not space</div>
       </div>
+
       <div class="inputbox">
         <div class="inputfield">
           <input type="email" placeholder="Email" formControlName="email">

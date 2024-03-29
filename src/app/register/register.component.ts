@@ -19,12 +19,16 @@ import { CommonModule } from '@angular/common';
 export class RegisterComponent {
   
 registrationForm: FormGroup;
+
 emailExists = false;
+
 usernameExists = false;
+
 constructor(private fb: FormBuilder, private registrationService: JwtService,private router:Router) {
   this.registrationForm = this.fb.group({
+    name: ['', [Validators.required, Validators.minLength(3)]],
     username: ['', [Validators.required, Validators.minLength(3)]],
-    email: ['', [Validators.required, Validators.email,Validators.pattern(/^\w+@gmail\.com$/)]],
+    email: ['', [Validators.required, Validators.email,Validators.pattern('^.{3,}@gmail\.com$')]],
     password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(20)]],
     confirmPassword: ['', Validators.required],
     role: ['', Validators.required]
@@ -35,26 +39,28 @@ constructor(private fb: FormBuilder, private registrationService: JwtService,pri
 }
 
 onSubmit() {
+
   if (this.registrationForm.valid) {
-    this.registrationService.register(this.registrationForm.value).subscribe(
-      response => {
-        
-          // alert("Success Registration");
+    this.registrationService.register(this.registrationForm.value).subscribe({
+      next: (data) => {
+        // alert("Success Registration");
           // console.log('Success Registration', response);
           // this.router.navigate(['/Login']);
-          const userType = this.registrationForm.value.role;
-          if (userType === 'Student') {
-            this.router.navigate(['/Login']);
-          } else if (userType === 'Instructor') {
-            this.router.navigate(['/Dashboard']);
-          }
-     
-        
+
+          // const userType = this.registrationForm.value.role;
+          // if (userType === 'Student') {
+          //   this.router.navigate(['/Login']);
+          // } else if (userType === 'Instructor') {
+          //   this.router.navigate(['/Dashboard']);
+          // }
+
+          this.router.navigate(['/Login']);
       },
-      error => {
-        console.error('failed', error);
-      }
-    );
+      error: (err) => {
+        console.log(err.message);
+      },
+    });
+
   }
 }
 

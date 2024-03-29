@@ -27,6 +27,7 @@ import { InstructorDataComponent } from './Instructor/Profile/instructor-data/in
 import { InstructordatatwoComponent } from './Instructor/Profile/instructor-data/instructordatatwo/instructordatatwo.component';
 import { InstructorDateHeaderComponent } from './Instructor/Profile/instructor-data/instructor-date-header/instructor-date-header.component';
 import { SendComponent } from './Student/showExam/std-exam/send/send.component';
+import { PaymentComponent } from './payment/payment.component';
 //import { StdExamComponent } from './Student/showExam/std-exam/std-exam.component';
 
 export const routes: Routes = [
@@ -54,6 +55,7 @@ export const routes: Routes = [
     {path:"createExam",component:CreateexamComponent},
     {path:"createGroup",component:AddGroupComponent},
     {path:"First",component:DashBoardGradeOneComponent},
+    {path:"Payment",component:PaymentComponent},
    
 
     {path:"**",component:ErrorComponent}

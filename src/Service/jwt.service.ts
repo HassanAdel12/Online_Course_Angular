@@ -8,6 +8,8 @@ import { Observable, catchError, throwError } from 'rxjs';
 })
 export class JwtService {
 
+
+
   private jwt_url = 'http://localhost:48190/api/Account';
 
  
@@ -21,7 +23,7 @@ export class JwtService {
 
 ////////////
   login(credentials: { username: string, password: string }): Observable<any> {
-    return this.myclient.post<any>(this.jwt_url+'/login', credentials);
+    return this.myclient.post(this.jwt_url+'/login', credentials);
   }
 
   
@@ -40,11 +42,15 @@ export class JwtService {
       'Content-Type': 'application/json'
     });
 
-    return this.myclient.post(this.jwt_url + '/register', userDetails, { headers }).pipe(
-      catchError(this.handleError)
-    );
+    // return this.myclient.post(this.jwt_url + '/register', userDetails, { headers }).pipe(
+    //   catchError(this.handleError)
+    // );
+
+    return this.myclient.post(this.jwt_url + '/register', userDetails);
   }
 
+  
+  
   private handleError(error: any) {
     let errorMessage = ' error while processing request';
     if (error.error instanceof ErrorEvent) {

@@ -19,34 +19,39 @@ export class LoginComponent {
 
   constructor(private fb: FormBuilder, private jwtservice: JwtService, private router: Router) {
     this.loginForm = this.fb.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required]
+      username: ['', [Validators.required, Validators.minLength(3)]],
+      password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(20)]]
     });
   }
 
   onSubmit() {
+
     if (this.loginForm.valid) {
-      this.jwtservice.login(this.loginForm.value).subscribe(
-        (response: any) => {
+
+      this.jwtservice.login(this.loginForm.value).subscribe({
+        next: (data) => {
+          
+          
+          const DataUser = data;
          
-          const token = response.token;
-         
-          localStorage.setItem('token', token);
-          if (this.loginForm.value.username === 'Ahmed') {
-            this.router.navigate(['/Login']);
-          } else if ( this.loginForm.value.username=== 'Ali') {
-            this.router.navigate(['/Dashboard']);
+          localStorage.setItem('DataUser', JSON.stringify(DataUser));
+          
+          if (DataUser.roles == 'Instructor') {
+            this.router.navigate(['/Instructordashboard']);
+          } else if ( DataUser.roles == 'Student') {
+            this.router.navigate(['/choocegrade']);
           }
 
 
 
-          this.router.navigate(['/choocegrade']);
         },
-        (error: any) => {
-          console.error('Login failed:', error);
-        
-        }
-      );
+        error: (err) => {
+          console.log(err.message);
+        },
+      });
+      
+      
+      
     }
   }
  
