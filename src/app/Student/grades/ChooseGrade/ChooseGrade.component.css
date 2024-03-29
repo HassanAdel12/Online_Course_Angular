@@ -1,0 +1,15 @@
+.grade-card {
+    background-color: lightblue;
+    text-align: center;
+    padding: 20px;
+    margin: 20px;
+    transition: transform 0.3s ease-in-out;
+  }
+  .grade-card:hover {
+    transform: scale(0.9);
+  }
+  .btn{
+    background-color: gold;
+   color: black;
+   border: none;
+  }

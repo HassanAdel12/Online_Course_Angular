@@ -1,0 +1,10 @@
+
+
+@for (Grade of Grades; track $index) {
+    <div class="grade-card " >
+    <button class=" btn router-link me-1" 
+    routerLinkActive="active" 
+    routerLink="/grade/{{Grade.grade_ID}}
+    ">{{Grade.grade_Name}}</button>
+</div>
+}

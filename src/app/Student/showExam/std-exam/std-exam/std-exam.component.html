@@ -1,0 +1,68 @@
+<div id="e" class="">
+    <form [formGroup]="myForm" (ngSubmit)="Submit()">
+        <div id="e2" class="container m-auto ">
+
+            <!-- <h3 style="text-align: center;">User Name</h3>
+
+            <div id="e3" class="m-auto">
+
+                <input type="text" value="{{student.UserName}}" class="form-control" readonly>
+
+            </div> -->
+
+            <div id="header" class="m-auto">
+                <h2>{{quiz.quiz_Name}}</h2>
+
+            </div>
+
+
+
+
+            <div id="body" class="m-auto">
+                @for (Question of Questions; track Question.question_ID) {
+
+
+                <h3>{{Question.question_Text}} </h3>
+
+                <div>
+
+
+                    <ul class="mt-4 " type="A">
+                        @for (Choise of Question.choises; track Choise.choise_ID) {
+                        <li class="mt-2">
+
+                            @if (Choise.isCorrect) {
+                            <input class="ms-2" name="{{Question.question_ID}}" id="q"
+                            (change)="onChange(Question.question_ID,Choise.isCorrect)" type="radio">
+
+                            <label for="q"> {{Choise.text}}  </label>
+                        }
+                        @else {
+                            <input class="ms-2" name="{{Question.question_ID}}" id="q"
+                              type="radio">
+
+                            <label for="q"> {{Choise.text}}  </label>
+                        }
+                        </li>
+                        }
+                    </ul>
+
+
+                </div>
+
+                }
+            </div>
+
+
+
+
+            <div id="button">
+                <input type="submit" class="btn btn-primary ">
+            </div>
+
+
+        </div>
+
+    </form>
+
+</div>

@@ -1,0 +1,87 @@
+header {
+  background-color: lightblue;
+  color: black;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height:150px;
+}
+
+nav {
+  display: flex;
+}
+
+button {
+  background-color: whitesmoke;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: rgb(95, 138, 153);
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+main {
+  padding: 20px;
+}
+.container {
+  display: flex;
+  border: 1px solid lightblue; /* Border for the container */
+  height: 600px;
+  max-width: 100%; 
+
+}
+
+
+.sidebar {
+  
+  width: 250px;
+  background-color: lightblue;
+  padding: 20px;
+  border-right: 1px solid lightblue; /* Right border for the sidebar */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+
+.sidebar button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: whitesmoke;
+  border: none;
+  color: black;
+  text-align: left;
+  cursor: pointer;
+  margin:50px auto;
+}
+
+.sidebar button:hover {
+  background-color: rgb(95, 138, 153) ;
+}
+
+.content {
+  flex-grow: 1;
+  padding: 20px;
+  border-left: 1px solid lightblue; /* Left border for the content area */
+}
+h1{
+  text-align: center;
+  margin-left: 450px;
+
+}

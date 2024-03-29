@@ -1,0 +1,94 @@
+<header>
+    <div class="header-content">
+        <!-- <img src="assets/images/Arabic.jpeg" alt="Circle Image"> -->
+        <h1>{{course.name}}</h1>
+    </div>
+</header>
+
+@for (group of groups; track $index) {
+    <div class="container">
+        <div class="box">
+            <div class="box-header">
+                <img [src]="group.image" [alt]="group.groupName">
+                <h2>{{ group.description }}</h2>
+            </div>
+            <div class="box-body">
+                <p style="text-align: center;">Group Name:{{ group.groupName }}</p>
+                <p style="text-align: center">Number of Student in Group:{{ group.num_Students }}<br>
+                    Start Date:{{ group.creation_Date }}<br>
+                    End Date :{{ group.end_Date }}<br>
+                    Price :{{ group.price }}
+                </p>
+                <button class="button1" style="background-color:azure; color:black" 
+                     routerLinkActive="active" routerLink="/courseselected/{{group.group_ID}}"
+                    >Enroll</button>
+                <!-- <button class="button2" routerLink="/courseselected" >Details</button> -->
+    
+    
+            </div>
+        </div>
+    </div>
+}
+
+
+    <!-- Repeat the box structure for the second box
+    <div class="box" *ngFor="let item of items">
+        <div class="box-header">
+            <img [src]="item.photo" [alt]="item.alt">
+            <h2>{{ item.description }}</h2>
+        </div>
+        <div class="box-body">
+            <p style="text-align: center;"> Group Name:Arabic 1</p>
+            <p style="text-align: center">Number of Student in Group:20<br>
+                <br>
+                Start Date:20/2/2024br>
+                End Date :20/5/2024
+            </p>
+            <button class="button1" style="background-color:azure; color:black" [class.clicked]="item.button1.clicked"
+                (click)="toggleClicked(item.button1)">{{ item.button1.label }}</button>
+            <button class="button2" [class.clicked]="item.button2.clicked" (click)="toggleClicked(item.button2)">{{
+                item.button2.label }}</button>
+
+        </div>
+    </div>
+
+    <div class="box" *ngFor="let item of items">
+        <div class="box-header">
+            <img [src]="item.photo" [alt]="item.alt">
+            <h2>{{ item.description }}</h2>
+        </div>
+        <div class="box-body">
+            <p style="text-align: center;">Group Name:Arabic 1</p>
+            <p style="text-align: center"> Number of Student in Group:20<br>
+                <br>
+                Start Date:20/2/2024br>
+                End Date :20/5/2024
+            </p>
+            <button class="button1" style="background-color:azure; color:black" [class.clicked]="item.button1.clicked"
+                (click)="toggleClicked(item.button1)">{{ item.button1.label }}</button>
+            <button class="button2" [class.clicked]="item.button2.clicked" (click)="toggleClicked(item.button2)">{{
+                item.button2.label }}</button>
+
+        </div>
+    </div>
+    <div class="box" *ngFor="let item of items">
+        <div class="box-header">
+            <img [src]="item.photo" [alt]="item.alt">
+            <h2>{{ item.description }}</h2>
+        </div>
+        <div class="box-body">
+            <p style="text-align: center;">Group Name:Arabic 1</p>
+            <p style="text-align: center"> Number of Student in Group:20<br>
+                <br>
+                Start Date:20/2/2024<br>
+                End Date :20/5/2024
+            </p>
+            
+            <button class="button1" style="background-color:azure; color:black" >{{ item.button1.label }}</button>
+            
+            <button class="button2" >{{item.button2.label }}</button>
+
+        </div>
+    </div> -->
+
+

@@ -1,0 +1,36 @@
+<header style="height: 150px;">
+  <h1 style="text-align: center; margin-top: 30px; font-size: 50px;">
+    CREATING SESSION</h1>
+  <img src="assets/images/live.png" style="margin-top:-220px ;margin-left:800px">
+</header>
+
+<div class="container">
+  <form>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" [(ngModel)]="Name" required>
+
+    <label for="url">URL:</label>
+    <input type="text" id="url" name="url" [(ngModel)]="url" required>
+
+    <label for="category">Category:</label>
+    <!-- <div class="dropdown">
+            <button class="dropbtn" style="margin:10px">choose group</button>
+            
+            <div class="dropdown-content">
+              <a *ngFor="let g of grade" href="#">{{g.gradename}}</a>
+             
+            </div>
+          </div> -->
+    <br>
+    @for (group of groups; track group.id) {
+    <input class="form-check-input" type="radio" id="{{group.group_ID}}" (change)="onchange(group.group_ID)"
+      name="{{group}}">
+    <label class="form-check-label ms-2" for="{{group.group_ID}}">{{group.groupName}}</label>
+    <br><br>
+    }
+
+
+
+  </form>
+  <button (click)="submitForm()" style="margin-left:140px; margin-top: 5px; width: 250px; height: 70px;">Submit</button>
+</div>

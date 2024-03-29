@@ -1,0 +1,101 @@
+<!-- exam.component.html -->
+
+<div class="container ">
+  <h2 style="border: 1px solid black; height: 60px;  background-color: #333;
+  color: white; text-align: center;">
+    Exam Information</h2>
+  <div class="form-group">
+    <label for="examName"><h5>Exam Name:</h5></label>
+    <input #examname type="text" class="form-control" id="examName" [(ngModel)]="exam.name"
+      placeholder="Enter exam name">
+  </div>
+
+  <!-- <div class="dropdown">
+    <button class="dropbtn" style="margin:10px">choose Grade</button>
+    <div class="dropdown-content">
+      <a *ngFor="let g of grade" href="#">{{g.gradename}}</a>
+      
+    </div>
+  </div> -->
+
+  <!-- <div class="dropdown">
+    <button class="dropbtn" style="margin:10px">choose group</button>
+
+    <div class="dropdown-content">
+      <a *ngFor="let g of groups">{{g.groupName}}</a>
+      @for (group of groups; track group.id) {
+
+      }
+    </div>
+  </div> -->
+  <hr class="my-4 w-75">
+  <h5 >Choose Group :</h5>
+  
+  @for (group of groups; track group.id) {
+  <input class="form-check-input" type="radio" id="{{group.group_ID}}" (change)="onchange(group.group_ID)"
+    name="{{group}}">
+  <label class="form-check-label" for="{{group.group_ID}}">{{group.groupName}}</label>
+  <br><br>
+  }
+
+
+  <br>
+  <hr>
+  <br>
+
+  <h2 style="border: 1px solid black; height:60px; width: 300px; text-align: center;   background-color: #333;
+  color: white;">Exam Questions</h2>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="question-form">
+        <div *ngFor="let question of exam.questions; let questionIndex = index" class="question-container">
+          <label>Question {{ questionIndex + 1 }}:</label><br>
+          <input #question type="text" [(ngModel)]="question.question" style="margin:10px;"
+            placeholder="Enter your question here" required><br>
+          <div class="option-container" *ngFor="let option of question.options; let optionIndex = index">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" (click)="CheckOption(questionIndex , optionIndex)"
+                name="{{questionIndex}}">
+              <input #option type="text" [(ngModel)]="option.option" placeholder="Enter option {{ optionIndex + 1 }}"
+                required>
+              <button class="btn btn-sm btn-danger" style="margin-left:10px;"
+                (click)="deleteOption(questionIndex, optionIndex)">Delete
+                Option</button>
+            </div>
+          </div>
+          <button class="btn btn-sm btn-primary" style="margin-right:10px;" (click)="addOption(questionIndex)">Add
+            Option</button>
+          <button class="btn btn-sm btn-danger" (click)="deleteQuestion(questionIndex)">Delete Question</button>
+        </div>
+        <button class="btn btn-primary" style="margin-top:10px;" (click)="addQuestion()">Add Question</button>
+
+        <hr>
+
+        Total Questions: {{ getTotalQuestions() }}
+
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="question-preview">
+        <h2 s style="border: 1px solid black; width: 400px;  
+        background-color: #333; height:60px;
+       color: white; text-align: center;">Questions Preview</h2>
+        <div *ngFor="let question of exam.questions" class="question-preview-item">
+          <h4>{{ question.question }}</h4>
+          <ul>
+            <li *ngFor="let option of question.options">{{ option.option }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <button class="btn btn-success" style="margin-top:20px" (click)="saveExam(examname.value)">Save Exam</button>
+
+  <div *ngIf="examSaved" class="alert alert-success mt-3" role="alert">
+    Exam saved successfully!
+  </div>
+
+
+</div>
