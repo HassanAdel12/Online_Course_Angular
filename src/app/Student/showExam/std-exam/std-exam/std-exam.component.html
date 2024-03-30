@@ -31,18 +31,17 @@
                         @for (Choise of Question.choises; track Choise.choise_ID) {
                         <li class="mt-2">
 
-                            @if (Choise.isCorrect) {
+                            <!-- @if (Choise.isCorrect) { -->
                             <input class="ms-2" name="{{Question.question_ID}}" id="q"
-                            (change)="onChange(Question.question_ID,Choise.isCorrect)" type="radio">
+                                (change)="onChange(Question.question_ID,Choise.isCorrect)" type="radio">
 
-                            <label for="q"> {{Choise.text}}  </label>
-                        }
-                        @else {
-                            <input class="ms-2" name="{{Question.question_ID}}" id="q"
-                              type="radio">
+                            <label for="q"> {{Choise.text}} </label>
+                            <!-- }
+                            @else {
+                            <input class="ms-2" name="{{Question.question_ID}}" id="q" type="radio">
 
-                            <label for="q"> {{Choise.text}}  </label>
-                        }
+                            <label for="q"> {{Choise.text}} </label>
+                            } -->
                         </li>
                         }
                     </ul>
