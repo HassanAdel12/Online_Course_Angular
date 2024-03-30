@@ -13,7 +13,8 @@ import { CoursesComponent } from "./Student/courseselected/courses/courses.compo
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [HeaderComponent, FooterComponent, RouterOutlet, choosegradeComponent, CourseselectedComponent, ExamPageComponent, MainComponent, CoursesComponent]
+  
+  providers: [HeaderComponent, FooterComponent, RouterOutlet, choosegradeComponent, CourseselectedComponent, ExamPageComponent, MainComponent, CoursesComponent],
 })
 export class AppComponent {
   title: any;

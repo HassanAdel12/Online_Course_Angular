@@ -7,7 +7,7 @@ import { ActivatedRoute, Router, RouterLink, RouterModule } from '@angular/route
 import { GroupService } from '../../../../Service/group.service';
 import { MainComponent } from '../main/main.component';
 import { MainUComponent } from '../main-u/main-u.component';
-import { NgxStarRatingModule } from 'ngx-star-rating';
+//import { NgxStarRatingModule } from 'ngx-star-rating';
 import { FormBuilder, FormGroup, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -17,14 +17,14 @@ import { CommonModule } from '@angular/common';
   selector: 'app-courseselected',
   standalone: true,
   imports: [
-    MainComponent,
-    MainUComponent,
-    HttpClientModule,
-    RouterLink,
-    RouterModule,
-    NgxStarRatingModule,
-    FormsModule,
-    CommonModule
+   // MainComponent,
+   // MainUComponent,
+   // HttpClientModule,
+   // RouterLink,
+  //  RouterModule,
+  //  NgxStarRatingModule,
+    //FormsModule,
+   // CommonModule
 
   ],
   providers: [GroupService],
