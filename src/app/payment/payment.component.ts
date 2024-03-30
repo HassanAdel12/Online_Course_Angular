@@ -26,7 +26,7 @@ export class PaymentComponent {
             purchase_units: [
               {
                 amount: {
-                  value: '1000.00',
+                  value: '100.00',
                 },
               },
             ],
