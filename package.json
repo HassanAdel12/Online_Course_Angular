@@ -20,11 +20,11 @@
     "@angular/router": "^17.2.0",
     "aos": "^2.3.4",
     "bootstrap": "^5.3.3",
-<<<<<<< Updated upstream
+
     "install": "^0.13.0",
-=======
+
     "ngx-star-rating": "^2.1.0",
->>>>>>> Stashed changes
+
     "node-module": "^2.0.0",
     "paypal-checkout": "^4.0.342",
     "rxjs": "~7.8.0",
