@@ -47,6 +47,7 @@ export class StdExamComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    
     this.QuizService.getQuizByID(this.examid).subscribe({
       next: (data) => {
         this.quiz = data;

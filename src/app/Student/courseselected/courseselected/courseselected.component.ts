@@ -17,14 +17,17 @@ import { CommonModule } from '@angular/common';
   selector: 'app-courseselected',
   standalone: true,
   imports: [
-   // MainComponent,
-   // MainUComponent,
-   // HttpClientModule,
-   // RouterLink,
-  //  RouterModule,
-  //  NgxStarRatingModule,
-    //FormsModule,
-   // CommonModule
+    MainComponent,
+    MainUComponent,
+    HttpClientModule,
+    RouterLink,
+    RouterModule,
+   // NgxStarRatingModule,
+    FormsModule,
+    CommonModule,
+
+  
+
 
   ],
   providers: [GroupService],
