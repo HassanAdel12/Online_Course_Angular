@@ -21,11 +21,11 @@ export class MainUComponent {
   Sessions :any;
 
   constructor(private GroupService:GroupService ,private SessionService:SessionService ,
-    private router: Router){ 
+    private router: Router){
 
  }
 
-  
+
 
  ngOnInit(): void {
 

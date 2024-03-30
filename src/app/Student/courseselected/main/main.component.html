@@ -1,13 +1,13 @@
 <!-- <div>
     <div class="container mb-4" id="header"  >
-        
-        
+
+
             <nav aria-label="Breadcrumbs">
             <ul >
                 <li >
                 <a aria-label="Home"  href="/">
-                    <span >   
-                         <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="24px" height="24px">   
+                    <span >
+                         <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="24px" height="24px">
                              <path d="M 12 2.0996094 L 1 12 L 4 12 L 4 21 L 10 21 L 10 14 L 14 14 L 14 21 L 20 21 L 20 12 L 23 12 L 12 2.0996094 z"/>
                             </svg>
                             <span class="ms-4"></span>
@@ -17,39 +17,39 @@
     </li>
     <li  aria-current="page">
        </li></ul></nav>
-        
-        
-    
-    
+
+
+
+
          <h1 class=" ms-4" data-test-id="Group-unit-title"> </h1></div>
-    
-    
-       
-    
+
+
+
+
     <div id="c" class="container "><span >session start time - session end time  </span><a class="btn btn-danger " role="button" ><span  >Go To Session</span></a>
     </div>
-    
+
     <div class="m-4 p-2 d-flex flex-row justify-content-between" style="text-align: center;">
-      
+
         <div id="video" class="m-auto">
             <h1 class="m-2">{{Group.name}}</h1>
             <video src="{{Group.path}}" class="col-lg-12 col-md-6 col-sm-4" height="700px" controls>
-              
-              
-                
+
+
+
               </video>
-    
-    
-    
+
+
+
         </div>
     </div>
-    
-      
-         
+
+
+
     </div>
      -->
 
-
+<!--
 <div>
     <div class="container  m-4" id="header">
 
@@ -85,14 +85,23 @@
             <p>
                 {{Instructor.address}},{{Instructor.city}},{{Instructor.country}}
             </p>
-            <!-- <p>
+            <p>
                 {{Group.instructor.city}}
 
             </p>
             <p>
                 {{Group.instructor.phone}}
             </p> -->
-        </div>
+        <!-- </div>
 
     </div>
-</div>
+</div> -->
+
+
+<aside class="sidebar">
+  <ul>
+    <li><a routerLink="/courseselected/main-u">content-1</a></li>
+    <li><a routerLink="/courseselected/#">content-2</a></li>
+    <li><a routerLink="/#/#">content-3</a></li>
+  </ul>
+</aside>

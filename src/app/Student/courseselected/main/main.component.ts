@@ -10,11 +10,12 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Component, Input } from '@angular/core';
 import { GroupService } from '../../../../Service/group.service';
 import { InstructorService } from '../../../../Service/instructor.service';
+import { CoursesComponent } from '../courses/courses.component';
 
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [RouterLink, HttpClientModule, CommonModule, FormsModule],
+  imports: [RouterLink, HttpClientModule, CommonModule, FormsModule, CoursesComponent],
   providers: [GroupService,InstructorService],
   templateUrl: './main.component.html',
   styleUrl: './main.component.css',
@@ -24,7 +25,7 @@ export class MainComponent {
   id = 0;
   Group : any;
   Instructor : any
-  
+
 
   constructor(private router: Router, private Actived: ActivatedRoute ,
      private GroupService : GroupService ,  private InstructorService : InstructorService  ) {  }
@@ -53,7 +54,7 @@ export class MainComponent {
         this.router.navigate(['/Error',{errormessage : err.message as string}]);
       }
     })
-    
+
    }
 
   // constructor(

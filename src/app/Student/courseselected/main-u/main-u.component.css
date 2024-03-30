@@ -1,5 +1,5 @@
-#a{
-   
+/* #a{
+
     -webkit-font-smoothing: inherit ;
     cursor: pointer ;
     text-align: left ;
@@ -31,20 +31,20 @@
     border-bottom:  1px solid rgb(209, 209, 209);
     }
     #b{
-       
+
         -webkit-font-smoothing: inherit ;
         cursor: pointer ;
         color: #21242c ;
         text-align: left ;
-        
+
         font: inherit;
         vertical-align: baseline;
         -webkit-box-direction: normal ;
         -webkit-box-orient: horizontal;
         -webkit-box-align: stretch ;
         align-items: stretch ;
-       
-    
+
+
         box-sizing: border-box ;
         display: flex ;
         margin: 0px ;
@@ -55,11 +55,11 @@
         flex: 1 ;
         padding: 16px ;
         position: relative ;
-      
+
         text-decoration: none;
         border-bottom:  1px solid rgb(209, 209, 209);
     }
-    
+
     #a,#b:hover{
         background-color:white;
         box-shadow: inset 4px 0 #f24b18 ;
@@ -76,7 +76,7 @@
     }
 =======
     position: relative ;
-  
+
     text-decoration: none;
     border-bottom:  1px solid rgb(209, 209, 209);
 }
@@ -96,3 +96,4 @@
     color: rgb(71, 71, 71);
 }
 >>>>>>> eb2f1d6c64c92adf45258da95a56dc16adfe388e
+ */

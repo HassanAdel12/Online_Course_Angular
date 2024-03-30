@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './Home/home/home.component';
@@ -28,7 +28,10 @@ import { InstructordatatwoComponent } from './Instructor/Profile/instructor-data
 import { InstructorDateHeaderComponent } from './Instructor/Profile/instructor-data/instructor-date-header/instructor-date-header.component';
 import { SendComponent } from './Student/showExam/std-exam/send/send.component';
 import { PaymentComponent } from './payment/payment.component';
-import { CreatesessionComponent } from './Instructor/createsession/createsession.component';
+import { CoursesComponent } from './Student/courseselected/courses/courses.component';
+import { MainComponent } from './Student/courseselected/main/main.component';
+import { NgModule } from '@angular/core';
+import { MainUComponent } from './Student/courseselected/main-u/main-u.component';
 //import { StdExamComponent } from './Student/showExam/std-exam/std-exam.component';
 
 export const routes: Routes = [
@@ -40,8 +43,12 @@ export const routes: Routes = [
 
     {path:"choocegrade",component:choosegradeComponent},
     {path:"chooseinstructor/:id",component:ChooseinstructorComponent},
-    {path:"courseselected/:id",component:CourseselectedComponent},
+    ///:id
+    {path:"courseselected",component:CourseselectedComponent},
+    {path:"courses", component:CoursesComponent},
+    {path:"main", component:MainComponent},
     {path:"Exam/:id",component:ExamPageComponent},
+
     {path:"StdExam/:id",component:StdExamComponent},
     {path:"SesstionAndVidos/:id",component:SesstionAndVidosComponent},
     {path:"Send/:id",component:SendComponent},
@@ -57,8 +64,18 @@ export const routes: Routes = [
     {path:"createGroup",component:AddGroupComponent , outlet:'dashboardMain'},
     {path:"First",component:DashBoardGradeOneComponent},
     {path:"Payment",component:PaymentComponent},
-    {path:"Createsession",component:CreatesessionComponent , outlet:'dashboardMain'},
-
-    {path:"**",component:ErrorComponent}
+    // For Sidebare 
+    { path: 'courseselected', component: CourseselectedComponent, children: [
+      { path: 'main-u', component:  MainUComponent},
+      { path: '', redirectTo: 'home', pathMatch: 'full' }
+    ]}
 
 ];
+
+    // {path:"**",component:ErrorComponent}
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
