@@ -1,4 +1,4 @@
-<header style="height: 150px;">
+<!--<header style="height: 150px;">
   <h1 style="text-align: center; margin-top: 30px; font-size: 50px;">
     CREATING SESSION</h1>
   <img src="assets/images/live.png" style="margin-top:-220px ;margin-left:800px">
@@ -13,24 +13,81 @@
     <input type="text" id="url" name="url" [(ngModel)]="url" required>
 
     <label for="category">Category:</label>
-    <!-- <div class="dropdown">
+     <div class="dropdown">
             <button class="dropbtn" style="margin:10px">choose group</button>
             
             <div class="dropdown-content">
               <a *ngFor="let g of grade" href="#">{{g.gradename}}</a>
              
             </div>
-          </div> -->
-    <br>
-    @for (group of groups; track group.id) {
-    <input class="form-check-input" type="radio" id="{{group.group_ID}}" (change)="onchange(group.group_ID)"
-      name="{{group}}">
-    <label class="form-check-label ms-2" for="{{group.group_ID}}">{{group.groupName}}</label>
-    <br><br>
-    }
+          </div> 
+    
+  
 
 
 
   </form>
   <button (click)="submitForm()" style="margin-left:140px; margin-top: 5px; width: 250px; height: 70px;">Submit</button>
-</div>
+</div>-->
+
+<div class="container" id="container">
+  <div id="header">
+  <h1>ADD SESSION</h1>
+  </div>
+  <div id="body" class=" mt-4">
+      <form [formGroup]="myform" (ngSubmit)="submitForm()" class="needs-validation" novalidate>
+          <div class="mb-3">
+              <label for="GroupName" class="form-label">Name</label>
+              <input type="text" class="form-control" name="Name" formControlName="Name" id="Name" placeholder=" Name" required>
+              <div class="invalid-feedback">
+                   name is required.
+              </div>
+          </div>
+  
+          <div class="mb-3">
+            <label for="GroupName" class="form-label">URL</label>
+            <input type="text" class="form-control" name="URL" formControlName="URL" id="URL" placeholder=" URL" required>
+            <div class="invalid-feedback">
+              URL is required.
+            </div>
+        </div>
+          
+       
+          <div class="mb-3">
+              <label class="form-label">Creation Date</label>
+              
+                  <input
+                  type="date"
+                      class="form-control"
+                      placeholder="yyyy-mm-dd"
+                      name="CreationDate"
+                      formControlName="CreationDate"
+                      ngModel="CreationDate"
+      
+                  />
+               
+              </div>
+              <div class="mb-3">
+                  <label class="form-label">End Date</label>
+                  
+                      <input
+                      type="date"
+                          class="form-control"
+                          placeholder="yyyy-mm-dd"
+                          name="EndDate"
+                          formControlName="EndDate"
+                          ngModel="EndDate"
+          
+                      />
+                   
+                  </div>
+                  @for (group of groups; track group.id) {
+                    <input class="form-check-input" type="radio" id="{{group.group_ID}}" (change)="onchange(group.group_ID)"
+                      name="{{group}}">
+                    <label class="form-check-label ms-2" for="{{group.group_ID}}">{{group.groupName}}</label>
+                    <br><br>
+                    }
+
+                  <button type="submit" class="btn btn-danger  " > Submit</button>
+      </form>
+  </div>

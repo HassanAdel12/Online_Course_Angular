@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { GradeService } from '../../../Service/grade.service';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { GroupService } from '../../../Service/group.service';
 import { SessionService } from '../../../Service/session.service';
 
 @Component({
   selector: 'app-createsession',
   standalone: true,
-  imports: [CommonModule,FormsModule],
+  imports: [CommonModule,FormsModule,ReactiveFormsModule],
   providers: [GroupService,SessionService],
   templateUrl: './createsession.component.html',
   styleUrl: './createsession.component.css'
@@ -16,14 +16,26 @@ import { SessionService } from '../../../Service/session.service';
 
 export class CreatesessionComponent implements OnInit{
 
+
   groups:any; 
   instructor_ID = 1;
-  group_ID : any;
+  group_ID =1;
   Name : any;
   url : any;
   constructor(private readonly GroupService : GroupService ,
     private readonly SessionService : SessionService){}
   
+
+    myform = new FormGroup ({
+      Name: new FormControl(null,[Validators.min(3),Validators.max(50),Validators.required]),
+      URL: new FormControl(null,[Validators.required]),
+      
+      EndDate:new FormControl(null,Validators.required)
+      
+  
+  
+    })
+
   ngOnInit(): void {
 
     // this.QuizService.getAllQuizs().subscribe({
@@ -54,13 +66,13 @@ export class CreatesessionComponent implements OnInit{
   submitForm() {
     
     const formData = {
-      sessionName: this.Name,
+      sessionName: this.myform.value.Name,
       rate: 0,
       start_Date: Date.now,
-      end_at: Date.now,
+      end_at: this.myform.value.EndDate,
       instructor_ID: this.instructor_ID,
       group_ID: this.group_ID,
-      Url: this.url
+      Url: this.myform.value.URL
     };
 
     this.SessionService.AddNewSession(formData).subscribe({
@@ -84,5 +96,16 @@ export class CreatesessionComponent implements OnInit{
     });
     //console.log('Form submitted');
   }
-
+  get sessionNamevalid()
+  {
+    return this.myform.controls["Name"].valid;
+  }
+  get Urlvalid()
+  {
+    return this.myform.controls["URL"].valid;
+  }
+  get EndDate()
+  {
+    return this.myform.controls["EndDate"].valid;
+  }
 }

@@ -20,14 +20,13 @@ import { CoursesComponent } from "./Student/courseselected/courses/courses.compo
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent, RouterOutlet],
+  imports: [HeaderComponent, FooterComponent, RouterOutlet, choosegradeComponent, CourseselectedComponent, ExamPageComponent, MainComponent, CoursesComponent],
   templateUrl: './app.component.html',
 
   styleUrls: ['./app.component.css'],
   
-  providers: [HeaderComponent, FooterComponent, RouterOutlet, choosegradeComponent, CourseselectedComponent, ExamPageComponent, MainComponent, CoursesComponent],
 
-  //styleUrl: './app.component.css'
+ 
 
 })
 export class AppComponent {

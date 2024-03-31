@@ -1,0 +1,33 @@
+
+#container
+{
+    padding: 20px 10px;
+    margin: auto auto;
+    border: 1px solid white;
+    border-radius: 15px;
+    background-color: gold;
+    margin: 20px auto;
+}
+
+#header
+{
+    
+
+    color: #000000;
+    text-align: center;
+    
+   
+}
+#body
+{
+    padding: 20px 30px;
+    border-radius: 15px;
+background-color: #fff;
+}
+button
+{
+    display: flex;
+    justify-content: center;
+    margin: auto ;
+    padding: 10px 40px;
+}
