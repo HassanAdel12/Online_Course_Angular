@@ -83,25 +83,11 @@ export const routes: Routes = [
     {path:"createExam",component:CreateexamComponent , outlet:'dashboardMain'},
     {path:"createGroup",component:AddGroupComponent },
     {path:"First",component:DashBoardGradeOneComponent},
-<<<<<<< HEAD
     {path:"Payment",component:PaymentComponent},
     
    
 
     {path:"**",component:ErrorComponent}
-=======
-    {path:"Payment/:id",component:PaymentComponent},
-
-
-
-    {path:"**",component:ErrorComponent},
-
-
-    { path: 'courseselected', component: CourseselectedComponent, children: [ //canActivate:[studentGuard]
-      { path: 'main-u', component:  MainUComponent},
-      { path: '', redirectTo: 'home', pathMatch: 'full' }
-    ]}
->>>>>>> 3ed754b6642800819259a76f452590bf686ab54f
 
 ];
 
