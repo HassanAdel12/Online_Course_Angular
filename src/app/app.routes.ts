@@ -32,6 +32,7 @@ import { CoursesComponent } from './Student/courseselected/courses/courses.compo
 import { MainComponent } from './Student/courseselected/main/main.component';
 import { NgModule } from '@angular/core';
 import { MainUComponent } from './Student/courseselected/main-u/main-u.component';
+import { MygroupsComponent } from './mygroups/mygroups.component';
 //import { StdExamComponent } from './Student/showExam/std-exam/std-exam.component';
 
 export const routes: Routes = [
@@ -60,6 +61,8 @@ export const routes: Routes = [
     {path:"step2",component:InstructordatatwoComponent},
     {path:"step3",component:TermsAndAdvicesComponent},
     {path:"MYGroup",component:InstgroupsComponent},
+    {path:"mygroups",component:MygroupsComponent},
+
     {path:"createExam",component:CreateexamComponent , outlet:'dashboardMain'},
     {path:"createGroup",component:AddGroupComponent , outlet:'dashboardMain'},
     {path:"First",component:DashBoardGradeOneComponent},
