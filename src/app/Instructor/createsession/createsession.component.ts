@@ -19,7 +19,7 @@ export class CreatesessionComponent implements OnInit{
 
   groups:any; 
   instructor_ID = 1;
-  group_ID : any;
+  group_ID =1;
   Name : any;
   url : any;
   constructor(private readonly GroupService : GroupService ,
@@ -28,7 +28,7 @@ export class CreatesessionComponent implements OnInit{
 
     myform = new FormGroup ({
       Name: new FormControl(null,[Validators.min(3),Validators.max(50),Validators.required]),
-      URL: new FormControl(null,[Validators.min(1),Validators.max(100),Validators.required]),
+      URL: new FormControl(null,[Validators.required]),
       
       EndDate:new FormControl(null,Validators.required)
       
@@ -66,7 +66,7 @@ export class CreatesessionComponent implements OnInit{
   submitForm() {
     
     const formData = {
-      sessionName: this.Name,
+      sessionName: this.myform.value.Name,
       rate: 0,
       start_Date: Date.now,
       end_at: this.myform.value.EndDate,
@@ -96,5 +96,16 @@ export class CreatesessionComponent implements OnInit{
     });
     //console.log('Form submitted');
   }
-
+  get sessionNamevalid()
+  {
+    return this.myform.controls["Name"].valid;
+  }
+  get Urlvalid()
+  {
+    return this.myform.controls["URL"].valid;
+  }
+  get EndDate()
+  {
+    return this.myform.controls["EndDate"].valid;
+  }
 }
