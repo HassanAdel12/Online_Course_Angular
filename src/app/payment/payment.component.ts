@@ -30,13 +30,17 @@ export class PaymentComponent {
   constructor(private route: ActivatedRoute,private readonly groupservice:GroupService,private readonly studentgroup:StudentGroupService, private router: Router) {}
   ngOnInit(): void {
     const groupID = 1
-    // this.route.snapshot.paramMap.get('id');
+    //  this.route.snapshot.paramMap.get('id');
     this.object={}
     this.groupservice.getGroupByID(groupID).subscribe(
       (data) => {
       
         this.object=data
-      
+        // this.object.num_Students ++;
+        // const storedNumStudents = localStorage.getItem('num_Students');
+        // if (storedNumStudents) {
+        //     this.object.num_Students = parseInt(storedNumStudents);
+        // }
         this.initPayPal();
       })
   }
@@ -60,9 +64,12 @@ export class PaymentComponent {
 
 updateUser() {
 
-  this.object.num_Students ++;
-  this.groupservice.updateGroup(this.groupID, this.object).subscribe(
+  this.object.num_Students++;
+  // localStorage.setItem('num_Students', this.object.num_Students.toString());
+ 
+  this.groupservice.updateGroup(this.object.group_ID, this.object).subscribe(
     (data) => {
+    
       this.router.navigate(['/choocegrade']);
       console.log("Updated ");
     },
@@ -79,9 +86,13 @@ updateUser() {
     enroll_Date: new Date()
 
   };
+ 
   this.studentgroup.AddNewStudentgroup(newStudentGroup).subscribe(
     (response) => {
       console.log('added', response);
+      // this.object.num_Students ++;
+      this.router.navigate(['/courseselected']);
+
     },
     (error) => {
       console.error('Error ', error);
@@ -108,7 +119,9 @@ updateUser() {
        
           return actions.order.capture().then((details: any) => {
             console.log( details);
+            // this.object.num_Students ++;
             this.updateUser();
+       
             this.addnewStudentGroup();
             
           });
