@@ -83,7 +83,7 @@ export const routes: Routes = [
     {path:"createExam",component:CreateexamComponent , outlet:'dashboardMain'},
     {path:"createGroup",component:AddGroupComponent },
     {path:"First",component:DashBoardGradeOneComponent},
-    {path:"Payment",component:PaymentComponent},
+    {path:"Payment/:id",component:PaymentComponent},
 
 
 
