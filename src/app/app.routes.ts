@@ -82,6 +82,8 @@ export const routes: Routes = [
     {path:"createExam",component:CreateexamComponent , outlet:'dashboardMain'},
     {path:"createGroup",component:AddGroupComponent },
     {path:"First",component:DashBoardGradeOneComponent},
+
+    
     
    
 

@@ -20,7 +20,7 @@ export class GroupService {
 
   getGroupByCourseIDStudent(id:any , studentid:any){
       
-    return this.myClient.get("http://localhost:48190/api/AllGroups/Course/"+id+"/"+studentid);
+    return this.myClient.get("http://localhost:48190/api/AllGroups/StudentGroups/"+id+"/"+studentid);
   }
 
   getGroupByCourseID(id:any){

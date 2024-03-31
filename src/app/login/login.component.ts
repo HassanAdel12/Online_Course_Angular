@@ -37,13 +37,18 @@ export class LoginComponent {
          
           localStorage.setItem('DataUser', JSON.stringify(DataUser));
           
+          setTimeout(() => {
+            window.location.reload();
+          },100)
+
           if (DataUser.roles == 'Instructor') {
             this.router.navigate(['/Instructordashboard']);
           } else if ( DataUser.roles == 'Student') {
             this.router.navigate(['/mygroups']);
           }
 
-          //window.location.reload();
+          
+          
 
         },
         error: (err) => {

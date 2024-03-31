@@ -52,8 +52,10 @@ export class HeaderComponent {
 
     if (this.DataUser.roles == 'Instructor') {
       this.isInstructor = true;
+      this.isStudent = false;
     } else if (this.DataUser.roles == 'Student') {
       this.isStudent = true;
+      this.isInstructor = false;
     }
 
 

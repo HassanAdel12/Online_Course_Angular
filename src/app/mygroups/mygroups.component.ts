@@ -15,6 +15,7 @@ import { AccountService } from '../../Service/Account.service';
   styleUrl: './mygroups.component.css',
 })
 export class MygroupsComponent implements OnInit {
+  
   studentId: any;
   courseGroups: any;
   // Define the property to hold the static data
@@ -25,10 +26,11 @@ export class MygroupsComponent implements OnInit {
     private AccountService: AccountService
   ) {
 
-    
+    //window.location.reload();
 
   }
 
+  
   // ngOnInit(): void {
     
   //   this.AccountService.GetID().subscribe({
@@ -61,6 +63,7 @@ export class MygroupsComponent implements OnInit {
   // }
 
   async ngOnInit(): Promise<void> {
+    
     try {
       const studentId = await this.getAccountID();
       this.studentId = studentId;
@@ -85,7 +88,6 @@ export class MygroupsComponent implements OnInit {
   
   private handleError(err: any): void {
     this.router.navigate(['/Error', { errormessage: err.message as string }]);
-    console.error('Error fetching groups:', err);
   }
 
   onchange(){
@@ -105,12 +107,14 @@ export class MygroupsComponent implements OnInit {
     this.router.navigateByUrl('/choocegrade');
   }
 
-  takeQuiz(Group_ID: number): void {
+  takeQuiz(Group_ID: any): void {
     this.router.navigate(['/Exam/' + Group_ID]);
+    console.log(Group_ID)
   }
 
-  viewSession(Group_ID: number): void {
+  viewSession(Group_ID: any): void {
     this.router.navigate(['/courseselected/' + Group_ID]);
+    console.log(Group_ID)
   }
 
   // Initialize the static data

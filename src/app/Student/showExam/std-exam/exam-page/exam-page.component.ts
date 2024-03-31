@@ -29,4 +29,5 @@ export class ExamPageComponent {
   constructor(private router: Router, private Actived: ActivatedRoute) {
     this.Groupid = this.Actived.snapshot.params['id'];
   }
+  
 }

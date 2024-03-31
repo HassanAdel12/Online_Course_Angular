@@ -23,16 +23,10 @@ declare var paypal: {
   styleUrl: './payment.component.css',
 })
 export class PaymentComponent {
-
-  
-  
-  
-  studentid: any;
-  //student: any;
-  //price: number = 0;
+  studentId: any;
   groupID: any;
   group: any;
-  
+
   constructor(
     private route: ActivatedRoute,
     private readonly groupservice: GroupService,
@@ -41,119 +35,46 @@ export class PaymentComponent {
     private readonly AccountService: AccountService
   ) {}
 
-  ngOnInit(): void {
-    
+  async ngOnInit(): Promise<void> {
     const groupID = this.route.snapshot.paramMap.get('id');
-    //this.object={}
 
-    this.AccountService.GetID().subscribe({
-      next:(data)=>{
-        this.studentid = data;
-      },
-      error:(err)=>{
-        this.router.navigate(['/Error',{errormessage : err.message as string}]);
-      }
-    })
+    console.log(this.studentId);
 
-    console.log(this.studentid)
-    
-    // this.AccountService.GetID().subscribe({
-    //   next: (data) => {
-    //     this.studentid = data;
-    //   },
-    //   error: (err) => {
-    //     this.router.navigate([
-    //       '/Error',
-    //       { errormessage: err.message as string },
-    //     ]);
-    //   });
-
-    
+    const studentId = await this.getAccountID();
+    this.studentId = studentId;
 
     this.groupservice.getGroupByID(groupID).subscribe((data) => {
       this.group = data;
 
       this.initPayPal();
     });
+  }
 
-
-}
-  
-// =======
-//   this.object.num_Students++ ;
-//   this.groupservice.updateGroup(this.groupID, this.object).subscribe(
-//     (data) => {
-    
-//       this.router.navigate(['/choocegrade']);
-//       console.log("Updated ");
-//     },
-//     (error) => {
-//       console.log("Error", error);
-//     }
-//   );
-// }
-//  addnewStudentGroup(){
-//   const newStudentGroup = {
-//     student_ID: 1,
-//     group_ID: 1,
-//     enroll_Date: new Date()
-    
-
-//   };
- 
-//   this.studentgroup.AddNewStudentgroup(newStudentGroup).subscribe(
-//     (response) => {
-//       console.log('added', response);
-//       // this.object.num_Students ++;
-//       this.router.navigate(['/courseselected']);
-
-//     },
-//     (error) => {
-//       console.error('Error ', error);
-
-//     }
-//   );
-// >>>>>>> 1ca57f66ac9129de7fe1c4878e1484285512129b
-
-//   }
-  //   updateUser() {
-
-  //     // const groupid = this.object.groupID;
-  // this.object.num_Students ++;
-
-  //     this.groupservice.updateGroup(this.object.groupID, this.object).subscribe(
-  //       (data) => {
-
-  //         // this.object.numOfStudents ++;
-  //          this.router.navigate(['/choocegrade']);
-  //          console.log("update fun ");
-  //       },
-  //       (error) => {
-  //         console.log(error);
-  //       }
-  //     );
-  // }
+  private async getAccountID(): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.AccountService.GetID().subscribe({
+        next: (data) => resolve(data),
+        error: (err) => reject(err),
+      });
+    });
+  }
 
   updateUser() {
-
     this.group.num_Students++;
 
     this.groupservice.updateGroup(this.group.group_ID, this.group).subscribe(
       (data) => {
-        
         console.log('Updated ');
       },
       (error) => {
         console.log('Error', error);
       }
     );
-
   }
 
   addnewStudentGroup() {
-
     const newStudentGroup = {
-      student_ID: this.studentid,
+      student_ID: this.studentId,
       group_ID: this.group.group_ID,
       enroll_Date: new Date(),
     };
@@ -161,14 +82,12 @@ export class PaymentComponent {
     this.studentgroup.AddNewStudentgroup(newStudentGroup).subscribe(
       (response) => {
         console.log('added', response);
-        this.router.navigate(['/courseselected/'+this.group.group_ID]);
+        this.router.navigate(['/courseselected/' + this.group.group_ID]);
       },
       (error) => {
         console.error('Error ', error);
-
       }
     );
-    
   }
 
   initPayPal(): void {
@@ -188,14 +107,10 @@ export class PaymentComponent {
 
         onApprove: (data, actions) => {
           return actions.order.capture().then((details: any) => {
-            
             //console.log(details);
             this.updateUser();
-       
+
             this.addnewStudentGroup();
-
-            
-
           });
         },
         onError: (err) => {

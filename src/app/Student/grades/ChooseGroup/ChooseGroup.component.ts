@@ -52,20 +52,22 @@ export class ChooseinstructorComponent {
   ) {
     this.id = this.Actived.snapshot.params['id'];
 
-    this.AccountService.GetID().subscribe({
-      next: (data) => {
-        this.studentId = data;
-      },
-      error: (err) => {
-        this.router.navigate([
-          '/Error',
-          { errormessage: err.message as string },
-        ]);
-      },
+    
+  }
+
+  private async getAccountID(): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.AccountService.GetID().subscribe({
+        next: (data) => resolve(data),
+        error: (err) => reject(err)
+      });
     });
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    const studentId = await this.getAccountID();
+      this.studentId = studentId;
+      
     this.CourseService.getCourseByID(this.id).subscribe({
       next: (data) => {
         this.course = data;
@@ -78,8 +80,9 @@ export class ChooseinstructorComponent {
       },
     });
 
-    this.GroupService.getGroupByCourseID(
-      this.id
+    this.GroupService.getGroupByCourseIDStudent(
+      this.id,
+      this.studentId
     ).subscribe({
       next: (data) => {
         this.groups = data;
