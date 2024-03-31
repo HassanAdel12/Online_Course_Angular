@@ -49,10 +49,10 @@ export const routes: Routes = [
     {path:"choocegrade",component:choosegradeComponent},//canActivate:[studentGuard]
     {path:"chooseinstructor/:id",component:ChooseinstructorComponent},//canActivate:[studentGuard]
     ///:id
-    {path:"courseselected",component:CourseselectedComponent},//canActivate:[studentGuard]
-    {path:"courses", component:CoursesComponent},//canActivate:[studentGuard]
-    {path:"main", component:MainComponent},//canActivate:[studentGuard]
-    {path:"Exam/:id",component:ExamPageComponent},//canActivate:[studentGuard]
+    {path:"courseselected/:id",component:CourseselectedComponent},
+    {path:"courses", component:CoursesComponent},
+    {path:"main", component:MainComponent},
+    {path:"Exam/:id",component:ExamPageComponent},
 
     {path:"StdExam/:id",component:StdExamComponent},//canActivate:[studentGuard]
     {path:"SesstionAndVidos/:id",component:SesstionAndVidosComponent},//canActivate:[studentGuard]
@@ -93,7 +93,6 @@ export const routes: Routes = [
       { path: 'main-u', component:  MainUComponent},
       { path: '', redirectTo: 'home', pathMatch: 'full' }
     ]}
-
 
 ];
 

@@ -33,7 +33,7 @@ export class MygroupsComponent  {
       {
         Group_ID: 1,
         GroupName: 'Group 1',
-        Course_ID: 101,
+        Course_ID: 1,
         courseName: 'Course A',
         Instructor_ID: 201,
         InstructorName: 'Instructor X',
