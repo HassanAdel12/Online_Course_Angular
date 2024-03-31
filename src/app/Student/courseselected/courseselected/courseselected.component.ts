@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -7,7 +6,7 @@ import { ActivatedRoute, Router, RouterLink, RouterModule } from '@angular/route
 import { GroupService } from '../../../../Service/group.service';
 import { MainComponent } from '../main/main.component';
 import { MainUComponent } from '../main-u/main-u.component';
-//import { NgxStarRatingModule } from 'ngx-star-rating';
+import { NgxStarRatingModule } from 'ngx-star-rating';
 import { FormBuilder, FormGroup, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -22,7 +21,7 @@ import { CommonModule } from '@angular/common';
     HttpClientModule,
     RouterLink,
     RouterModule,
-    //NgxStarRatingModule,
+    NgxStarRatingModule,
     FormsModule,
     CommonModule
 
