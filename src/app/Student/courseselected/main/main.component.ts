@@ -40,20 +40,20 @@ export class MainComponent {
         this.Group = data;
       },
       error:(err)=>{
-        this.router.navigate(['/Error',{errormessage : err.message as string}]);
+        //this.router.navigate(['/Error',{errormessage : err.message as string}]);
       }
     })
 
     var instructor_ID = this.Group.instructor_ID;
 
-    this.InstructorService.getInstructorByID(instructor_ID).subscribe({
-      next:(data)=>{
-        this.Instructor = data;
-      },
-      error:(err)=>{
-        this.router.navigate(['/Error',{errormessage : err.message as string}]);
-      }
-    })
+    // this.InstructorService.getInstructorByID(instructor_ID).subscribe({
+    //   next:(data)=>{
+    //     this.Instructor = data;
+    //   },
+    //   error:(err)=>{
+    //     this.router.navigate(['/Error',{errormessage : err.message as string}]);
+    //   }
+    // })
 
    }
 
