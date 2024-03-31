@@ -3,9 +3,10 @@
 </header>
 <div style="min-height: 100%;">
     <div class="container">
-        <div class="box btn" *ngFor="let course of courses" routerLinkActive="active" routerLink="/chooseinstructor/{{course.course_ID}}">
+        <div class="box btn" *ngFor="let course of courses" 
+        routerLinkActive="active" routerLink="/chooseinstructor/{{course.course_ID}}">
             <h3 class="router-link" >{{course.name}}</h3>
-            <p style="color: red;" >{{course.description}}dddd ddddddd dddddddd ddddddd dddddddd</p>
+            <p style="color: red;" >{{course.description}} </p>
         </div>
     </div>
 </div>

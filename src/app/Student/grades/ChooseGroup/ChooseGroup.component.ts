@@ -1,24 +1,30 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ActivatedRoute, Router, RouterLink, RouterModule } from '@angular/router';
+import {
+  ActivatedRoute,
+  Router,
+  RouterLink,
+  RouterModule,
+} from '@angular/router';
 import { GradeService } from '../../../../Service/grade.service';
 import { GroupService } from '../../../../Service/group.service';
 import { CourseService } from '../../../../Service/course.service';
+import { AccountService } from '../../../../Service/Account.service';
 
 @Component({
   selector: 'app-chooseinstructor',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink,
-    RouterModule],
+  imports: [CommonModule, FormsModule, RouterLink, RouterModule],
+  providers: [AccountService],
   templateUrl: './ChooseGroup.component.html',
-  styleUrl: './ChooseGroup.component.css'
+  styleUrl: './ChooseGroup.component.css',
 })
 export class ChooseinstructorComponent {
-
-  id : any;
-  course :any;
-  groups:any;
+  id: any;
+  studentId: any;
+  course: any;
+  groups: any;
 
   // items: any[] = [
   //   {
@@ -37,34 +43,53 @@ export class ChooseinstructorComponent {
   //   }
   // ];
 
-  constructor(private GroupService:GroupService ,private CourseService:CourseService ,
-    private router: Router , private Actived : ActivatedRoute){ 
-   this.id = this.Actived.snapshot.params["id"];
- }
+  constructor(
+    private GroupService: GroupService,
+    private CourseService: CourseService,
+    private router: Router,
+    private Actived: ActivatedRoute,
+    private AccountService: AccountService
+  ) {
+    this.id = this.Actived.snapshot.params['id'];
 
-  
+    this.AccountService.GetID().subscribe({
+      next: (data) => {
+        this.studentId = data;
+      },
+      error: (err) => {
+        this.router.navigate([
+          '/Error',
+          { errormessage: err.message as string },
+        ]);
+      },
+    });
+  }
 
- ngOnInit(): void {
+  ngOnInit(): void {
+    this.CourseService.getCourseByID(this.id).subscribe({
+      next: (data) => {
+        this.course = data;
+      },
+      error: (err) => {
+        this.router.navigate([
+          '/Error',
+          { errormessage: err.message as string },
+        ]);
+      },
+    });
 
-  this.CourseService.getCourseByID(this.id).subscribe({
-    next:(data)=>{
-      this.course = data;
-    },
-    error:(err)=>{
-      this.router.navigate(['/Error',{errormessage : err.message as string}]);
-    }
-  })
-
-  this.GroupService.getGroupByCourseID(this.id).subscribe({
-    next:(data)=>{
-      this.groups = data;
-    },
-    error:(err)=>{
-      this.router.navigate(['/Error',{errormessage : err.message as string}]);
-    }
-  })
- }
-  
-
-
+    this.GroupService.getGroupByCourseID(
+      this.id
+    ).subscribe({
+      next: (data) => {
+        this.groups = data;
+      },
+      error: (err) => {
+        this.router.navigate([
+          '/Error',
+          { errormessage: err.message as string },
+        ]);
+      },
+    });
+  }
 }

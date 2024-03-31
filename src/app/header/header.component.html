@@ -43,7 +43,7 @@
   
           <li><a *ngIf="isLogin && isInstructor" class="dropdown-item" routerLink="/Instructordashboard">Instructor Dashboard</a></li>
   
-          <li><a  *ngIf="isLogin && isStudent" class="dropdown-item" routerLink="/choocegrade">Student Dashboard</a></li>
+          <li><a  *ngIf="isLogin && isStudent" class="dropdown-item" routerLink="/mygroups">Student Dashboard</a></li>
           <li><a  *ngIf="isLogin" class="dropdown-item" (click)="logout()">Log Out</a></li>
   
   
@@ -66,19 +66,7 @@
 
 
 
-  <!--<div class="d-flex align-items-center me-4">
-    @if(check){
-    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown"
-        aria-expanded="false">{{DataUser.email}}</a>
-      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-         @if (DataUser.) {
-          <li><a class="dropdown-item" routerLink="/Instructordashboard">Instructor Dashboard</a></li>
-        }
-        @else {
-          <li><a class="dropdown-item" routerLink="/choocegrade">Student Dashboard</a></li>
-        } 
-        <li><a class="dropdown-item" (click)="onLogout()">Log Out</a></li>
+  
 
   <div class="d-flex align-items-center me-4">
 
@@ -91,4 +79,4 @@
 
 
   </div>
-</nav>-->
+</nav>

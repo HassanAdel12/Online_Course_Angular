@@ -40,10 +40,10 @@ export class LoginComponent {
           if (DataUser.roles == 'Instructor') {
             this.router.navigate(['/Instructordashboard']);
           } else if ( DataUser.roles == 'Student') {
-            this.router.navigate(['/choocegrade']);
+            this.router.navigate(['/mygroups']);
           }
 
-
+          //window.location.reload();
 
         },
         error: (err) => {

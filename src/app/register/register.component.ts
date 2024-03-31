@@ -39,7 +39,9 @@ constructor(private fb: FormBuilder, private registrationService: JwtService,pri
 }
 
 onSubmit() {
-  this.show=true
+
+  this.show=true;
+
   if (this.registrationForm.valid) {
     this.registrationService.register(this.registrationForm.value).subscribe({
       next: (data) => {
@@ -53,7 +55,7 @@ onSubmit() {
           // } else if (userType === 'Instructor') {
           //   this.router.navigate(['/Dashboard']);
           // }
-          ;
+          console.log("dhjdghjgdjh")
           this.router.navigate(['/Login']);
       },
       error: (err) => {

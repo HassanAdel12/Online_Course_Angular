@@ -42,9 +42,21 @@ export class PaymentComponent {
   ) {}
 
   ngOnInit(): void {
+    
     const groupID = this.route.snapshot.paramMap.get('id');
     //this.object={}
 
+    this.AccountService.GetID().subscribe({
+      next:(data)=>{
+        this.studentid = data;
+      },
+      error:(err)=>{
+        this.router.navigate(['/Error',{errormessage : err.message as string}]);
+      }
+    })
+
+    console.log(this.studentid)
+    
     // this.AccountService.GetID().subscribe({
     //   next: (data) => {
     //     this.studentid = data;
@@ -63,6 +75,7 @@ export class PaymentComponent {
 
       this.initPayPal();
     });
+
 
 }
   
@@ -125,9 +138,9 @@ export class PaymentComponent {
 
     this.group.num_Students++;
 
-    this.groupservice.updateGroup(this.groupID, this.group).subscribe(
+    this.groupservice.updateGroup(this.group.group_ID, this.group).subscribe(
       (data) => {
-        //this.router.navigate(['/choocegrade']);
+        
         console.log('Updated ');
       },
       (error) => {
@@ -141,15 +154,18 @@ export class PaymentComponent {
 
     const newStudentGroup = {
       student_ID: this.studentid,
-      group_ID: 1,
+      group_ID: this.group.group_ID,
       enroll_Date: new Date(),
     };
+
     this.studentgroup.AddNewStudentgroup(newStudentGroup).subscribe(
       (response) => {
         console.log('added', response);
+        this.router.navigate(['/courseselected/'+this.group.group_ID]);
       },
       (error) => {
         console.error('Error ', error);
+
       }
     );
     
@@ -177,6 +193,8 @@ export class PaymentComponent {
             this.updateUser();
        
             this.addnewStudentGroup();
+
+            
 
           });
         },

@@ -48,7 +48,6 @@ export const routes: Routes = [
 
     {path:"choocegrade",component:choosegradeComponent},//canActivate:[studentGuard]
     {path:"chooseinstructor/:id",component:ChooseinstructorComponent},//canActivate:[studentGuard]
-    ///:id
     {path:"courseselected/:id",component:CourseselectedComponent},
     {path:"courses", component:CoursesComponent},
     {path:"main", component:MainComponent},
@@ -70,7 +69,7 @@ export const routes: Routes = [
     {path:"createGroup",component:AddGroupComponent},//canActivate:[instructorGuard]
     {path:"Createsession",component:CreatesessionComponent},//canActivate:[instructorGuard]
     {path:"First",component:DashBoardGradeOneComponent},//canActivate:[instructorGuard]
-    {path:"Payment",component:PaymentComponent},//canActivate:[studentGuard]
+    {path:"Payment/:id",component:PaymentComponent},//canActivate:[studentGuard]
     {path:"Instructordashboard",component : InstructordashboardComponent},
     {path:"profile",component:ProfileComponent},
     {path:"stepscreate",component:InstructorDateHeaderComponent},
@@ -83,7 +82,6 @@ export const routes: Routes = [
     {path:"createExam",component:CreateexamComponent , outlet:'dashboardMain'},
     {path:"createGroup",component:AddGroupComponent },
     {path:"First",component:DashBoardGradeOneComponent},
-    {path:"Payment",component:PaymentComponent},
     
    
 

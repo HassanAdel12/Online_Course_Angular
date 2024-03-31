@@ -32,7 +32,14 @@ export class AccountService {
       this.DataUser = JSON.parse(this.DataUser);
     }
 
-    return this.http.post( this.DB_url + "GetID", this.DataUser.userName , this.DataUser.roles );
+    var getid:any = {
+      username : this.DataUser.userName,
+      role : this.DataUser.roles
+    };
+
+    console.log (getid);
+
+    return this.http.post( this.DB_url + "GetID" , getid );
     
   }
   

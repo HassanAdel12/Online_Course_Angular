@@ -18,13 +18,20 @@ export class GroupService {
     return this.myClient.get(this.DB_URL+"/"+id);
   }
 
+  getGroupByCourseIDStudent(id:any , studentid:any){
+      
+    return this.myClient.get("http://localhost:48190/api/AllGroups/Course/"+id+"/"+studentid);
+  }
+
   getGroupByCourseID(id:any){
+      
     return this.myClient.get("http://localhost:48190/api/AllGroups/Course/"+id);
   }
 
   getGroupByInstructorID(id:any){
     return this.myClient.get("http://localhost:48190/api/AllGroups/Instructor/"+id);
   }
+
 
 
   getGroupBystudentID(id:any){
