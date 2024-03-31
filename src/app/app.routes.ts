@@ -32,6 +32,10 @@ import { CoursesComponent } from './Student/courseselected/courses/courses.compo
 import { MainComponent } from './Student/courseselected/main/main.component';
 import { NgModule } from '@angular/core';
 import { MainUComponent } from './Student/courseselected/main-u/main-u.component';
+
+import { CreatesessionComponent } from './Instructor/createsession/createsession.component';
+
+import { MygroupsComponent } from './mygroups/mygroups.component';
 //import { StdExamComponent } from './Student/showExam/std-exam/std-exam.component';
 
 export const routes: Routes = [
@@ -39,20 +43,34 @@ export const routes: Routes = [
     {path:"Home",component:HomeComponent},
     {path:"Login",component:LoginComponent},
     {path:"Register",component:RegisterComponent},
-    {path:"grade/:id",component:GradeComponent},
 
-    {path:"choocegrade",component:choosegradeComponent},
-    {path:"chooseinstructor/:id",component:ChooseinstructorComponent},
+    {path:"grade/:id",component:GradeComponent},//canActivate:[studentGuard]
+
+    {path:"choocegrade",component:choosegradeComponent},//canActivate:[studentGuard]
+    {path:"chooseinstructor/:id",component:ChooseinstructorComponent},//canActivate:[studentGuard]
     ///:id
-    {path:"courseselected",component:CourseselectedComponent},
+    {path:"courseselected/:id",component:CourseselectedComponent},
     {path:"courses", component:CoursesComponent},
     {path:"main", component:MainComponent},
     {path:"Exam/:id",component:ExamPageComponent},
 
-    {path:"StdExam/:id",component:StdExamComponent},
-    {path:"SesstionAndVidos/:id",component:SesstionAndVidosComponent},
-    {path:"Send/:id",component:SendComponent},
+    {path:"StdExam/:id",component:StdExamComponent},//canActivate:[studentGuard]
+    {path:"SesstionAndVidos/:id",component:SesstionAndVidosComponent},//canActivate:[studentGuard]
+    {path:"Send/:id",component:SendComponent},//canActivate:[studentGuard]
 
+
+    {path:"Instructordashboard",component : InstructordashboardComponent},//canActivate:[instructorGuard]
+    {path:"profile",component:ProfileComponent},//canActivate:[instructorGuard]
+    {path:"stepscreate",component:InstructorDateHeaderComponent},//canActivate:[instructorGuard]
+    {path:"step1",component:InstructorDataComponent},//canActivate:[instructorGuard]
+    {path:"step2",component:InstructordatatwoComponent},//canActivate:[instructorGuard]
+    {path:"step3",component:TermsAndAdvicesComponent},//canActivate:[instructorGuard]
+    {path:"MYGroup",component:InstgroupsComponent},//canActivate:[instructorGuard]
+    {path:"createExam",component:CreateexamComponent},//canActivate:[instructorGuard]
+    {path:"createGroup",component:AddGroupComponent},//canActivate:[instructorGuard]
+    {path:"Createsession",component:CreatesessionComponent},//canActivate:[instructorGuard]
+    {path:"First",component:DashBoardGradeOneComponent},//canActivate:[instructorGuard]
+    {path:"Payment",component:PaymentComponent},//canActivate:[studentGuard]
     {path:"Instructordashboard",component : InstructordashboardComponent},
     {path:"profile",component:ProfileComponent},
     {path:"stepscreate",component:InstructorDateHeaderComponent},
@@ -60,12 +78,18 @@ export const routes: Routes = [
     {path:"step2",component:InstructordatatwoComponent},
     {path:"step3",component:TermsAndAdvicesComponent},
     {path:"MYGroup",component:InstgroupsComponent},
+    {path:"mygroups",component:MygroupsComponent},
+
     {path:"createExam",component:CreateexamComponent , outlet:'dashboardMain'},
     {path:"createGroup",component:AddGroupComponent , outlet:'dashboardMain'},
     {path:"First",component:DashBoardGradeOneComponent},
     {path:"Payment",component:PaymentComponent},
+    
+   
+
+    {path:"**",component:ErrorComponent},
     // For Sidebare 
-    { path: 'courseselected', component: CourseselectedComponent, children: [
+    { path: 'courseselected', component: CourseselectedComponent, children: [ //canActivate:[studentGuard]
       { path: 'main-u', component:  MainUComponent},
       { path: '', redirectTo: 'home', pathMatch: 'full' }
     ]}
