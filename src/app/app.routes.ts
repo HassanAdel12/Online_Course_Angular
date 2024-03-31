@@ -81,7 +81,7 @@ export const routes: Routes = [
     {path:"mygroups",component:MygroupsComponent},
 
     {path:"createExam",component:CreateexamComponent , outlet:'dashboardMain'},
-    {path:"createGroup",component:AddGroupComponent , outlet:'dashboardMain'},
+    {path:"createGroup",component:AddGroupComponent },
     {path:"First",component:DashBoardGradeOneComponent},
     {path:"Payment",component:PaymentComponent},
     

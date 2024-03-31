@@ -1,37 +1,62 @@
-<div class="container">
-
-    <div class="jumbotron">
-        <h1 class="display-4">Create Group</h1>
-        <p>My teather Academy has world-class, standards-aligned content for K-14 Math, Science, History, AP®, SAT®, and
-            more.</p>
-        <hr class="my-4">
-    </div>
-    <form class="d-flex w-75 m-auto mt-4 mb-4" role="search">
-    </form>
-    <div class="w-75 m-auto" style="height: 575px;">
-        <div class="row">
-            <div class=" col-md-6 col-12 mt-4 ">
-                <div class="jumbotron">
-                    <h5 class="fs-4">Choose Grade</h5>
-                    <hr class="my-4 w-75">
-                    @for (Grade of Grades; track Grade.grade_ID) {
-                        <input class="form-check-input" type="radio" id="{{Grade.grade_ID}}" 
-                        (change)="onchange(Grade.grade_ID)" name = "{{Grade}}">
-                        <label class="form-check-label" for="{{Grade.grade_ID}}">{{Grade.grade_Name}}</label>
-                        <br><br>
-                    }
-                    
-                </div>
-            </div>
-            <div class=" col-md-5 col-12 mt-4 ">
-                @if (grade_ID != 0 ) {
-                    <app-dash-board-grade-one [grade_ID] ="grade_ID" ></app-dash-board-grade-one>
-                }
-                
+<div class="container" id="container">
+<div id="header">
+<h1>ADD GROUP</h1>
+</div>
+<div id="body" class=" mt-4">
+    <form [formGroup]="myform" (ngSubmit)="submit()" class="needs-validation" novalidate>
+        <div class="mb-3">
+            <label for="GroupName" class="form-label">Group Name</label>
+            <input type="text" class="form-control" name="GroupName" formControlName="GroupName" id="GroupName" placeholder="Group Name" required>
+            <div class="invalid-feedback">
+                Group name is required.
             </div>
         </div>
-    </div>
 
+        <div class="mb-3">
+            <label for="StudentNumber" class="form-label">Student Number</label>
+            <input type="number" class="form-control" name="StudentNumber" formControlName="StudentNumber" id="StudentNumber" placeholder="Student Number" required>
+            <div class="invalid-feedback">
+                Student Number is required.
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="Price" class="form-label">Price</label>
+            <input type="number" class="form-control" name="Price" formControlName="Price" id="Price" placeholder="Price" required>
+            <div class="invalid-feedback">
+                Price is required.
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Creation Date</label>
+            
+                <input
+                type="date"
+                    class="form-control"
+                    placeholder="yyyy-mm-dd"
+                    name="CreationDate"
+                    formControlName="CreationDate"
+                    ngModel="CreationDate"
+    
+                />
+             
+            </div>
+            <div class="mb-3">
+                <label class="form-label">End Date</label>
+                
+                    <input
+                    type="date"
+                        class="form-control"
+                        placeholder="yyyy-mm-dd"
+                        name="EndDate"
+                        formControlName="EndDate"
+                        ngModel="EndDate"
+        
+                    />
+                 
+                </div>
+        
+                <button type="submit" class="btn btn-danger  " > Submit</button>
+    </form>
 </div>
 <!-- <div class="container">
     <div class="w-75 m-auto">

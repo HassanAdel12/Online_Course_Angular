@@ -1,20 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { GradeService } from '../../../Service/grade.service';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { GroupService } from '../../../Service/group.service';
 import { SessionService } from '../../../Service/session.service';
 
 @Component({
   selector: 'app-createsession',
   standalone: true,
-  imports: [CommonModule,FormsModule],
+  imports: [CommonModule,FormsModule,ReactiveFormsModule],
   providers: [GroupService,SessionService],
   templateUrl: './createsession.component.html',
   styleUrl: './createsession.component.css'
 })
 
 export class CreatesessionComponent implements OnInit{
+
 
   groups:any; 
   instructor_ID = 1;
@@ -24,6 +25,17 @@ export class CreatesessionComponent implements OnInit{
   constructor(private readonly GroupService : GroupService ,
     private readonly SessionService : SessionService){}
   
+
+    myform = new FormGroup ({
+      Name: new FormControl(null,[Validators.min(3),Validators.max(50),Validators.required]),
+      URL: new FormControl(null,[Validators.min(1),Validators.max(100),Validators.required]),
+      
+      EndDate:new FormControl(null,Validators.required)
+      
+  
+  
+    })
+
   ngOnInit(): void {
 
     // this.QuizService.getAllQuizs().subscribe({
@@ -57,10 +69,10 @@ export class CreatesessionComponent implements OnInit{
       sessionName: this.Name,
       rate: 0,
       start_Date: Date.now,
-      end_at: Date.now,
+      end_at: this.myform.value.EndDate,
       instructor_ID: this.instructor_ID,
       group_ID: this.group_ID,
-      Url: this.url
+      Url: this.myform.value.URL
     };
 
     this.SessionService.AddNewSession(formData).subscribe({

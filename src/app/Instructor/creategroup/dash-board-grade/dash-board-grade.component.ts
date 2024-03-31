@@ -125,26 +125,26 @@ export class DashBoardGradeOneComponent {
       instructor_ID: this.instructor_ID,
     };
 
-    this.GroupService.AddNewGroup(formData).subscribe({
-      next: (data) => {
-        // this.profileForm.reset({subject:-1, CourseName:null});
-        this.profileForm.reset();
+    // this.GroupService.AddNewGroup(formData).subscribe({
+    //   next: (data) => {
+    //     // this.profileForm.reset({subject:-1, CourseName:null});
+    //     this.profileForm.reset();
 
-        window.alert(
-          'New Group: ' +
-            this.profileForm.value.courseName +
-            ' Added Sucsessfly'
-        );
-      },
-      error: (err) => {
-        window.alert(
-          'sorry there is an error when add: ' +
-            this.profileForm.value.courseName +
-            ' group'
-        );
-      },
-    });
-  }
+    //     window.alert(
+    //       'New Group: ' +
+    //         this.profileForm.value.courseName +
+    //         ' Added Sucsessfly'
+    //     );
+    //   },
+    //   error: (err) => {
+    //     window.alert(
+    //       'sorry there is an error when add: ' +
+    //         this.profileForm.value.courseName +
+    //         ' group'
+  //       );
+  //     },
+  //   });
+   }
 
   get nameValid() {
     return this.profileForm.controls['courseName'].valid;
