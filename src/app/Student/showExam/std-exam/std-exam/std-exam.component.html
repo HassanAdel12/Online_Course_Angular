@@ -1,68 +1,40 @@
-<div id="e" class="">
+<div id="e" class="container m-auto">
     <form [formGroup]="myForm" (ngSubmit)="Submit()">
-        <div id="e2" class="container m-auto ">
-
-            <!-- <h3 style="text-align: center;">User Name</h3>
-
-            <div id="e3" class="m-auto">
-
-                <input type="text" value="{{student.UserName}}" class="form-control" readonly>
-
-            </div> -->
-
+        <div id="e2" class="">
             <div id="header" class="m-auto">
                 <h2>{{quiz.quiz_Name}}</h2>
-
             </div>
-
-
-
-
             <div id="body" class="m-auto">
-                @for (Question of Questions; track Question.question_ID) {
-
-
-                <h3>{{Question.question_Text}} </h3>
-
-                <div>
-
-
-                    <ul class="mt-4 " type="A">
-                        @for (Choise of Question.choises; track Choise.choise_ID) {
-                        <li class="mt-2">
-
-                            @if (Choise.isCorrect) {
-                            <input class="ms-2" name="{{Question.question_ID}}" id="q"
-                            (change)="onChange(Question.question_ID,Choise.isCorrect)" type="radio">
-
-                            <label for="q"> {{Choise.text}}  </label>
-                        }
-                        @else {
-                            <input class="ms-2" name="{{Question.question_ID}}" id="q"
-                              type="radio">
-
-                            <label for="q"> {{Choise.text}}  </label>
-                        }
-                        </li>
-                        }
-                    </ul>
-
-
-                </div>
-
+                @for (Question of Questions; track Question.question_ID)
+                {
+                    <div style="border: 10px solid rgb(180, 180, 180);">
+                        <h3 style="word-wrap: break-word;">{{Question.question_Text}}vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv vcccccccc bbbbbbbbbbbbbbbbbbbbbbb bbbbbbbbbbbbbbbbb bbbbbbbbbbbbbbbbbbbb</h3>
+                        <div>
+                            <ol class="mt-4" type="A">
+                                @for (Choise of Question.choises; track Choise.choise_ID) 
+                                {
+                                    <li class="mt-2">
+                                        <!-- @if (Choise.isCorrect) 
+                                        { -->
+                                            <input class="ms-2" name="{{Question.question_ID}}" id="{{Choise.choise_ID}}"
+                                                (change)="onChange(Question.question_ID,Choise.isCorrect)" type="radio">
+                                            <label style="word-wrap: break-word;" for="{{Choise.choise_ID}}">{{Choise.text}}mmmmmmmmmmmmmmmm mmmmmmmmmmmmmmmmmmmm mmmmmmmmmmmmmmmmmmm mmmmmmmmmmmmmm mmmmmmmmmmmmmmmmmmmmmmmmmm</label>
+                                        <!-- } -->
+                                        <!-- @else 
+                                        { -->
+                                            <!-- <input class="ms-2" name="{{Question.question_ID}}" id="{{Choise.choise_ID}}" type="radio">
+                                            <label style="word-wrap: break-word;" for="{{Choise.choise_ID}}">{{Choise.text}}</label>
+                                        } -->
+                                    </li>
+                                }
+                            </ol>
+                        </div>
+                    </div>
                 }
             </div>
-
-
-
-
             <div id="button">
-                <input type="submit" class="btn btn-primary ">
+                <input type="submit" class="btn btn-primary">
             </div>
-
-
         </div>
-
     </form>
-
 </div>

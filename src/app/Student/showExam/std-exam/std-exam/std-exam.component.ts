@@ -47,6 +47,7 @@ export class StdExamComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    
     this.QuizService.getQuizByID(this.examid).subscribe({
       next: (data) => {
         this.quiz = data;
@@ -93,16 +94,20 @@ export class StdExamComponent implements OnInit {
   // }
 
   onChange(Questionid: any, iscorrect: any) {
+    var check = false;
     this.answers_user.forEach((answer) => {
       if (answer.Questionid == Questionid) {
+        check =true;
         answer.iscorrect = iscorrect;
       }
     });
-
+    if(!check){
     this.answers_user.push({ Questionid: Questionid, iscorrect: iscorrect });
+    }
   }
 
   Submit() {
+    this.grade=0;
     this.answers_user.forEach((answer) => {
       if (answer.iscorrect) {
         this.grade++;

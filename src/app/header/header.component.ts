@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, SimpleChanges } from '@angular/core';
 import { Router, RouterLink, RouterModule } from '@angular/router';
 import { GradeService } from '../../Service/grade.service';
 
@@ -15,8 +15,18 @@ import { GradeService } from '../../Service/grade.service';
 export class HeaderComponent {
 
   Grades:any;
+  DataUser : any;
+  check : any;
 
-  constructor(private readonly GradeService:GradeService , private router: Router){ }
+  constructor(private readonly GradeService:GradeService , private router: Router){ 
+    this.DataUser = localStorage.getItem('DataUser');
+    this.DataUser = JSON.parse(this.DataUser);
+
+    if (localStorage.getItem('DataUser') !== null) {
+      this.check = true;
+    }
+    
+  }
 
   ngOnInit(): void {
 
@@ -29,10 +39,22 @@ export class HeaderComponent {
       }
     })
 
+
   }
   
+  ngOnChanges(changes: SimpleChanges): void {
+        console.log(this.DataUser)
+    if (localStorage.getItem('DataUser') !== null) {
+      this.check = true;
+    }
+  }
 
   // ///////
   
+  onLogout(){
+    localStorage.removeItem('DataUser');
+    this.router.navigate(['/Login']);
+    this.check = true;
+  }
 
 }

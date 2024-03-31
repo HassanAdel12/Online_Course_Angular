@@ -2,56 +2,40 @@
   display: flex;  
   justify-content: center;  
   align-items: center;  
- 
 }  
-  
- 
-  
- 
+
 .super-beauty-button {  
   display: flex;   
   justify-content: center;  
-   
   padding: 30px 150px;   
   font-size: 23px;   
   font-weight: bold;   
   text-transform: uppercase;   
   color: #383838;   
-  background-color: gold;   
+  background-color: beige;   
   border: none;   
   border-radius: 50px;   
   cursor: pointer;   
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);   
-  transition: background-color 0.3s ease;   
-  margin-top: 20px;  
+  box-shadow: 0px 4px 10px gold;   
+  transition: background-color 0.3s ease;  
+  margin: 20px; 
+  width: 100%;
 }  
-.super-beauty-button:hover {   
-  background-color: #ffffff;   
-}   
-   
-  
+
 .super-beauty-button:hover {   
   transform: translateY(-2px);   
-  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);   
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+  background-color: #ffffff;    
 }   
-   
-  
+
 .super-beauty-button:active {   
   transform: translateY(1px);   
   box-shadow: none;   
 }   
-   
-  
-  
-#container  
-{  
-transform: translate(0,20px);  
- padding: 100px 50px; 
- display: flex;  
- justify-content: center;  
- align-items: center;  
- border-radius: 15px;  
-width: 50%;  
-background-color: beige;  
-border: 1px solid white; }
+header {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+}
 

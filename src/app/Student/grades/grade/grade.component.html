@@ -1,11 +1,12 @@
 <header>
     <h1>{{grade.grade_Name}}</h1>
 </header>
-<div class="container">
-    <div class="box" *ngFor="let course of courses">
-        <!-- <img [src]="item.imageUrl" alt="Image"> -->
-        <a class="router-link" routerLinkActive="active" routerLink="/chooseinstructor/{{course.course_ID}}">{{course.name}}</a>
-        <p>{{course.description}}</p>
+<div style="min-height: 100%;">
+    <div class="container">
+        <div class="box btn" *ngFor="let course of courses" routerLinkActive="active" routerLink="/chooseinstructor/{{course.course_ID}}">
+            <h3 class="router-link" >{{course.name}}</h3>
+            <p style="color: red;" >{{course.description}}dddd ddddddd dddddddd ddddddd dddddddd</p>
+        </div>
     </div>
 </div>
 

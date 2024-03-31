@@ -1,15 +1,13 @@
-
-
-<div class="center-container"> 
-    <div id="container" class="container"> 
-        @for (Grade of Grades; track $index) { 
-      <div id="grade-card">   
-    <button class="super-beauty-button"  routerLinkActive="active"  
-    routerLink="/grade/{{Grade.grade_ID}} 
-    ">{{Grade.grade_Name}}</button> 
-      </div> 
+<header>
+  <h1>Choose your grade</h1>
+</header>
+    <div  class="container   w-50" style="min-height: 100%; "> 
+        @for (Grade of Grades; track $index) 
+        { 
+          <div>   
+            <button class="super-beauty-button   "  routerLinkActive="active" routerLink="/grade/{{Grade.grade_ID}}">{{Grade.grade_Name}}</button> 
+          </div> 
         } 
     </div> 
-  </div>
 
 

@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './Home/home/home.component';
@@ -28,6 +28,11 @@ import { InstructordatatwoComponent } from './Instructor/Profile/instructor-data
 import { InstructorDateHeaderComponent } from './Instructor/Profile/instructor-data/instructor-date-header/instructor-date-header.component';
 import { SendComponent } from './Student/showExam/std-exam/send/send.component';
 import { PaymentComponent } from './payment/payment.component';
+import { CoursesComponent } from './Student/courseselected/courses/courses.component';
+import { MainComponent } from './Student/courseselected/main/main.component';
+import { NgModule } from '@angular/core';
+import { MainUComponent } from './Student/courseselected/main-u/main-u.component';
+import { MygroupsComponent } from './mygroups/mygroups.component';
 //import { StdExamComponent } from './Student/showExam/std-exam/std-exam.component';
 
 export const routes: Routes = [
@@ -39,8 +44,12 @@ export const routes: Routes = [
 
     {path:"choocegrade",component:choosegradeComponent},
     {path:"chooseinstructor/:id",component:ChooseinstructorComponent},
-    {path:"courseselected/:id",component:CourseselectedComponent},
+    ///:id
+    {path:"courseselected",component:CourseselectedComponent},
+    {path:"courses", component:CoursesComponent},
+    {path:"main", component:MainComponent},
     {path:"Exam/:id",component:ExamPageComponent},
+
     {path:"StdExam/:id",component:StdExamComponent},
     {path:"SesstionAndVidos/:id",component:SesstionAndVidosComponent},
     {path:"Send/:id",component:SendComponent},
@@ -52,13 +61,31 @@ export const routes: Routes = [
     {path:"step2",component:InstructordatatwoComponent},
     {path:"step3",component:TermsAndAdvicesComponent},
     {path:"MYGroup",component:InstgroupsComponent},
-    {path:"createExam",component:CreateexamComponent},
-    {path:"createGroup",component:AddGroupComponent},
+    {path:"mygroups",component:MygroupsComponent},
+
+    {path:"createExam",component:CreateexamComponent , outlet:'dashboardMain'},
+    {path:"createGroup",component:AddGroupComponent , outlet:'dashboardMain'},
     {path:"First",component:DashBoardGradeOneComponent},
     {path:"Payment",component:PaymentComponent},
+<<<<<<< HEAD
     
    
 
     {path:"**",component:ErrorComponent}
+=======
+    // For Sidebare 
+    { path: 'courseselected', component: CourseselectedComponent, children: [
+      { path: 'main-u', component:  MainUComponent},
+      { path: '', redirectTo: 'home', pathMatch: 'full' }
+    ]}
+>>>>>>> 966304f50ad9cebad05190e116e5c1d322b5ba9b
 
 ];
+
+    // {path:"**",component:ErrorComponent}
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
