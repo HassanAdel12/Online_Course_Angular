@@ -56,6 +56,7 @@ export const routes: Routes = [
     {path:"createGroup",component:AddGroupComponent},
     {path:"First",component:DashBoardGradeOneComponent},
     {path:"Payment",component:PaymentComponent},
+    
    
 
     {path:"**",component:ErrorComponent}
