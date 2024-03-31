@@ -73,4 +73,5 @@ export class HeaderComponent {
     localStorage.removeItem('DataUser');
     this.router.navigate(['/Login']);
   }
+  
 }

@@ -1,0 +1,38 @@
+
+  
+    <div class="container">
+        <table class="table table-hover">
+          <thead>
+            <tr >
+              <th scope="col">Session_ID</th>
+              <th scope="col">SessionName</th>
+              <th scope="col"> Start_Date</th>
+              <th scope="col">End_at </th>
+              <th scope="col">OnlineVideo</th>
+           
+
+              <th>Zoom</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let session of sessions" >
+              <td> {{session.Session_ID}} </td>
+              <td> {{session.SessionName}} </td>
+              <td> {{session.Start_Date}}</td>
+              <td>{{session.End_at}} </td>
+              <td>{{session.OnlineVideo}} </td>
+              <td>{{session.Zoom}} </td>
+              <td>
+                <button type="button" class="btn btn-outline-success m-2"  (click)="updateGroup(session.Group_ID, session)">Update</button>
+                <button type="button" class="btn btn-outline-danger m-2" (click)="deleteGroup(session.Group_ID)" >Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <br>
+      <br>
+      
+    
+    

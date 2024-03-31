@@ -1,0 +1,35 @@
+
+  
+    <div class="container">
+        <table class="table table-hover">
+          <thead>
+            <tr >
+              <th scope="col">Quiz_ID</th>
+              <th scope="col">Quiz_Name</th>
+              <th scope="col"> Group_ID</th>
+      
+           
+
+              <th>Zoom</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let exam of exams" >
+              <td> {{exam.Quiz_ID}} </td>
+              <td> {{exam.Quiz_Name}} </td>
+              <td>{{exam.Group_ID}} </td>
+           
+              <td>
+                <button type="button" class="btn btn-outline-success m-2" (click)="updateexam(exam.Group_ID, exam)" >Update</button>
+                <button type="button" class="btn btn-outline-danger m-2"  (click)="deleteGroup(exam.Group_ID)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <br>
+      <br>
+      
+    
+    

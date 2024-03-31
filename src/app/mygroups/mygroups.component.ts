@@ -15,7 +15,7 @@ import { AccountService } from '../../Service/Account.service';
   styleUrl: './mygroups.component.css',
 })
 export class MygroupsComponent implements OnInit {
-  stId: any;
+  studentId: any;
   courseGroups: any;
   // Define the property to hold the static data
 
@@ -25,26 +25,70 @@ export class MygroupsComponent implements OnInit {
     private AccountService: AccountService
   ) {
 
-    this.AccountService.GetID().subscribe({
-      next: (data) => {
-        this.stId = {};
-        //console.log(data);
-        this.stId.studentId = data;
-        //console.log(this.studentId);
-      },
-      error: (err) => {
-        this.router.navigate([
-          '/Error',
-          { errormessage: err.message as string },
-        ]);
-      },
-    });
-  }
-
-  ngOnInit(): void {
     
 
-    console.log(this.stId);
+  }
+
+  // ngOnInit(): void {
+    
+  //   this.AccountService.GetID().subscribe({
+  //     next: (data) => {
+  //       console.log(data);
+  //       this.studentId = data;
+  //       console.log(this.studentId);
+  //     },
+  //     error: (err) => {
+  //       this.router.navigate([
+  //         '/Error',
+  //         { errormessage: err.message as string },
+  //       ]);
+  //     },
+  //   });
+
+  //   console.log(this.studentId);
+
+  //   this.GroupService.getGroupBystudentID(this.studentId).subscribe({
+  //     next: (data) => {
+  //       this.courseGroups = data;
+  //     },
+  //     error: (err) => {
+  //       console.error('Error fetching groups:', err);
+  //     },
+  //   });
+
+    
+
+  // }
+
+  async ngOnInit(): Promise<void> {
+    try {
+      const studentId = await this.getAccountID();
+      this.studentId = studentId;
+  
+      if (this.studentId) {
+        const data = await this.GroupService.getGroupBystudentID(this.studentId).toPromise();
+        this.courseGroups = data;
+      }
+    } catch (err) {
+      this.handleError(err);
+    }
+  }
+  
+  private async getAccountID(): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.AccountService.GetID().subscribe({
+        next: (data) => resolve(data),
+        error: (err) => reject(err)
+      });
+    });
+  }
+  
+  private handleError(err: any): void {
+    this.router.navigate(['/Error', { errormessage: err.message as string }]);
+    console.error('Error fetching groups:', err);
+  }
+
+  onchange(){
 
     // this.GroupService.getGroupBystudentID(this.studentId).subscribe({
     //   next: (data) => {
@@ -54,23 +98,6 @@ export class MygroupsComponent implements OnInit {
     //     console.error('Error fetching groups:', err);
     //   },
     // });
-
-    
-    console.log(this.stId);
-
-    //console.log(this.studentId);
-  }
-
-  onchange(){
-
-    this.GroupService.getGroupBystudentID(this.stId.studentId).subscribe({
-      next: (data) => {
-        this.courseGroups = data;
-      },
-      error: (err) => {
-        console.error('Error fetching groups:', err);
-      },
-    });
     
   }
 

@@ -5,13 +5,19 @@
 </header>
 <div class="container" >
   <div class="sidebar">
-    <button class="btn-block"routerLink="/createGroup">Create Group</button>
-    <button   routerLink="/createExam">Create Exam</button>
-    <button routerLink="/Createsession">Create Session</button>
+
+    <button class="btn-block" (click)="AllGroups()" >All Groups</button>
+    <button (click)="AllExams()">All Exams</button>
+    <button  (click)="AllSessions()">All Sessions</button>
+
   </div>
 
   <div class="content">
-    <router-outlet name="dashboardMain"></router-outlet>
+
+    <app-get-all-groups *ngIf="Groups" ></app-get-all-groups>
+    <app-get-all-exams *ngIf="Exams" ></app-get-all-exams>
+    <app-get-all-sessions *ngIf="Sessions" ></app-get-all-sessions>
+
   </div>
 </div>
 
