@@ -13,10 +13,22 @@ import { GroupService } from '../../Service/group.service';
   templateUrl: './mygroups.component.html',
   styleUrl: './mygroups.component.css'
 })
-export class MygroupsComponent  {
+export class MygroupsComponent implements  OnInit {
+  courseGroups: any;
   // Define the property to hold the static data
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private service: GroupService) { }
+  ngOnInit(): void {
+    const studentId = 4;
+    this.service.getGroupBystudentID(studentId).subscribe({
+      next: (data) => {
+        this.courseGroups = data;
+      },
+      error: (err) => {
+        console.error('Error fetching groups:', err);
+      }
+    });
+  }
 
   enrollNewGroup(): void {
     this.router.navigateByUrl('/choocegrade');
@@ -29,58 +41,7 @@ export class MygroupsComponent  {
   }
 
     // Initialize the static data
-   courseGroups = [
-      {
-        Group_ID: 1,
-        GroupName: 'Group 1',
-        Course_ID: 101,
-        courseName: 'Course A',
-        Instructor_ID: 201,
-        InstructorName: 'Instructor X',
-        Num_Students: 25,
-        Creation_Date: '2024-01-01',
-        End_Date: '2024-05-01',
-        Price: 100
-      },
-      {
-        Group_ID: 1,
-        GroupName: 'Group 1',
-        Course_ID: 101,
-        courseName: 'Course A',
-        Instructor_ID: 201,
-        InstructorName: 'Instructor X',
-        Num_Students: 25,
-        Creation_Date: '2024-01-01',
-        End_Date: '2024-05-01',
-        Price: 100
-      },
-      {
-        Group_ID: 1,
-        GroupName: 'Group 1',
-        Course_ID: 101,
-        courseName: 'Course A',
-        Instructor_ID: 201,
-        InstructorName: 'Instructor X',
-        Num_Students: 25,
-        Creation_Date: '2024-01-01',
-        End_Date: '2024-05-01',
-        Price: 100
-      },
-      {
-        Group_ID: 1,
-        GroupName: 'Group 1',
-        Course_ID: 101,
-        courseName: 'Course A',
-        Instructor_ID: 201,
-        InstructorName: 'Instructor X',
-        Num_Students: 25,
-        Creation_Date: '2024-01-01',
-        End_Date: '2024-05-01',
-        Price: 100
-      },
 
-      // Add more static data as needed
-    ];
 
   // courseGroups:any;
   // constructor(private Service:GroupService) {}
