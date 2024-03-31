@@ -67,11 +67,18 @@ export const routes: Routes = [
     {path:"createGroup",component:AddGroupComponent , outlet:'dashboardMain'},
     {path:"First",component:DashBoardGradeOneComponent},
     {path:"Payment",component:PaymentComponent},
+<<<<<<< HEAD
+    
+   
+
+    {path:"**",component:ErrorComponent}
+=======
     // For Sidebare 
     { path: 'courseselected', component: CourseselectedComponent, children: [
       { path: 'main-u', component:  MainUComponent},
       { path: '', redirectTo: 'home', pathMatch: 'full' }
     ]}
+>>>>>>> 966304f50ad9cebad05190e116e5c1d322b5ba9b
 
 ];
 
