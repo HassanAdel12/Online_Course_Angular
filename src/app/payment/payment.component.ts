@@ -29,8 +29,7 @@ export class PaymentComponent {
   object:any
   constructor(private route: ActivatedRoute,private readonly groupservice:GroupService,private readonly studentgroup:StudentGroupService, private router: Router) {}
   ngOnInit(): void {
-    const groupID = 1
-    // this.route.snapshot.paramMap.get('id');
+    const groupID = this.route.snapshot.paramMap.get('id');
     this.object={}
     this.groupservice.getGroupByID(groupID).subscribe(
       (data) => {
@@ -60,7 +59,7 @@ export class PaymentComponent {
 
 updateUser() {
 
-  this.object.num_Students ++;
+  this.object.num_Students++ ;
   this.groupservice.updateGroup(this.groupID, this.object).subscribe(
     (data) => {
       this.router.navigate(['/choocegrade']);
@@ -73,18 +72,21 @@ updateUser() {
 }
  addnewStudentGroup(){
   const newStudentGroup = {
-             
     student_ID: 1,
     group_ID: 1,
     enroll_Date: new Date()
+    
 
   };
   this.studentgroup.AddNewStudentgroup(newStudentGroup).subscribe(
     (response) => {
       console.log('added', response);
+      this.object.num_Students++;
+      this.router.navigate(['/mycourses']);
     },
     (error) => {
       console.error('Error ', error);
+
     }
   );
 
@@ -105,7 +107,6 @@ updateUser() {
         },
         
         onApprove: (data, actions) => {
-       
           return actions.order.capture().then((details: any) => {
             console.log( details);
             this.updateUser();

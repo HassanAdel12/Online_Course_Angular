@@ -83,11 +83,15 @@ export const routes: Routes = [
     {path:"createExam",component:CreateexamComponent , outlet:'dashboardMain'},
     {path:"createGroup",component:AddGroupComponent },
     {path:"First",component:DashBoardGradeOneComponent},
+<<<<<<< Updated upstream
     {path:"Payment",component:PaymentComponent},
     
    
 
     {path:"**",component:ErrorComponent},
+=======
+    {path:"Payment",component:PaymentComponent},
+>>>>>>> Stashed changes
     // For Sidebare 
     { path: 'courseselected', component: CourseselectedComponent, children: [ //canActivate:[studentGuard]
       { path: 'main-u', component:  MainUComponent},
