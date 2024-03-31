@@ -32,7 +32,10 @@ import { CoursesComponent } from './Student/courseselected/courses/courses.compo
 import { MainComponent } from './Student/courseselected/main/main.component';
 import { NgModule } from '@angular/core';
 import { MainUComponent } from './Student/courseselected/main-u/main-u.component';
+
 import { CreatesessionComponent } from './Instructor/createsession/createsession.component';
+
+import { MygroupsComponent } from './mygroups/mygroups.component';
 //import { StdExamComponent } from './Student/showExam/std-exam/std-exam.component';
 
 export const routes: Routes = [
@@ -55,6 +58,7 @@ export const routes: Routes = [
     {path:"SesstionAndVidos/:id",component:SesstionAndVidosComponent},//canActivate:[studentGuard]
     {path:"Send/:id",component:SendComponent},//canActivate:[studentGuard]
 
+
     {path:"Instructordashboard",component : InstructordashboardComponent},//canActivate:[instructorGuard]
     {path:"profile",component:ProfileComponent},//canActivate:[instructorGuard]
     {path:"stepscreate",component:InstructorDateHeaderComponent},//canActivate:[instructorGuard]
@@ -67,11 +71,29 @@ export const routes: Routes = [
     {path:"Createsession",component:CreatesessionComponent},//canActivate:[instructorGuard]
     {path:"First",component:DashBoardGradeOneComponent},//canActivate:[instructorGuard]
     {path:"Payment",component:PaymentComponent},//canActivate:[studentGuard]
+    {path:"Instructordashboard",component : InstructordashboardComponent},
+    {path:"profile",component:ProfileComponent},
+    {path:"stepscreate",component:InstructorDateHeaderComponent},
+    {path:"step1",component:InstructorDataComponent},
+    {path:"step2",component:InstructordatatwoComponent},
+    {path:"step3",component:TermsAndAdvicesComponent},
+    {path:"MYGroup",component:InstgroupsComponent},
+    {path:"mygroups",component:MygroupsComponent},
+
+    {path:"createExam",component:CreateexamComponent , outlet:'dashboardMain'},
+    {path:"createGroup",component:AddGroupComponent , outlet:'dashboardMain'},
+    {path:"First",component:DashBoardGradeOneComponent},
+    {path:"Payment",component:PaymentComponent},
+    
+   
+
+    {path:"**",component:ErrorComponent},
     // For Sidebare 
     { path: 'courseselected', component: CourseselectedComponent, children: [ //canActivate:[studentGuard]
       { path: 'main-u', component:  MainUComponent},
       { path: '', redirectTo: 'home', pathMatch: 'full' }
     ]}
+
 
 ];
 

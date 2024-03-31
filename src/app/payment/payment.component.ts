@@ -1,4 +1,9 @@
 import { Component } from '@angular/core';
+import { GroupService } from '../../Service/group.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { StudentGroupService } from '../../Service/student-group.service';
 
 declare var paypal: {
   Buttons: (arg0: {
@@ -11,14 +16,80 @@ declare var paypal: {
 @Component({
   selector: 'app-payment',
   standalone: true,
-  imports: [],
+  imports: [FormsModule,HttpClientModule],
+  providers:[GroupService],
   templateUrl: './payment.component.html',
   styleUrl: './payment.component.css',
 })
 export class PaymentComponent {
-  constructor() {}
-
+  userId: any;
+  user: any;
+  price:number=0
+  groupID: any
+  object:any
+  constructor(private route: ActivatedRoute,private readonly groupservice:GroupService,private readonly studentgroup:StudentGroupService, private router: Router) {}
   ngOnInit(): void {
+    const groupID = 1
+    // this.route.snapshot.paramMap.get('id');
+    this.object={}
+    this.groupservice.getGroupByID(groupID).subscribe(
+      (data) => {
+      
+        this.object=data
+      
+        this.initPayPal();
+      })
+  }
+//   updateUser() {
+  
+//     // const groupid = this.object.groupID; 
+      // this.object.num_Students ++;
+
+//     this.groupservice.updateGroup(this.object.groupID, this.object).subscribe(
+//       (data) => {
+      
+//         // this.object.numOfStudents ++;
+//          this.router.navigate(['/choocegrade']);
+//          console.log("update fun ");
+//       },
+//       (error) => {
+//         console.log(error);
+//       }
+//     );
+// }
+
+updateUser() {
+
+  this.object.num_Students ++;
+  this.groupservice.updateGroup(this.groupID, this.object).subscribe(
+    (data) => {
+      this.router.navigate(['/choocegrade']);
+      console.log("Updated ");
+    },
+    (error) => {
+      console.log("Error", error);
+    }
+  );
+}
+ addnewStudentGroup(){
+  const newStudentGroup = {
+             
+    student_ID: 1,
+    group_ID: 1,
+    enroll_Date: new Date()
+
+  };
+  this.studentgroup.AddNewStudentgroup(newStudentGroup).subscribe(
+    (response) => {
+      console.log('added', response);
+    },
+    (error) => {
+      console.error('Error ', error);
+    }
+  );
+
+ }
+  initPayPal(): void {
     paypal
       .Buttons({
         createOrder: (data, actions) => {
@@ -26,17 +97,20 @@ export class PaymentComponent {
             purchase_units: [
               {
                 amount: {
-                  value: '100.00',
+                  value:this.object.price
                 },
               },
             ],
           });
         },
+        
         onApprove: (data, actions) => {
+       
           return actions.order.capture().then((details: any) => {
-            console.log(details);
-
-            window.alert('Payment successful! Thank you for your purchase.');
+            console.log( details);
+            this.updateUser();
+            this.addnewStudentGroup();
+            
           });
         },
         onError: (err) => {

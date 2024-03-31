@@ -1,20 +1,23 @@
 {
+  
   "extends": [
     "development"
   ],
   "hints": {
-<<<<<<< Updated upstream
+
     "axe/text-alternatives": [
       "default",
       {
-        "image-alt": "off"
-=======
+        "image-alt": "off",
+
     "axe/name-role-value": [
       "default",
       {
         "button-name": "off"
->>>>>>> Stashed changes
+
       }
-    ]
+    ],
+  }
+    ],
   }
 }

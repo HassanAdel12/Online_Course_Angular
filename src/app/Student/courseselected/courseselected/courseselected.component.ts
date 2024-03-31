@@ -23,7 +23,10 @@ import { CommonModule } from '@angular/common';
     RouterModule,
     NgxStarRatingModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+
+  
+
 
   ],
   providers: [GroupService],

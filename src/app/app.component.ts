@@ -22,7 +22,13 @@ import { CoursesComponent } from "./Student/courseselected/courses/courses.compo
   standalone: true,
   imports: [HeaderComponent, FooterComponent, RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+
+  styleUrls: ['./app.component.css'],
+  
+  providers: [HeaderComponent, FooterComponent, RouterOutlet, choosegradeComponent, CourseselectedComponent, ExamPageComponent, MainComponent, CoursesComponent],
+
+  //styleUrl: './app.component.css'
+
 })
 export class AppComponent {
   title: any;
