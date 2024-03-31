@@ -26,6 +26,10 @@ export class GroupService {
     return this.myClient.get("http://localhost:48190/api/AllGroups/Instructor/"+id);
   }
 
+  getGroupBystudentID(id:any){
+    return this.myClient.get("http://localhost:48190/api/AllGroups/Student/"+id);
+  }
+
   AddNewGroup(Group:any){
     return this.myClient.post(this.DB_URL,Group);
   }
@@ -37,5 +41,5 @@ export class GroupService {
   deleteGroup(id:any){
     return this.myClient.delete(this.DB_URL+"/"+id);
   }
-  
+
 }
