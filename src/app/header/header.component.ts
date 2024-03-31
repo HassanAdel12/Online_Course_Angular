@@ -25,6 +25,7 @@ export class HeaderComponent {
   ) {}
 
   ngOnInit(): void {
+    
     this.GradeService.getAllGrades().subscribe({
       next: (data) => {
         this.Grades = data;
