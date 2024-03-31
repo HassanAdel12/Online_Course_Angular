@@ -3,18 +3,19 @@ import { Router, RouterLink, RouterModule } from '@angular/router';
 import { JwtService } from '../../Service/jwt.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [ RouterLink,
-    RouterModule,HttpClientModule,ReactiveFormsModule ],
+    RouterModule,HttpClientModule,ReactiveFormsModule,CommonModule ],
     providers:[JwtService],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  
+  show:boolean=false;
   loginForm: FormGroup;
 
   constructor(private fb: FormBuilder, private jwtservice: JwtService, private router: Router) {
@@ -25,7 +26,7 @@ export class LoginComponent {
   }
 
   onSubmit() {
-
+    this.show=true;
     if (this.loginForm.valid) {
 
       this.jwtservice.login(this.loginForm.value).subscribe({
@@ -47,6 +48,7 @@ export class LoginComponent {
         },
         error: (err) => {
           console.log(err.message);
+          this.show=false;
         },
       });
       

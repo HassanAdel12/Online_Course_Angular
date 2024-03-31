@@ -17,7 +17,7 @@ import { CommonModule } from '@angular/common';
 
 
 export class RegisterComponent {
-  
+show:boolean=false;
 registrationForm: FormGroup;
 
 emailExists = false;
@@ -39,7 +39,7 @@ constructor(private fb: FormBuilder, private registrationService: JwtService,pri
 }
 
 onSubmit() {
-
+  this.show=true
   if (this.registrationForm.valid) {
     this.registrationService.register(this.registrationForm.value).subscribe({
       next: (data) => {
@@ -53,11 +53,12 @@ onSubmit() {
           // } else if (userType === 'Instructor') {
           //   this.router.navigate(['/Dashboard']);
           // }
-
+          ;
           this.router.navigate(['/Login']);
       },
       error: (err) => {
         console.log(err.message);
+        this.show=false;
       },
     });
 

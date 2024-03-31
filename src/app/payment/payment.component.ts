@@ -23,6 +23,8 @@ declare var paypal: {
   styleUrl: './payment.component.css',
 })
 export class PaymentComponent {
+
+  
   
   
   studentid: any;
@@ -40,8 +42,7 @@ export class PaymentComponent {
   ) {}
 
   ngOnInit(): void {
-    const groupID = 1;
-    // this.route.snapshot.paramMap.get('id');
+    const groupID = this.route.snapshot.paramMap.get('id');
     //this.object={}
 
     // this.AccountService.GetID().subscribe({
@@ -53,6 +54,9 @@ export class PaymentComponent {
     //       '/Error',
     //       { errormessage: err.message as string },
     //     ]);
+    //   });
+
+    
 
     this.groupservice.getGroupByID(groupID).subscribe((data) => {
       this.group = data;
@@ -60,7 +64,45 @@ export class PaymentComponent {
       this.initPayPal();
     });
 
-  }
+}
+  
+// =======
+//   this.object.num_Students++ ;
+//   this.groupservice.updateGroup(this.groupID, this.object).subscribe(
+//     (data) => {
+    
+//       this.router.navigate(['/choocegrade']);
+//       console.log("Updated ");
+//     },
+//     (error) => {
+//       console.log("Error", error);
+//     }
+//   );
+// }
+//  addnewStudentGroup(){
+//   const newStudentGroup = {
+//     student_ID: 1,
+//     group_ID: 1,
+//     enroll_Date: new Date()
+    
+
+//   };
+ 
+//   this.studentgroup.AddNewStudentgroup(newStudentGroup).subscribe(
+//     (response) => {
+//       console.log('added', response);
+//       // this.object.num_Students ++;
+//       this.router.navigate(['/courseselected']);
+
+//     },
+//     (error) => {
+//       console.error('Error ', error);
+
+//     }
+//   );
+// >>>>>>> 1ca57f66ac9129de7fe1c4878e1484285512129b
+
+//   }
   //   updateUser() {
 
   //     // const groupid = this.object.groupID;
@@ -80,6 +122,7 @@ export class PaymentComponent {
   // }
 
   updateUser() {
+
     this.group.num_Students++;
 
     this.groupservice.updateGroup(this.groupID, this.group).subscribe(
@@ -91,9 +134,11 @@ export class PaymentComponent {
         console.log('Error', error);
       }
     );
+
   }
 
   addnewStudentGroup() {
+
     const newStudentGroup = {
       student_ID: this.studentid,
       group_ID: 1,
@@ -107,7 +152,9 @@ export class PaymentComponent {
         console.error('Error ', error);
       }
     );
+    
   }
+
   initPayPal(): void {
     paypal
       .Buttons({
@@ -128,6 +175,7 @@ export class PaymentComponent {
             
             //console.log(details);
             this.updateUser();
+       
             this.addnewStudentGroup();
 
           });
