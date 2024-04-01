@@ -65,9 +65,9 @@ export const routes: Routes = [
     {path:"step2",component:InstructordatatwoComponent},//canActivate:[instructorGuard]
     {path:"step3",component:TermsAndAdvicesComponent},//canActivate:[instructorGuard]
     {path:"MYGroup",component:InstgroupsComponent},//canActivate:[instructorGuard]
-    {path:"createExam",component:CreateexamComponent},//canActivate:[instructorGuard]
+    {path:"createExam/:id",component:CreateexamComponent},//canActivate:[instructorGuard]
     {path:"createGroup",component:AddGroupComponent},//canActivate:[instructorGuard]
-    {path:"Createsession",component:CreatesessionComponent},//canActivate:[instructorGuard]
+    {path:"Createsession/:id",component:CreatesessionComponent},//canActivate:[instructorGuard]
     {path:"First",component:DashBoardGradeOneComponent},//canActivate:[instructorGuard]
     {path:"Payment/:id",component:PaymentComponent},//canActivate:[studentGuard]
     {path:"Instructordashboard",component : InstructordashboardComponent},
@@ -83,7 +83,7 @@ export const routes: Routes = [
     {path:"createGroup",component:AddGroupComponent },
     {path:"First",component:DashBoardGradeOneComponent},
 
-    
+
     
    
 

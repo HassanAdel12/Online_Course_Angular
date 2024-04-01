@@ -1,12 +1,18 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router, RouterLink, RouterModule } from '@angular/router';
+import {
+  ActivatedRoute,
+  Router,
+  RouterLink,
+  RouterModule,
+} from '@angular/router';
 import { QuizService } from '../../../../Service/quiz.service';
 import { QuestionService } from '../../../../Service/question.service';
 import { ChoiseService } from '../../../../Service/choise.service';
 import { GroupService } from '../../../../Service/group.service';
 import { GradeService } from '../../../../Service/grade.service';
+import { AccountService } from '../../../../Service/Account.service';
 
 interface Question {
   question: string;
@@ -22,15 +28,17 @@ interface Exam {
   selector: 'app-createexam',
   standalone: true,
   imports: [FormsModule, CommonModule, RouterLink, RouterModule],
+  providers: [AccountService],
   templateUrl: './createexam.component.html',
   styleUrl: './createexam.component.css',
 })
 export class CreateexamComponent {
-  
   //grade: any;
-  groups: any;
-  
-  ngOnInit(): void {
+  //groups: any;
+
+  async ngOnInit(): Promise<void> {
+    const instructor_id = await this.getAccountID();
+    this.instructor_id = instructor_id;
 
     // this.QuizService.getAllQuizs().subscribe({
     //   next: (data) => {
@@ -40,24 +48,23 @@ export class CreateexamComponent {
     //     console.log(err);
     //   },
     // });
-
-    this.GroupService.getGroupByInstructorID(this.instructor_ID).subscribe({
+    this.GroupService.getGroupByID(this.group_ID).subscribe({
       next: (data) => {
-        this.groups = data;
+        this.group = data;
       },
       error: (err) => {
         console.log(err);
       },
     });
+  }
 
-  }
-  
-  onchange(group_ID : any){
-    this.group_ID = group_ID;
-  }
-  
-  instructor_ID = 1;
-  group_ID : any;
+  // onchange(group_ID: any) {
+  //   this.group_ID = group_ID;
+  // }
+
+  instructor_id: any;
+  group_ID: any;
+  group: any;
 
   examSaved: boolean = false;
   exam: Exam = {
@@ -75,15 +82,26 @@ export class CreateexamComponent {
     ],
   };
 
+  private async getAccountID(): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.AccountService.GetID().subscribe({
+        next: (data) => resolve(data),
+        error: (err) => reject(err),
+      });
+    });
+  }
+
   constructor(
     private readonly QuizService: QuizService,
     private readonly QuestionService: QuestionService,
     private readonly ChoiseService: ChoiseService,
     private readonly GroupService: GroupService,
-    //private readonly addquiez: QuizService,
-    //private readonly gradeservice: GradeService,
+    private AccountService: AccountService,
+    private Actived: ActivatedRoute,
     private router: Router
-  ) {}
+  ) {
+    this.group_ID = this.Actived.snapshot.params['id'];
+  }
 
   addQuestion() {
     const id = this.exam.questions.length + 1;
@@ -103,75 +121,124 @@ export class CreateexamComponent {
     this.exam.questions.splice(index, 1);
   }
 
-  saveExam(examname: any) {
-    //console.log('Saving exam:', this.exam);
+  // async saveExam(examname: any) {
+  //   //console.log('Saving exam:', this.exam);
 
-    var examIndex: any;
-    var questionIndex: any;
-    var optionIndex: any;
+  //   var examIndex: any;
+  //   var questionIndex: any;
+  //   var optionIndex: any;
 
-    var myExam = {
-      quiz_Name: this.exam.name,
-      instructor_ID: this.instructor_ID,
-      group_ID: this.group_ID,
-    };
-    this.QuizService.AddNewQuiz(myExam).subscribe({
-      next: (data) => {
-        examIndex = data;
-      },
-      error: (err) => {
-        this.router.navigate([
-          '/Error',
-          { errormessage: err.message as string },
-        ]);
-      },
-    });
+  //   var myExam = {
+  //     quiz_Name: this.exam.name,
+  //     instructor_ID: this.instructor_id,
+  //     group_ID: this.group_ID,
+  //   };
 
-    this.exam.questions.forEach((question) => {
-      var myquestion = {
-        question_Text: question.question,
-        quiz_ID: examIndex,
+  //   await this.QuizService.AddNewQuiz(myExam).subscribe({
+  //     next: (data) => {
+  //       examIndex = data;
+  //     },
+  //     error: (err) => {
+  //       this.router.navigate([
+  //         '/Error',
+  //         { errormessage: err.message as string },
+  //       ]);
+  //     },
+  //   });
+
+  //   var questionitem = 0;
+  //   this.exam.questions.forEach((question) => {
+  //     var myquestion = {
+  //       question_Text: question.question,
+  //       quiz_ID: examIndex,
+  //     };
+  //     this.QuestionService.AddNewQuestion(myquestion).subscribe({
+  //       next: (data) => {
+  //         questionIndex = data;
+  //       },
+  //       error: (err) => {
+  //         this.router.navigate([
+  //           '/Error',
+  //           { errormessage: err.message as string },
+  //         ]);
+  //       },
+  //     });
+
+  //     this.exam.questions[questionitem].options.forEach((option) => {
+  //       var myoption = {
+  //         text: option.option,
+  //         isCorrect: option.selected,
+  //         question_ID: questionIndex,
+  //       };
+  //       this.QuestionService.AddNewQuestion(myoption).subscribe({
+  //         next: (data) => {
+  //           optionIndex = data;
+  //         },
+  //         error: (err) => {
+  //           this.router.navigate([
+  //             '/Error',
+  //             { errormessage: err.message as string },
+  //           ]);
+  //         },
+  //       });
+  //     });
+  //     questionitem++;
+  //   });
+
+  //   this.exam.questions = [];
+
+  //   this.router.navigate(['/Instructordashboard']);
+  //   this.examSaved = true;
+
+  //   setTimeout(() => {
+  //     this.examSaved = false;
+  //   }, 3000);
+  // }
+
+  async saveExam(examname: any) {
+    try {
+      let examIndex: any;
+      const myExam = {
+        quiz_Name: this.exam.name,
+        instructor_ID: this.instructor_id,
+        group_ID: this.group_ID,
       };
-      this.QuestionService.AddNewQuestion(myquestion).subscribe({
-        next: (data) => {
-          questionIndex = data;
-        },
-        error: (err) => {
-          this.router.navigate([
-            '/Error',
-            { errormessage: err.message as string },
-          ]);
-        },
-      });
-
-      this.exam.questions[questionIndex].options.forEach((option) => {
-        var myoption = {
-          text: option.option,
-          isCorrect: option.selected,
-          question_ID: questionIndex,
+  
+      // Await the promise returned by AddNewQuiz
+      examIndex = await this.QuizService.AddNewQuiz(myExam).toPromise();
+  
+      for (const question of this.exam.questions) {
+        let questionIndex: any;
+        const myquestion = {
+          question_Text: question.question,
+          quiz_ID: examIndex,
         };
-        this.QuestionService.AddNewQuestion(myoption).subscribe({
-          next: (data) => {
-            optionIndex = data;
-          },
-          error: (err) => {
-            this.router.navigate([
-              '/Error',
-              { errormessage: err.message as string },
-            ]);
-          },
-        });
-      });
-    });
-
-    this.exam.questions = [];
-
-    this.router.navigate(["/Instructordashboard"]);
-    this.examSaved = true;
-
-    setTimeout(() => {
-      this.examSaved = false;
-    }, 3000);
+  
+        // Await the promise returned by AddNewQuestion
+        questionIndex = await this.QuestionService.AddNewQuestion(myquestion).toPromise();
+  
+        for (const option of question.options) {
+          const myoption = {
+            text: option.option,
+            isCorrect: option.selected,
+            question_ID: questionIndex,
+          };
+  
+          // Await the promise returned by AddNewOption
+          await this.ChoiseService.AddNewChoise(myoption).toPromise();
+        }
+      }
+  
+      this.exam.questions = [];
+      this.router.navigate(['/Instructordashboard']);
+      this.examSaved = true;
+  
+      setTimeout(() => {
+        this.examSaved = false;
+      }, 3000);
+    } catch (err) {
+      this.router.navigate(['/Error']);
+    }
   }
 
   addOption(questionIndex: number) {

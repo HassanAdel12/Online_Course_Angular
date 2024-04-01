@@ -14,14 +14,15 @@ import { QuestionService } from '../../../../../Service/question.service';
 import { QuizService } from '../../../../../Service/quiz.service';
 import { StudentService } from '../../../../../Service/student.service';
 import { StudentQuizService } from '../../../../../Service/student-quiz.service';
+import { AccountService } from '../../../../../Service/Account.service';
 //import { CourseibrahemService } from '../../../../Service/courseibrahem.service';
 //import { CourseService } from '../../../../Service/course.service';
 
 @Component({
   selector: 'app-std-exam',
   standalone: true,
-  imports: [HttpClientModule, CommonModule, FormsModule, ReactiveFormsModule],
-  providers: [QuestionService, QuizService,StudentQuizService,StudentService],
+  imports: [HttpClientModule, CommonModule, FormsModule, ReactiveFormsModule , RouterModule],
+  providers: [QuestionService, QuizService,StudentQuizService,StudentService , AccountService],
   templateUrl: './std-exam.component.html',
   styleUrl: './std-exam.component.css',
 })
@@ -29,7 +30,7 @@ export class StdExamComponent implements OnInit {
 
   
   studentid: any;
-  student: any;
+  //student: any;
   quiz: any;
   @Input() examid: any;
   Questions: any;
@@ -39,6 +40,7 @@ export class StdExamComponent implements OnInit {
     private QuestionService: QuestionService,
     private StudentQuizService: StudentQuizService,
     private StudentService: StudentService,
+    private AccountService: AccountService,
     private router: Router,
     Actived: ActivatedRoute
   ) {
@@ -46,7 +48,20 @@ export class StdExamComponent implements OnInit {
     this.grade = 0;
   }
 
-  ngOnInit(): void {
+
+  private async getAccountID(): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.AccountService.GetID().subscribe({
+        next: (data) => resolve(data),
+        error: (err) => reject(err)
+      });
+    });
+  }
+
+  async ngOnInit(): Promise<void> {
+
+    const studentId = await this.getAccountID();
+      this.studentid = studentId;
     
     this.QuizService.getQuizByID(this.examid).subscribe({
       next: (data) => {
@@ -60,17 +75,6 @@ export class StdExamComponent implements OnInit {
       },
     });
 
-    // this.StudentService.getStudentByID(this.studentid).subscribe({
-    //   next: (data) => {
-    //     this.student = data;
-    //   },
-    //   error: (err) => {
-    //     this.router.navigate([
-    //       '/Error',
-    //       { errormessage: err.message as string },
-    //     ]);
-    //   },
-    // });
 
     this.QuestionService.getQuestionByQuizID(this.examid).subscribe({
       next: (data) => {
@@ -83,6 +87,7 @@ export class StdExamComponent implements OnInit {
         ]);
       },
     });
+
   }
 
   answers_user: { Questionid: any; iscorrect: any }[] = [];
@@ -108,6 +113,7 @@ export class StdExamComponent implements OnInit {
 
   Submit() {
     this.grade=0;
+
     this.answers_user.forEach((answer) => {
       if (answer.iscorrect) {
         this.grade++;
@@ -120,27 +126,26 @@ export class StdExamComponent implements OnInit {
       Grade: this.grade,
     };
 
-    window.alert(
-      'grade : ' +
-      this.grade);
-
 
       // this.router.navigate(['./'], { skipLocationChange: true }).then(() => {
       //   this.router.navigate([this.router.url]);
       // }
 
-  //   this.StudentQuizService.AddNewStudentQuiz(StudentQuiz).subscribe({
-  //     next: (data) => {
-  //       window.alert(
-  //         'grade : ' +
-  //         this.grade
-  //       );
-  //       //this.router.navigate(['/send/'+this.grade]);
-  //     },
-  //     error: (err) => {
-  //       window.alert('sorry there is an error when add: ');
-  //     },
-  //   });
+    this.StudentQuizService.AddNewStudentQuiz(StudentQuiz).subscribe({
+      next: (data) => {
+        window.alert(
+          'grade : ' +
+          this.grade
+        );
+        this.router.navigate(['/Exam/'+this.quiz.group_ID]);
+      },
+      error: (err) => {
+        window.alert('sorry there is an error when add: ');
+      },
+    });
+
+
+
   }
 
   myForm = new FormGroup({

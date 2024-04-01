@@ -35,7 +35,8 @@
           <h5 class="card-title fw-medium">Exam Name:<span class="fw-normal"> {{ quiz.quiz_Name }}</span> </h5>
           
           <a *ngIf="quiz.grade == -1" class="btn btn-primary" [routerLink]="'/StdExam/' + quiz.quiz_ID">GO TO EXAM</a>
-          <span *ngIf="quiz.grade != -1" class="fw-normal"> {{ quiz.grade }}</span> 
+          <a *ngIf="quiz.grade != -1" class="btn btn-success" >your Grade : {{ quiz.grade }}</a>
+          <!-- <span *ngIf="quiz.grade != -1" class="fw-medium me-4"> {{ quiz.grade }}</span>  -->
           
         </div>
       </div>

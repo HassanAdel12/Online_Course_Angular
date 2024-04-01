@@ -5,9 +5,11 @@
   color: white; text-align: center;">
     Exam Information</h2>
   <div class="form-group">
-    <label for="examName"><h5>Exam Name:</h5></label>
+    <label for="examName">
+      <h5>Exam Name:</h5>
+    </label>
     <input #examname type="text" class="form-control" id="examName" [(ngModel)]="exam.name"
-      placeholder="Enter exam name">
+      placeholder="Enter exam name" required>
   </div>
 
   <!-- <div class="dropdown">
@@ -29,14 +31,13 @@
     </div>
   </div> -->
   <hr class="my-4 w-75">
-  <h5 >Choose Group :</h5>
-  
-  @for (group of groups; track group.id) {
-  <input class="form-check-input" type="radio" id="{{group.group_ID}}" (change)="onchange(group.group_ID)"
-    name="{{group}}">
-  <label class="form-check-label" for="{{group.group_ID}}">{{group.groupName}}</label>
+  <h5>Group :</h5>
+
+  <input #examname type="text" class="form-control" value="{{group.groupName}}"
+       readonly>
+
   <br><br>
-  }
+  
 
 
   <br>
