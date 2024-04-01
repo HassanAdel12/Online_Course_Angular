@@ -14,15 +14,17 @@
     <thead>
       <tr>
         <th scope="col">Quiz Name</th>
-        <th>Actions</th>
+        <th scope="col">Number of Question</th>
+        <!-- <th>Actions</th> -->
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let exam of exams">
         <td>{{ exam.quiz_Name }}</td>
         <td>
-          <button type="button" class="btn btn-outline-success m-2"
-            (click)="updateexam(exam.Group_ID, exam)">Update</button>
+          {{ exam.numQuestion }}
+          <!-- <button type="button" class="btn btn-outline-success m-2"
+            (click)="updateexam(exam.Group_ID, exam)">Update</button> -->
           <!-- <button type="button" class="btn btn-outline-danger m-2" (click)="deleteGroup(exam.Group_ID)">Delete</button>  -->
         </td>
       </tr>

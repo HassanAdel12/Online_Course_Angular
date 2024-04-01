@@ -17,6 +17,7 @@ import { CommonModule } from '@angular/common';
 export class LoginComponent {
   show:boolean=false;
   loginForm: FormGroup;
+  errormessage : any;
 
   constructor(private fb: FormBuilder, private jwtservice: JwtService, private router: Router) {
     this.loginForm = this.fb.group({
@@ -52,7 +53,8 @@ export class LoginComponent {
 
         },
         error: (err) => {
-          console.log(err.message);
+          console.log(err.error);
+          this.errormessage = err.error;
           this.show=false;
         },
       });

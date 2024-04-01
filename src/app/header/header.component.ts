@@ -61,6 +61,14 @@ export class HeaderComponent {
 
   }
 
+  Choose(grade_ID : any){
+    this.router.navigate(["/grade",grade_ID]);
+    setTimeout(() => {
+      window.location.reload();
+    }, 0.01);
+    
+  }
+
   // ngOnChanges(changes: SimpleChanges): void {
   //   console.log(this.DataUser);
   //   if (localStorage.getItem('DataUser') !== null) {

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top" style="height: 70px;">
-  <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+  <a class="navbar-brand d-flex align-items-center px-4 px-lg-5">
     <h2 class="m-0" style="color: black;"><i class="fa fa-user me-3"></i>
       <span style="color: black;">My</span><span style="color: gold;">teacher</span>
     </h2>
@@ -12,12 +12,12 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="/Home">Home</a>
       </li>
-      <li *ngIf="isLogin" class="nav-item" style="margin-left: 15px;">
+      <!-- <li *ngIf="isLogin" class="nav-item" style="margin-left: 15px;">
         <a class="nav-link" routerLink="/About">About</a>
-      </li>
-      <li *ngIf="isLogin && isStudent" class="nav-item" style="margin-left: 15px;">
+      </li> -->
+      <!-- <li *ngIf="isLogin && isStudent" class="nav-item" style="margin-left: 15px;">
         <a class="nav-link" routerLink="/Courses">Courses</a>
-      </li>
+      </li> -->
 
       <li *ngIf="isLogin && isStudent" class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
@@ -26,14 +26,15 @@
         </a>
         <ul  class="dropdown-menu" aria-labelledby="navbarDropdown">
           @for (Grade of Grades; track $index) {
-          <li><a class="dropdown-item" routerLink="/grade/{{Grade.grade_ID}}">{{Grade.grade_Name}}</a></li>
+          <li><button class="dropdown-item"  (click)="Choose(Grade.grade_ID)">{{Grade.grade_Name}}</button></li>
           }
         </ul>
       </li>
+      <!-- routerLink="/grade/{{Grade.grade_ID}}" -->
       
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a *ngIf="isLogin" class="nav-link" href="contact.html">Contact</a>
-      </li>
+      </li> -->
 
 
       <li *ngIf="isLogin" class="nav-item dropdown ">

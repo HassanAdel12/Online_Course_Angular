@@ -10,7 +10,7 @@ import { SessionService } from '../../Service/session.service';
 @Component({
   selector: 'app-showsessions',
   standalone: true,
-  imports: [HttpClientModule,FormsModule,CommonModule],
+  imports: [HttpClientModule,FormsModule,CommonModule , RouterLink,RouterModule],
   providers:[],
   
   templateUrl: './showsessions.component.html',

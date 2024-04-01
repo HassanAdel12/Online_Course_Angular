@@ -1,28 +1,40 @@
 
-
-
-<ul>
-  <li *ngFor="let session of sessions" (click)="selectSession(session)">
-    {{ session.sessionName }}
-  </li>
-</ul>
-
-
-<div class="session-details">
-  <h2 *ngIf="selectedSession">{{ selectedSession.sessionName }}</h2>
-  <p *ngIf="selectedSession">Start Date: {{ selectedSession.start_Date }}</p>
-  <p *ngIf="selectedSession">End Date: {{ selectedSession.end_at }}</p>
-  <p *ngIf="selectedSession">Group Name: {{ selectedSession.group_ID }}</p>
-  <p *ngIf="selectedSession">Online Video: {{ session?.OnlineVideo }} </p>
-  <div class="container">
-    <div class="video-form-container">
-      <div *ngIf="selectedSession && selectedSession.onlineVideo" class="video-container">
-        <video src="{{selectedSession.onlineVideo}}" controls class="video-player">
-          Your browser does not support the video tag.
-        </video>
+<div class="container-fluid mt-4 position-relative">
+  <div class="row">
+ 
+    <div class="col-3">
+      <div class="sidebar bg-light shadow" style="padding-top: 10px;">
+        <div class="sidebar-header bg-lightblue pt-3 pb-3 pl-3 pr-3 text-center">
+         
+          <button class="btn btn-warning btn-exam w-75 mx-auto" routerLink="/Exam/{{groupId}}">Exams</button>
+        </div>
+        <ul class="list-unstyled mt-3 mb-3 pl-3">
+          <li class="sidebar-item" *ngFor="let session of sessions" (click)="selectSession(session)" style="padding-bottom: 13px;">
+            <span style="font-weight: bold;">{{ session.sessionName }}</span>
+          </li>
+        </ul>
       </div>
-      <button *ngIf="selectedSession && selectedSession.zoom" (click)="openZoom(selectedSession.zoom)">Join
-        Zoom</button>
+    </div>
+
+    <div class="col-9">
+      <div class="session-details mt-4">
+        <div class="card bg-lightblue shadow">
+          <div class="card-body">
+            <h2 class="card-title text-center">{{ selectedSession?.sessionName }}</h2>
+            <p class="card-text">Start Date: {{ selectedSession?.start_Date }}</p>
+            <p class="card-text">End Date: {{ selectedSession?.end_at }}</p>
+            <p class="card-text">Group Name: {{ selectedSession?.group_ID }}</p>
+            <p class="card-text">Online Video: {{ selectedSession?.OnlineVideo }}</p>
+            <div class="video-container">
+              <div *ngIf="selectedSession && selectedSession.onlineVideo" class="video-container">
+                <video [src]=selectedSession.onlineVideo controls class="video-player" style="width: 100%; height: auto;"></video>
+              </div>
+            </div>
+            <button *ngIf="selectedSession?.zoom" class="btn position-absolute top-0 end-1 mt-3" style="background-color: gold; color: black; padding: 5px;" (click)="openZoom(selectedSession?.zoom)">Join Zoom</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+

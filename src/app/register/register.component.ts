@@ -24,10 +24,12 @@ emailExists = false;
 
 usernameExists = false;
 
+errormessage : any;
+
 constructor(private fb: FormBuilder, private registrationService: JwtService,private router:Router) {
   this.registrationForm = this.fb.group({
     name: ['', [Validators.required, Validators.minLength(3)]],
-    username: ['', [Validators.required, Validators.minLength(3)]],
+    username: ['', [Validators.required, Validators.minLength(3), Validators.pattern(/^\S*$/)]],
     email: ['', [Validators.required, Validators.email,Validators.pattern('^.{3,}@gmail\.com$')]],
     password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(20)]],
     confirmPassword: ['', Validators.required],
@@ -55,11 +57,12 @@ onSubmit() {
           // } else if (userType === 'Instructor') {
           //   this.router.navigate(['/Dashboard']);
           // }
-          console.log("dhjdghjgdjh")
+          console.log("registration")
           this.router.navigate(['/Login']);
       },
       error: (err) => {
-        console.log(err.message);
+        console.log(err.error);
+        this.errormessage = err.error;
         this.show=false;
       },
     });
