@@ -1,9 +1,9 @@
 import { Component, SimpleChanges } from '@angular/core';
 import { Router, RouterLink, RouterModule } from '@angular/router';
 import { CommonModule, formatDate } from '@angular/common';
-import { AllCoursesComponent } from '../../all-courses/all-courses.component';
-import { GradeService } from '../../../../Service/grade.service';
-import { DashBoardGradeOneComponent } from '../dash-board-grade/dash-board-grade.component';
+import { AllCoursesComponent } from '../../../all-courses/all-courses.component';
+import { GradeService } from '../../../../../Service/grade.service';
+//import { DashBoardGradeOneComponent } from '../dash-board-grade/dash-board-grade.component';
 import {
   FormControl,
   FormGroup,
@@ -11,9 +11,10 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { GroupService } from '../../../../Service/group.service';
-import { AccountService } from '../../../../Service/Account.service';
-import { CourseService } from '../../../../Service/course.service';
+import { GroupService } from '../../../../../Service/group.service';
+import { AccountService } from '../../../../../Service/Account.service';
+import { CourseService } from '../../../../../Service/course.service';
+import { DashBoardGradeOneComponent } from '../dash-board-grade/dash-board-grade.component';
 
 @Component({
   selector: 'app-add-group',
@@ -115,7 +116,7 @@ export class AddGroupComponent {
     // console.log(data)
     // console.log(this.myform.controls.selectedCourse.value)
 
-    this.GroupService.addgroup(data).subscribe({
+    this.GroupService.AddNewGroup(data).subscribe({
       next: (data) => this.router.navigate(['/Instructordashboard']),
       error: (err) => console.log('sorry there is an error when add'),
     });

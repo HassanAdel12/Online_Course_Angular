@@ -28,7 +28,7 @@
         <td>{{ session.onlineVideo }}</td>
         <td>{{ session.zoom }}</td>
         <td>
-          <button type="button" class="btn btn-outline-success m-2" (click)="updateGroup(session.session_ID)">Update</button>
+          <button type="button" class="btn btn-outline-success m-2" routerLink="/UpdateSesstion/{{session.session_ID}}">Update</button>
           <button type="button" class="btn btn-outline-danger m-2" (click)="deleteGroup(session.session_ID)">Delete</button>
         </td>
       </tr>

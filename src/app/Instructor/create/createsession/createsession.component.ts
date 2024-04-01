@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GradeService } from '../../../Service/grade.service';
+import { GradeService } from '../../../../Service/grade.service';
 import { CommonModule } from '@angular/common';
 import {
   FormControl,
@@ -8,9 +8,9 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { GroupService } from '../../../Service/group.service';
-import { SessionService } from '../../../Service/session.service';
-import { AccountService } from '../../../Service/Account.service';
+import { GroupService } from '../../../../Service/group.service';
+import { SessionService } from '../../../../Service/session.service';
+import { AccountService } from '../../../../Service/Account.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({

@@ -20,14 +20,12 @@
     "@angular/router": "^17.2.0",
     "aos": "^2.3.4",
     "bootstrap": "^5.3.3",
-
     "install": "^0.13.0",
-
     "ngx-star-rating": "^2.1.0",
-
     "node-module": "^2.0.0",
     "paypal-checkout": "^4.0.342",
     "rxjs": "~7.8.0",
+    "sweetalert2": "^11.10.7",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
   },

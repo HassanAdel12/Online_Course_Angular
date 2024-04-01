@@ -1,17 +1,17 @@
-import { SessionService } from './../../../../Service/session.service';
+import { SessionService } from './../../../../../Service/session.service';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
-import { GroupService } from '../../../../Service/group.service';
-import { AccountService } from '../../../../Service/Account.service';
-//import Swal from 'sweetalert2';
+import { Router, RouterLink, RouterModule } from '@angular/router';
+import { GroupService } from '../../../../../Service/group.service';
+import { AccountService } from '../../../../../Service/Account.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-get-all-sessions',
   standalone: true,
-  imports: [FormsModule, CommonModule, HttpClientModule],
+  imports: [FormsModule, CommonModule, HttpClientModule, RouterModule,RouterLink],
   providers: [SessionService, GroupService ,AccountService],
   templateUrl: './get-all-sessions.component.html',
   styleUrl: './get-all-sessions.component.css',
@@ -100,38 +100,31 @@ export class GetAllSessionsComponent implements OnInit {
   }
   deleteGroup(id: number): void {
 
-    // Swal.fire({
-    //   title: "Are you sure?",
-    //   text: "You won't be able to revert this!",
-    //   icon: "warning",
-    //   showCancelButton: true,
-    //   confirmButtonColor: "#3085d6",
-    //   cancelButtonColor: "#d33",
-    //   confirmButtonText: "Yes, delete it!"
-    // }).then((result) => {
-    //   if (result.isConfirmed) {
-    //     this.SessionService.deleteSession(id).subscribe(() => {
-    //       Swal.fire({
-    //         title: "Deleted!",
-    //         text: "Your Place has been deleted.",
-    //         icon: "success"
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.SessionService.deleteSession(id).subscribe(() => {
+          Swal.fire({
+            title: "Deleted!",
+            text: "Your Session has been deleted.",
+            icon: "success"
             
-    //       }).then(() => {
-    //         this.loadsessions();
-    //         //this.accept(id);
-    //       //    this._PlacesOwnerService.getAllPlaces().subscribe((data) => {
-    //       //   this.Places = data;
-    //       // });
-    //       // setTimeout(() => {
-    //       //   window.location.reload();
-    //       // }, 50);
-    //       // this.getAllPlaces();
+          }).then(() => {
+            this.loadsessions();
             
-    //       });
-    //     });
-    //   }
-    // });
+          });
+        });
+      }
+    });
     
+  
     // this.SessionService.deleteSession(id).subscribe({
     //   next: () => {
     //     console.log('Group deleted successfully');

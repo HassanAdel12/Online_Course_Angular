@@ -1,15 +1,15 @@
-import { GroupService } from './../../../../Service/group.service';
+import { GroupService } from './../../../../../Service/group.service';
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { Router, RouterModule } from '@angular/router';
-import { AccountService } from '../../../../Service/Account.service';
+import { Router, RouterLink, RouterModule } from '@angular/router';
+import { AccountService } from '../../../../../Service/Account.service';
 
 @Component({
   selector: 'app-get-all-groups',
   standalone: true,
-  imports: [FormsModule, CommonModule, HttpClientModule, RouterModule],
+  imports: [FormsModule, CommonModule, HttpClientModule, RouterModule,RouterLink],
   providers: [GroupService, AccountService],
   templateUrl: './get-all-groups.component.html',
   styleUrl: './get-all-groups.component.css',
@@ -54,29 +54,29 @@ export class GetAllGroupsComponent implements OnInit {
     });
   }
 
-  updateGroup(id: number, updatedGroup: any): void {
-    // this.GroupService.updateGroup(id, updatedGroup).subscribe({
-    //   next: () => {
-    //     console.log('Group updated successfully');
+  // updateGroup(id: number, updatedGroup: any): void {
+  //   // this.GroupService.updateGroup(id, updatedGroup).subscribe({
+  //   //   next: () => {
+  //   //     console.log('Group updated successfully');
 
-    //     this.loadGroups();
-    //   },
-    //   error: (err) => {
-    //     console.error('Error updating group:', err);
-    //   },
-    // });
-  }
+  //   //     this.loadGroups();
+  //   //   },
+  //   //   error: (err) => {
+  //   //     console.error('Error updating group:', err);
+  //   //   },
+  //   // });
+  // }
 
-  deleteGroup(id: number): void {
-    this.GroupService.deleteGroup(id).subscribe({
-      next: () => {
-        console.log('Group deleted successfully');
+  // deleteGroup(id: number): void {
+  //   this.GroupService.deleteGroup(id).subscribe({
+  //     next: () => {
+  //       console.log('Group deleted successfully');
 
-        this.loadGroups();
-      },
-      error: (err) => {
-        console.error('Error deleting group:', err);
-      },
-    });
-  }
+  //       this.loadGroups();
+  //     },
+  //     error: (err) => {
+  //       console.error('Error deleting group:', err);
+  //     },
+  //   });
+  // }
 }

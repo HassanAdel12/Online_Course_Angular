@@ -12,9 +12,9 @@ import { choosegradeComponent } from './Student/grades/ChooseGrade/ChooseGrade.c
 import { ChooseinstructorComponent } from './Student/grades/ChooseGroup/ChooseGroup.component';
 import { ProfileComponent } from './Instructor/Profile/profile/profile.component';
 import { InstgroupsComponent } from './Instructor/instgroups/instgroups.component';
-import { CreateexamComponent } from './Instructor/createExam/createexam/createexam.component';
-import { AddGroupComponent } from './Instructor/creategroup/add-group/add-group.component';
-import { DashBoardGradeOneComponent } from './Instructor/creategroup/dash-board-grade/dash-board-grade.component';
+import { CreateexamComponent } from './Instructor/create/createExam/createexam/createexam.component';
+import { AddGroupComponent } from './Instructor/create/creategroup/add-group/add-group.component';
+import { DashBoardGradeOneComponent } from './Instructor/create/creategroup/dash-board-grade/dash-board-grade.component';
 //import { DashBoardGradeTwoComponent } from './Instructor/creategroup/dash-board-grade-two/dash-board-grade-two.component';
 //import { DashBoardGradeThreeComponent } from './Instructor/creategroup/dash-board-grade-three/dash-board-grade-three.component';
 import { GradeComponent } from './Student/grades/grade/grade.component';
@@ -33,10 +33,11 @@ import { MainComponent } from './Student/courseselected/main/main.component';
 import { NgModule } from '@angular/core';
 import { MainUComponent } from './Student/courseselected/main-u/main-u.component';
 
-import { CreatesessionComponent } from './Instructor/createsession/createsession.component';
+import { CreatesessionComponent } from './Instructor/create/createsession/createsession.component';
 
 import { MygroupsComponent } from './mygroups/mygroups.component';
 import { ShowsessionsComponent } from './showsessions/showsessions.component';
+import { UpdateGroupComponent } from './Instructor/Update/update-sesstion/update-sesstion.component';
 //import { StdExamComponent } from './Student/showExam/std-exam/std-exam.component';
 
 export const routes: Routes = [
@@ -84,7 +85,8 @@ export const routes: Routes = [
     {path:"createGroup",component:AddGroupComponent },
     {path:"First",component:DashBoardGradeOneComponent},
 
-    {path:"Showsessions",component:ShowsessionsComponent},
+    {path:"Showsessions/:id",component:ShowsessionsComponent},
+    {path:"UpdateSesstion/:id",component:UpdateGroupComponent},
     
    
 

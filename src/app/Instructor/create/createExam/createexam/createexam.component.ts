@@ -7,12 +7,12 @@ import {
   RouterLink,
   RouterModule,
 } from '@angular/router';
-import { QuizService } from '../../../../Service/quiz.service';
-import { QuestionService } from '../../../../Service/question.service';
-import { ChoiseService } from '../../../../Service/choise.service';
-import { GroupService } from '../../../../Service/group.service';
-import { GradeService } from '../../../../Service/grade.service';
-import { AccountService } from '../../../../Service/Account.service';
+import { QuizService } from '../../../../../Service/quiz.service';
+import { QuestionService } from '../../../../../Service/question.service';
+import { ChoiseService } from '../../../../../Service/choise.service';
+import { GroupService } from '../../../../../Service/group.service';
+import { GradeService } from '../../../../../Service/grade.service';
+import { AccountService } from '../../../../../Service/Account.service';
 
 interface Question {
   question: string;

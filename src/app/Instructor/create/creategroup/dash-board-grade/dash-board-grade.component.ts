@@ -9,9 +9,9 @@ import {
 
 import { HttpClientModule } from '@angular/common/http';
 import { Router, RouterLink, RouterModule } from '@angular/router';
-import { GradeService } from '../../../../Service/grade.service';
-import { CourseService } from '../../../../Service/course.service';
-import { GroupService } from '../../../../Service/group.service';
+import { GradeService } from '../../../../../Service/grade.service';
+import { CourseService } from '../../../../../Service/course.service';
+import { GroupService } from '../../../../../Service/group.service';
 
 @Component({
   selector: 'app-dash-board-grade-one',

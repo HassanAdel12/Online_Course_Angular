@@ -14,9 +14,20 @@
                     <p class="card-text custom-card-text">Don't study alone again! Get into study groups with your friends and access the best teachers on demand.</p>
                     <div class="button-container">
                         <div class="button-container">
-                            <button class="btn custom-button scaled-on-hover" routerLink="/Login">Learner</button>
-                            <button class="btn custom-button scaled-on-hover" routerLink="/Dashboard"click="func()">Teacher</button>
+                            <button *ngIf="!localStorage.getItem('DataUser')" 
+                            class="btn custom-button scaled-on-hover" 
+                            routerLink="/Login">Learner</button>
+                            <button *ngIf="localStorage.getItem('DataUser')" 
+                            class="btn custom-button scaled-on-hover" 
+                            routerLink="/mygroups">Learner</button>
 
+                            <button *ngIf="!localStorage.getItem('DataUser')" 
+                            class="btn custom-button scaled-on-hover" 
+                            routerLink="/Login"click="func()">Teacher</button>
+
+                            <button *ngIf="localStorage.getItem('DataUser')" 
+                            class="btn custom-button scaled-on-hover" 
+                            routerLink="/Instructordashboard"click="func()">Teacher</button>
 
                         </div>
 

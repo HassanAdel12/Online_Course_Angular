@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
 import { Router, RouterLink, RouterModule } from '@angular/router';
-import { CreatesessionComponent } from '../../createsession/createsession.component';
-import { CreateexamComponent } from '../../createExam/createexam/createexam.component';
+//import { CreatesessionComponent } from '../../create/createsession/createsession.component';
+//import { CreateexamComponent } from '../../createExam/createexam/createexam.component';
 import { CommonModule } from '@angular/common';
-import { GetAllExamsComponent } from '../../GetAllExams/get-all-exams/get-all-exams.component';
-import { GetAllGroupsComponent } from '../../GetAllGroups/get-all-groups/get-all-groups.component';
-import { GetAllSessionsComponent } from '../../GetAllSessions/get-all-sessions/get-all-sessions.component';
+import { GetAllExamsComponent } from '../../index/GetAllExams/get-all-exams/get-all-exams.component';
+import { GetAllGroupsComponent } from '../../index/GetAllGroups/get-all-groups/get-all-groups.component';
+import { GetAllSessionsComponent } from '../../index/GetAllSessions/get-all-sessions/get-all-sessions.component';
+//import { GetAllExamsComponent } from '../../GetAllExams/get-all-exams/get-all-exams.component';
+//import { GetAllGroupsComponent } from '../../GetAllGroups/get-all-groups/get-all-groups.component';
+//import { GetAllSessionsComponent } from '../../GetAllSessions/get-all-sessions/get-all-sessions.component';
 
 @Component({
   selector: 'app-instructordashboard',

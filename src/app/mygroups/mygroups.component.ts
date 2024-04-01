@@ -113,7 +113,7 @@ export class MygroupsComponent implements OnInit {
   }
 
   viewSession(Group_ID: any): void {
-    this.router.navigate(['/courseselected/' + Group_ID]);
+    this.router.navigate(['/Showsessions/' + Group_ID]);
     console.log(Group_ID)
   }
 

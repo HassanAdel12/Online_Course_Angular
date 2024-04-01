@@ -5,11 +5,13 @@
     <div id="body" class=" mt-4">
         <form [formGroup]="myform" (ngSubmit)="submit()" class="needs-validation" novalidate>
             
-            <select class="form-control" formControlName="selectedGrade" (change)="chooseGrade()" required>
+            <label for="selectedGrade" class="form-label">choose grade</label>
+            <select class="form-control" formControlName="selectedGrade" id="selectedGrade" (change)="chooseGrade()" required>
                 <option *ngFor="let grade of Grades" [value]="grade.grade_ID">{{ grade.grade_Name }}</option>
               </select>
 
-              <select class="form-control" formControlName="selectedCourse" required>
+              <label for="selectedCourse" class="form-label">choose course</label>
+              <select class="form-control" formControlName="selectedCourse" id="selectedCourse" required>
                 <option *ngFor="let course of courses" [value]="course.course_ID">{{ course.name }}</option>
               </select>
             

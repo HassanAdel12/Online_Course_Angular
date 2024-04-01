@@ -1,12 +1,12 @@
 import { group } from '@angular/animations';
-import { QuizService } from './../../../../Service/quiz.service';
+import { QuizService } from './../../../../../Service/quiz.service';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { GroupService } from '../../../../Service/group.service';
-import { AccountService } from '../../../../Service/Account.service';
+import { GroupService } from '../../../../../Service/group.service';
+import { AccountService } from '../../../../../Service/Account.service';
 
 @Component({
   selector: 'app-get-all-exams',

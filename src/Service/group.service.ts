@@ -41,11 +41,11 @@ export class GroupService {
   AddNewGroup(Group:any){
     return this.myClient.post(this.DB_URL,Group);
   }
-  addgroup(data:any)
-  {
-    return this.myClient.post(this.DB_URL,data)
+  // addgroup(data:any)
+  // {
+  //   return this.myClient.post(this.DB_URL,data)
 
-  }
+  // }
 
   // AddNewGroup(Group:any){
   //   return this.myClient.post(this.DB_URL,Group);

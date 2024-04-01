@@ -82,7 +82,7 @@ export class PaymentComponent {
     this.studentgroup.AddNewStudentgroup(newStudentGroup).subscribe(
       (response) => {
         console.log('added', response);
-        this.router.navigate(['/courseselected/' + this.group.group_ID]);
+        this.router.navigate(['/Showsessions/' + this.group.group_ID]);
       },
       (error) => {
         console.error('Error ', error);
