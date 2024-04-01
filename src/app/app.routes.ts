@@ -36,6 +36,7 @@ import { MainUComponent } from './Student/courseselected/main-u/main-u.component
 import { CreatesessionComponent } from './Instructor/createsession/createsession.component';
 
 import { MygroupsComponent } from './mygroups/mygroups.component';
+import { ShowsessionsComponent } from './showsessions/showsessions.component';
 //import { StdExamComponent } from './Student/showExam/std-exam/std-exam.component';
 
 export const routes: Routes = [
@@ -79,11 +80,11 @@ export const routes: Routes = [
     {path:"MYGroup",component:InstgroupsComponent},
     {path:"mygroups",component:MygroupsComponent},
 
-    {path:"createExam",component:CreateexamComponent , outlet:'dashboardMain'},
+    {path:"createExam",component:CreateexamComponent },
     {path:"createGroup",component:AddGroupComponent },
     {path:"First",component:DashBoardGradeOneComponent},
 
-
+    {path:"Showsessions",component:ShowsessionsComponent},
     
    
 

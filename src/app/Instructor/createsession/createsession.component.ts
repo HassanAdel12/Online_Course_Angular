@@ -54,7 +54,8 @@ export class CreatesessionComponent implements OnInit {
       Validators.max(50),
       Validators.required,
     ]),
-    URL: new FormControl(null, [Validators.required]),
+    URLZoom: new FormControl(null, [Validators.required]),
+    URLOnlineVideo: new FormControl(null, [Validators.required]),
 
     EndDate: new FormControl(null, Validators.required),
 
@@ -96,8 +97,8 @@ export class CreatesessionComponent implements OnInit {
       end_at: this.myform.value.EndDate,
       instructor_ID: this.instructor_id,
       group_ID: this.group.group_ID,
-      zoom: this.myform.value.URL,
-      onlineVideo: ""
+      zoom: this.myform.value.URLZoom,
+      onlineVideo: this.myform.value.URLOnlineVideo,
     };
 
     if(this.myform.valid){
@@ -117,12 +118,18 @@ export class CreatesessionComponent implements OnInit {
     }
     
   }
+
   get sessionNamevalid() {
     return this.myform.controls['Name'].valid;
   }
-  get Urlvalid() {
-    return this.myform.controls['URL'].valid;
+  get URLZoomvalid() {
+    return this.myform.controls['URLZoom'].valid;
   }
+
+  get URLOnlineVideovalid() {
+    return this.myform.controls['URLOnlineVideo'].valid;
+  }
+
   get EndDate() {
     return this.myform.controls['EndDate'].valid;
   }

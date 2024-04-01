@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { GroupService } from '../../../../Service/group.service';
 import { AccountService } from '../../../../Service/Account.service';
+//import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-get-all-sessions',
@@ -85,7 +86,7 @@ export class GetAllSessionsComponent implements OnInit {
     });
   }
 
-  updateGroup(id: number, updatesession: any): void {
+  updateGroup(id: number): void {
     // this.SessionService.updateSession(id, updatesession).subscribe({
     //   next: () => {
     //     console.log('Group updated successfully');
@@ -98,16 +99,50 @@ export class GetAllSessionsComponent implements OnInit {
     // });
   }
   deleteGroup(id: number): void {
-    this.SessionService.deleteSession(id).subscribe({
-      next: () => {
-        console.log('Group deleted successfully');
 
-        this.loadsessions();
-      },
-      error: (err) => {
-        console.error('Error deleting group:', err);
-      },
-    });
+    // Swal.fire({
+    //   title: "Are you sure?",
+    //   text: "You won't be able to revert this!",
+    //   icon: "warning",
+    //   showCancelButton: true,
+    //   confirmButtonColor: "#3085d6",
+    //   cancelButtonColor: "#d33",
+    //   confirmButtonText: "Yes, delete it!"
+    // }).then((result) => {
+    //   if (result.isConfirmed) {
+    //     this.SessionService.deleteSession(id).subscribe(() => {
+    //       Swal.fire({
+    //         title: "Deleted!",
+    //         text: "Your Place has been deleted.",
+    //         icon: "success"
+            
+    //       }).then(() => {
+    //         this.loadsessions();
+    //         //this.accept(id);
+    //       //    this._PlacesOwnerService.getAllPlaces().subscribe((data) => {
+    //       //   this.Places = data;
+    //       // });
+    //       // setTimeout(() => {
+    //       //   window.location.reload();
+    //       // }, 50);
+    //       // this.getAllPlaces();
+            
+    //       });
+    //     });
+    //   }
+    // });
+    
+    // this.SessionService.deleteSession(id).subscribe({
+    //   next: () => {
+    //     console.log('Group deleted successfully');
+
+    //     this.loadsessions();
+    //   },
+    //   error: (err) => {
+    //     console.error('Error deleting group:', err);
+    //   },
+    // });
+
   }
 
   Create(){
