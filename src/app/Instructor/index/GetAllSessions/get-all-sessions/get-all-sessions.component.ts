@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { Router, RouterLink, RouterModule } from '@angular/router';
 import { GroupService } from '../../../../../Service/group.service';
 import { AccountService } from '../../../../../Service/Account.service';
-//import Swal from 'sweetalert2';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-get-all-sessions',
@@ -100,29 +100,29 @@ export class GetAllSessionsComponent implements OnInit {
   }
   deleteGroup(id: number): void {
 
-    // Swal.fire({
-    //   title: "Are you sure?",
-    //   text: "You won't be able to revert this!",
-    //   icon: "warning",
-    //   showCancelButton: true,
-    //   confirmButtonColor: "#3085d6",
-    //   cancelButtonColor: "#d33",
-    //   confirmButtonText: "Yes, delete it!"
-    // }).then((result: { isConfirmed: any; }) => {
-    //   if (result.isConfirmed) {
-    //     this.SessionService.deleteSession(id).subscribe(() => {
-    //       Swal.fire({
-    //         title: "Deleted!",
-    //         text: "Your Session has been deleted.",
-    //         icon: "success"
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.SessionService.deleteSession(id).subscribe(() => {
+          Swal.fire({
+            title: "Deleted!",
+            text: "Your Session has been deleted.",
+            icon: "success"
             
-    //       }).then(() => {
-    //         this.loadsessions();
+          }).then(() => {
+            this.loadsessions();
             
-    //       });
-    //     });
-    //   }
-    // });
+          });
+        });
+      }
+    });
     
   
     // this.SessionService.deleteSession(id).subscribe({
