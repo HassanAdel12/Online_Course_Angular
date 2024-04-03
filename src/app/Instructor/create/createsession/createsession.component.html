@@ -1,35 +1,3 @@
-<!--<header style="height: 150px;">
-  <h1 style="text-align: center; margin-top: 30px; font-size: 50px;">
-    CREATING SESSION</h1>
-  <img src="assets/images/live.png" style="margin-top:-220px ;margin-left:800px">
-</header>
-
-<div class="container">
-  <form>
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" [(ngModel)]="Name" required>
-
-    <label for="url">URL:</label>
-    <input type="text" id="url" name="url" [(ngModel)]="url" required>
-
-    <label for="category">Category:</label>
-     <div class="dropdown">
-            <button class="dropbtn" style="margin:10px">choose group</button>
-            
-            <div class="dropdown-content">
-              <a *ngFor="let g of grade" href="#">{{g.gradename}}</a>
-             
-            </div>
-          </div> 
-    
-  
-
-
-
-  </form>
-  <button (click)="submitForm()" style="margin-left:140px; margin-top: 5px; width: 250px; height: 70px;">Submit</button>
-</div>-->
-
 <div class="container" id="container">
   <div id="header">
     <h1>ADD SESSION</h1>
@@ -40,41 +8,45 @@
         <label for="GroupName" class="form-label">Name</label>
         <input type="text" class="form-control" name="Name" formControlName="Name" id="Name" placeholder=" Name"
           required>
-        <div class="invalid-feedback">
-          name is required.
-        </div>
+        <div *ngIf="myform.get('Name')?.errors && myform.get('Name')?.touched"
+          class="form-text text-center text-danger">Session Name is required and must be at least 3 chars </div>
       </div>
 
       <div class="mb-3">
         <label for="GroupName" class="form-label">URL Zoom</label>
-        <input type="text" class="form-control" name="URL" formControlName="URLZoom" id="URL" placeholder=" URL" required>
-        <div class="invalid-feedback">
-          URL Zoom is required.
-        </div>
+        <input type="text" class="form-control" name="URL" formControlName="URLZoom" id="URL" placeholder=" URL"
+          required>
+        <div *ngIf="myform.get('URLZoom')?.errors && myform.get('URLZoom')?.touched"
+          class="form-text text-center text-danger">URL Zoom is required </div>
       </div>
 
       <div class="mb-3">
         <label for="GroupName" class="form-label">URL Online Video</label>
-        <input type="text" class="form-control" name="URL" formControlName="URLOnlineVideo" id="URL" placeholder=" URL" required>
-        <div class="invalid-feedback">
-          URL Online Video is required.
-        </div>
+        <input type="text" class="form-control" name="URL" formControlName="URLOnlineVideo" id="URL" placeholder=" URL"
+          required>
+        <div *ngIf="myform.get('URLOnlineVideo')?.errors && myform.get('URLOnlineVideo')?.touched"
+          class="form-text text-center text-danger">URL Online Video is required </div>
       </div>
 
 
       <div class="mb-3">
         <label class="form-label">Creation Date</label>
+        <input type="datetime-local" class="form-control" name="CreationDate" formControlName="CreationDate" />
 
-        <input type="datetime-local" class="form-control"  name="CreationDate"
-          formControlName="CreationDate"  />
-
+        <div *ngIf="myform.get('getCreationDate')?.hasError('NowCreationmatch') ||
+           myform.get('CreationDate')?.errors &&
+            myform.get('CreationDate')?.touched" class="form-text text-center text-danger">Creation Date is required
+          and must be after now </div>
       </div>
+
       <div class="mb-3">
         <label class="form-label">End Date</label>
+        <input type="datetime-local" class="form-control" name="EndDate" formControlName="EndDate" />
 
-        <input type="datetime-local" class="form-control"  name="EndDate" formControlName="EndDate"
-           />
-
+        <div *ngIf="myform.get('getEndDate')?.hasError('CreationEndmatch') ||
+         myform.get('EndDate')?.errors &&
+            myform.get('EndDate')?.touched" class="form-text text-center text-danger">End Date is required and must be
+          after Creation Date</div>
       </div>
 
 

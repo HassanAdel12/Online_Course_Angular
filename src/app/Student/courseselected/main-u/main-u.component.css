@@ -73,29 +73,4 @@
         text-align: center;
         color: rgb(71, 71, 71);
     }
-<<<<<<< HEAD
-=======
-=======
-    position: relative ;
-
-    text-decoration: none;
-    border-bottom:  1px solid rgb(209, 209, 209);
-}
-
-#a,#b:hover{
-    background-color:white;
-    box-shadow: inset 4px 0 #f24b18 ;
-}
-#d
-{
-    overflow-y: scroll;
-    height: 1000px;
-}
-#b a{
-    text-decoration: none;
-    text-align: center;
-    color: rgb(71, 71, 71);
-}
->>>>>>> eb2f1d6c64c92adf45258da95a56dc16adfe388e
  */
->>>>>>> 966304f50ad9cebad05190e116e5c1d322b5ba9b

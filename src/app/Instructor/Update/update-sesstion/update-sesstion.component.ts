@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink, RouterModule } from '@angular/router';
 import { AccountService } from '../../../../Service/Account.service';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormControl, FormGroup,FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { GroupService } from '../../../../Service/group.service';
 import { SessionService } from '../../../../Service/session.service';
@@ -25,51 +25,88 @@ export class UpdateGroupComponent {
   instructor_id : any;
   session : any;
   session_ID : any;
+  myform : FormGroup;
 
   constructor(
     private router: Router,
     private AccountService: AccountService,
     private SessionService: SessionService,
     private Actived: ActivatedRoute,
+    private FormBuilder: FormBuilder
   ) { 
     this.session_ID = this.Actived.snapshot.params['id'];
+    
+    this.myform = this.FormBuilder.group({
+      Name: new FormControl(null, [
+        Validators.minLength(3),
+        Validators.maxLength(50),
+        Validators.required,
+      ]),
+      URLZoom: new FormControl(null, [Validators.required]),
+      URLOnlineVideo: new FormControl(null, [Validators.required]),
+      EndDate: new FormControl(null, Validators.required),
+      CreationDate: new FormControl(null, Validators.required),
+    },
+    { validator: this.CreationDateOrEndDate });
+
    }
 
+
+
   async ngOnInit(): Promise<void> {
+    
     const instructor_id = await this.getAccountID();
     this.instructor_id = instructor_id;
 
     this.SessionService.getSessionByID(this.session_ID).subscribe({
       next: (data) => {
         this.session = data;
-        this.myform.controls.Name.setValue(this.session.sessionName);
-        this.myform.controls.URLZoom.setValue(this.session.zoom);
-        this.myform.controls.URLOnlineVideo.setValue(this.session.onlineVideo);
-        this.myform.controls.CreationDate.setValue(this.session.start_Date);
-        this.myform.controls.EndDate.setValue(this.session.end_at);
+        
+        this.myform.setValue({
+          Name :this.session.sessionName,
+          URLZoom : this.session.zoom,
+          URLOnlineVideo : this.session.onlineVideo,
+          CreationDate : this.session.start_Date,
+          EndDate : this.session.end_at
+        })
       },
       error: (err) => {
         this.router.navigate([
           '/Error',
-          { errormessage: err.message as string },
-        ]);
-      },
+          { errormessage: err.message as string }]);
+      }
     });
+
   }
 
-  myform = new FormGroup({
-    Name: new FormControl(null, [
-      Validators.min(3),
-      Validators.max(50),
-      Validators.required,
-    ]),
-    URLZoom: new FormControl(null, [Validators.required]),
-    URLOnlineVideo: new FormControl(null, [Validators.required]),
+  
 
-    EndDate: new FormControl(null, Validators.required),
 
-    CreationDate: new FormControl(null, Validators.required),
-  });
+  CreationDateOrEndDate(form: FormGroup) {
+
+    const getCreationDate = form.get('CreationDate');
+    const getEndDate = form.get('EndDate');
+
+    //console.log(this.session)
+    if (getCreationDate && getEndDate) {
+      const CreationDateValue = getCreationDate.value;
+      const EndDateValue = getEndDate.value;
+
+      if (new Date >= new Date(CreationDateValue) || CreationDateValue == null) {
+        getCreationDate.setErrors({ NowCreationmatch: true });
+      } else {
+        getCreationDate.setErrors(null);
+      }
+
+      if (CreationDateValue >= EndDateValue || EndDateValue == null) {
+        getEndDate.setErrors({ CreationEndmatch: true });
+      } else {
+        getEndDate.setErrors(null);
+      }
+
+    }
+
+  }
 
 
   submitForm(){

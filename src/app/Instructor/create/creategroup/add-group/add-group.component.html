@@ -4,25 +4,30 @@
     </div>
     <div id="body" class=" mt-4">
         <form [formGroup]="myform" (ngSubmit)="submit()" class="needs-validation" novalidate>
-            
-            <label for="selectedGrade" class="form-label">choose grade</label>
-            <select class="form-control" formControlName="selectedGrade" id="selectedGrade" (change)="chooseGrade()" required>
-                <option *ngFor="let grade of Grades" [value]="grade.grade_ID">{{ grade.grade_Name }}</option>
-              </select>
 
-              <label for="selectedCourse" class="form-label">choose course</label>
-              <select class="form-control" formControlName="selectedCourse" id="selectedCourse" required>
+            <label for="selectedGrade" class="form-label">choose grade</label>
+            <select class="form-control" formControlName="selectedGrade" id="selectedGrade" (change)="chooseGrade()"
+                required>
+                <option *ngFor="let grade of Grades" [value]="grade.grade_ID">{{ grade.grade_Name }}</option>
+            </select>
+            <div *ngIf="myform.get('selectedGrade')?.errors && myform.get('selectedGrade')?.touched"
+                class="form-text text-center text-danger">Please choose Grade </div>
+
+
+            <label for="selectedCourse" class="form-label">choose course</label>
+            <select class="form-control" formControlName="selectedCourse" id="selectedCourse" required>
                 <option *ngFor="let course of courses" [value]="course.course_ID">{{ course.name }}</option>
-              </select>
-            
-            
+            </select>
+            <div *ngIf="myform.get('selectedCourse')?.errors && myform.get('selectedCourse')?.touched"
+                class="form-text text-center text-danger">Please choose course </div>
+                
+
             <div class="mb-3">
                 <label for="GroupName" class="form-label">Group Name</label>
                 <input type="text" class="form-control" name="GroupName" formControlName="groupName" id="GroupName"
                     placeholder="Group Name" required>
-                <div class="invalid-feedback">
-                    Group name is required.
-                </div>
+                <div *ngIf="myform.get('groupName')?.errors && myform.get('groupName')?.touched"
+                    class="form-text text-center text-danger">Group Name is required and must be at least 3 chars </div>
             </div>
 
             <!-- <div class="mb-3">
@@ -38,14 +43,14 @@
                 <label for="Price" class="form-label">Price</label>
                 <input type="number" class="form-control" name="Price" formControlName="Price" id="Price"
                     placeholder="Price" required>
-                <div class="invalid-feedback">
-                    Price is required.
-                </div>
+                <div *ngIf="myform.get('Price')?.errors && myform.get('Price')?.touched"
+                    class="form-text text-center text-danger">Price is required and must be a positive number and less
+                    1000 </div>
             </div>
-            
-            
 
-            <button type="submit" class="btn btn-danger  "> Submit</button>
+
+
+            <button type="submit" class="btn btn-danger  " [disabled]="!myform.valid"> Submit</button>
         </form>
     </div>
     <!-- <div class="container">

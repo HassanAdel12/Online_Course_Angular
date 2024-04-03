@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { StudentGroupService } from '../../Service/student-group.service';
 import { AccountService } from '../../Service/Account.service';
+import { EmailSenderService } from '../../Service/email-sender.service';
 
 declare var paypal: {
   Buttons: (arg0: {
@@ -18,7 +19,7 @@ declare var paypal: {
   selector: 'app-payment',
   standalone: true,
   imports: [FormsModule, HttpClientModule],
-  providers: [GroupService, AccountService, StudentGroupService],
+  providers: [GroupService, AccountService, StudentGroupService ,EmailSenderService],
   templateUrl: './payment.component.html',
   styleUrl: './payment.component.css',
 })
@@ -32,7 +33,8 @@ export class PaymentComponent {
     private readonly groupservice: GroupService,
     private readonly studentgroup: StudentGroupService,
     private router: Router,
-    private readonly AccountService: AccountService
+    private readonly AccountService: AccountService,
+    private readonly EmailSenderService : EmailSenderService
   ) {}
 
   async ngOnInit(): Promise<void> {
@@ -82,10 +84,23 @@ export class PaymentComponent {
     this.studentgroup.AddNewStudentgroup(newStudentGroup).subscribe(
       (response) => {
         console.log('added', response);
-        this.router.navigate(['/Showsessions/' + this.group.group_ID]);
+        
       },
       (error) => {
         console.error('Error ', error);
+      }
+    );
+  }
+
+  SendEmail() {
+
+    this.EmailSenderService.SendEmail(this.group.group_ID).subscribe(
+      (data) => {
+        console.log('sended ');
+        this.router.navigate(['/Showsessions/' + this.group.group_ID]);
+      },
+      (error) => {
+        console.log('Error', error);
       }
     );
   }
@@ -108,9 +123,11 @@ export class PaymentComponent {
         onApprove: (data, actions) => {
           return actions.order.capture().then((details: any) => {
             //console.log(details);
+            this.addnewStudentGroup();
+
             this.updateUser();
 
-            this.addnewStudentGroup();
+            this.SendEmail();
           });
         },
         onError: (err) => {

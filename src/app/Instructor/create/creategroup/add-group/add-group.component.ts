@@ -63,13 +63,13 @@ export class AddGroupComponent {
 
   myform = new FormGroup({
     groupName: new FormControl(null, [
-      Validators.min(3),
-      Validators.max(50),
+      Validators.minLength(3),
+      Validators.maxLength(50),
       Validators.required,
     ]),
     selectedGrade: new FormControl([null, Validators.required]),
     selectedCourse: new FormControl([null, Validators.required]),
-    Price: new FormControl(null, Validators.required),
+    Price: new FormControl(null, [Validators.required , Validators.min(0),Validators.max(1000)])
   });
 
   async chooseGrade() {
@@ -103,32 +103,45 @@ export class AddGroupComponent {
 
   submit() {
     
-    var data = {
-      groupName: this.myform.controls.groupName.value,
-      num_Students: 0,
-      creation_Date: formatDate(new Date(), 'yyyy-MM-dd', 'en'),
-      end_Date: formatDate(new Date(), 'yyyy-MM-dd', 'en'),
-      price: this.myform.controls.Price.value,
-      instructor_ID: this.instructor_id,
-      course_ID: this.myform.controls.selectedCourse.value
-    };
-
-    // console.log(data)
-    // console.log(this.myform.controls.selectedCourse.value)
-
-    this.GroupService.AddNewGroup(data).subscribe({
-      next: (data) => this.router.navigate(['/Instructordashboard']),
-      error: (err) => console.log('sorry there is an error when add'),
-    });
-
-  }
-  get groupNamevalid() {
-    return this.myform.controls['groupName'].valid;
-  }
+    if(this.myform.valid){
+      var data = {
+        groupName: this.myform.controls.groupName.value,
+        num_Students: 0,
+        creation_Date: formatDate(new Date(), 'yyyy-MM-dd', 'en'),
+        end_Date: formatDate(new Date(), 'yyyy-MM-dd', 'en'),
+        price: this.myform.controls.Price.value,
+        instructor_ID: this.instructor_id,
+        course_ID: this.myform.controls.selectedCourse.value
+      };
   
-  get Price() {
-    return this.myform.controls['Price'].valid;
+      // console.log(data)
+      // console.log(this.myform.controls.selectedCourse.value)
+  
+      this.GroupService.AddNewGroup(data).subscribe({
+        next: (data) => this.router.navigate(['/Instructordashboard']),
+        error: (err) => console.log('sorry there is an error when add'),
+      });
+    }
+    
+
   }
+
+
+  // get groupNameValid() {
+  //   return this.myform.controls['groupName'].valid;
+  // }
+  
+  // get PriceValid() {
+  //   return this.myform.controls['Price'].valid;
+  // }
+
+  // get selectedGradeValid() {
+  //   return this.myform.controls['selectedGrade'].valid;
+  // }
+  
+  // get selectedCourseValid() {
+  //   return this.myform.controls['Price'].valid;
+  // }
 
   async ngOnInit(): Promise<void> {
     const instructor_id = await this.getAccountID();

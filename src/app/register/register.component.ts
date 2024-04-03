@@ -1,6 +1,13 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { JwtService } from '../../Service/jwt.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -8,46 +15,67 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ReactiveFormsModule,
-    HttpClientModule,FormsModule ,CommonModule],
+  imports: [ReactiveFormsModule, HttpClientModule, FormsModule, CommonModule],
   providers: [JwtService],
-  templateUrl:'./register.component.html',
-  styleUrl: './register.component.css'
+  templateUrl: './register.component.html',
+  styleUrl: './register.component.css',
 })
-
-
 export class RegisterComponent {
-show:boolean=false;
-registrationForm: FormGroup;
+  show: boolean = false;
+  registrationForm: FormGroup;
 
-emailExists = false;
+  emailExists = false;
 
-usernameExists = false;
+  usernameExists = false;
 
-errormessage : any;
+  errormessage: any;
 
-constructor(private fb: FormBuilder, private registrationService: JwtService,private router:Router) {
-  this.registrationForm = this.fb.group({
-    name: ['', [Validators.required, Validators.minLength(3)]],
-    username: ['', [Validators.required, Validators.minLength(3), Validators.pattern(/^\S*$/)]],
-    email: ['', [Validators.required, Validators.email,Validators.pattern('^.{3,}@gmail\.com$')]],
-    password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(20)]],
-    confirmPassword: ['', Validators.required],
-    role: ['', Validators.required]
-  }, 
-    { validator: this.passwordMatchValidator
-   
-  });
-}
+  constructor(
+    private fb: FormBuilder,
+    private registrationService: JwtService,
+    private router: Router
+  ) {
+    this.registrationForm = this.fb.group(
+      {
+        name: ['', [Validators.required, Validators.minLength(3)]],
+        username: [
+          '',
+          [
+            Validators.required,
+            Validators.minLength(3),
+            Validators.pattern(/^\S*$/),
+          ],
+        ],
+        email: [
+          '',
+          [
+            Validators.required,
+            Validators.email,
+            Validators.pattern('^.{3,}@gmail.com$'),
+          ],
+        ],
+        password: [
+          '',
+          [
+            Validators.required,
+            Validators.minLength(6),
+            Validators.maxLength(20),
+          ],
+        ],
+        confirmPassword: ['', Validators.required],
+        role: ['', Validators.required],
+      },
+      { validator: this.passwordMatchValidator }
+    );
+  }
 
-onSubmit() {
+  onSubmit() {
+    this.show = true;
 
-  this.show=true;
-
-  if (this.registrationForm.valid) {
-    this.registrationService.register(this.registrationForm.value).subscribe({
-      next: (data) => {
-        // alert("Success Registration");
+    if (this.registrationForm.valid) {
+      this.registrationService.register(this.registrationForm.value).subscribe({
+        next: (data) => {
+          // alert("Success Registration");
           // console.log('Success Registration', response);
           // this.router.navigate(['/Login']);
 
@@ -57,98 +85,90 @@ onSubmit() {
           // } else if (userType === 'Instructor') {
           //   this.router.navigate(['/Dashboard']);
           // }
-          console.log("registration")
+          console.log('registration');
           this.router.navigate(['/Login']);
-      },
-      error: (err) => {
-        console.log(err.error);
-        this.errormessage = err.error;
-        this.show=false;
-      },
-    });
-
+        },
+        error: (err) => {
+          console.log(err.error);
+          this.errormessage = err.error;
+          this.show = false;
+        },
+      });
+    }
   }
-}
 
-passwordMatchValidator(re: FormGroup) {
-  const passwordGet = re.get('password');
-  const getconfirmPassword = re.get('confirmPassword');
+  passwordMatchValidator(re: FormGroup) {
+    const passwordGet = re.get('password');
+    const getconfirmPassword = re.get('confirmPassword');
 
-  if (passwordGet && getconfirmPassword) {
-    const password = passwordGet.value;
-    const confirmPassword = getconfirmPassword.value;
+    if (passwordGet && getconfirmPassword) {
+      const password = passwordGet.value;
+      const confirmPassword = getconfirmPassword.value;
 
-    if (password !== confirmPassword) {
-      getconfirmPassword.setErrors({ passwordMismatch: true });
-    } else {
-      getconfirmPassword.setErrors(null);
+      if (password !== confirmPassword) {
+        getconfirmPassword.setErrors({ passwordMismatch: true });
+      } else {
+        getconfirmPassword.setErrors(null);
+      }
     }
   }
 }
 
-}
+// myform = new FormGroup({
 
+//   name: new FormControl("", [Validators.required,
+//   Validators.pattern(/^[A-Za-z]+(?:[ \-'][A-Za-z]+)*$/)]),
 
- 
+//   username: new FormControl("", [
+//     Validators.required,
+//     Validators.pattern('^[a-zA-Z0-9._-]{3,20}$')]),
 
+//   email: new FormControl("", [Validators.required,
+//   Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$')]),
 
-  
-  
-  // myform = new FormGroup({
+//   phone: new FormControl("", [
+//     Validators.required,
+//     Validators.pattern(/^\+(?:[0-9] ?){6,14}[0-9]$/)]),
 
-  //   name: new FormControl("", [Validators.required,
-  //   Validators.pattern(/^[A-Za-z]+(?:[ \-'][A-Za-z]+)*$/)]),
+//   password: new FormControl("", [
+//     Validators.required,
+//     Validators.pattern('^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d!@#$%^&*()-_=+{};:,<.>?[\\]\\\\/]{8,20}$')]),
+// }
 
-  //   username: new FormControl("", [
-  //     Validators.required,
-  //     Validators.pattern('^[a-zA-Z0-9._-]{3,20}$')]),
+// )
 
-  //   email: new FormControl("", [Validators.required,
-  //   Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$')]),
+// get namevalied() {
+//   return this.myform.controls["name"].valid;
+// }
 
-  //   phone: new FormControl("", [
-  //     Validators.required,
-  //     Validators.pattern(/^\+(?:[0-9] ?){6,14}[0-9]$/)]),
+// get username() {
+//   return this.myform.controls["username"].valid;
+// }
 
-  //   password: new FormControl("", [
-  //     Validators.required,
-  //     Validators.pattern('^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d!@#$%^&*()-_=+{};:,<.>?[\\]\\\\/]{8,20}$')]),
-  // }
+// get email() {
+//   return this.myform.controls["email"].valid;
+// }
 
-  // )
+// get password() {
+//   return this.myform.controls["password"].valid;
+// }
 
-  // get namevalied() {
-  //   return this.myform.controls["name"].valid;
-  // }
+// get phone() {
+//   return this.myform.controls["phone"].valid;
+// }
 
-  // get username() {
-  //   return this.myform.controls["username"].valid;
-  // }
+// addnewuser() {
+//   if (this.myform.valid) {
 
-  // get email() {
-  //   return this.myform.controls["email"].valid;
-  // }
+//     let newuser = {
+//       userName: this.myform.controls.username.value as string,
+//       password: this.myform.controls.password.value as string,
+//       confirmPassword: this.myform.controls.password.value as string,
+//       email: this.myform.controls.email.value as string,
+//       role: this.myform.controls.name.value as string
 
-  // get password() {
-  //   return this.myform.controls["password"].valid;
-  // }
-
-  // get phone() {
-  //   return this.myform.controls["phone"].valid;
-  // }
-
-  // addnewuser() {
-  //   if (this.myform.valid) {
-      
-  //     let newuser = {
-  //       userName: this.myform.controls.username.value as string,
-  //       password: this.myform.controls.password.value as string,
-  //       confirmPassword: this.myform.controls.password.value as string,
-  //       email: this.myform.controls.email.value as string,
-  //       role: this.myform.controls.name.value as string
-
-  //     };
-  //     this.data.AddNewUser(newuser).subscribe();
-  //     this.router.navigate(['/']);
-  //   }
-  // }
+//     };
+//     this.data.AddNewUser(newuser).subscribe();
+//     this.router.navigate(['/']);
+//   }
+// }

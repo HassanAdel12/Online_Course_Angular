@@ -67,6 +67,7 @@ export class CreateexamComponent {
   group: any;
 
   examSaved: boolean = false;
+
   exam: Exam = {
     name: '',
     questions: [
@@ -203,36 +204,35 @@ export class CreateexamComponent {
         instructor_ID: this.instructor_id,
         group_ID: this.group_ID,
       };
-  
-      // Await the promise returned by AddNewQuiz
+
       examIndex = await this.QuizService.AddNewQuiz(myExam).toPromise();
-  
+
       for (const question of this.exam.questions) {
         let questionIndex: any;
         const myquestion = {
           question_Text: question.question,
           quiz_ID: examIndex,
         };
-  
-        // Await the promise returned by AddNewQuestion
-        questionIndex = await this.QuestionService.AddNewQuestion(myquestion).toPromise();
-  
+
+        questionIndex = await this.QuestionService.AddNewQuestion(
+          myquestion
+        ).toPromise();
+
         for (const option of question.options) {
           const myoption = {
             text: option.option,
             isCorrect: option.selected,
             question_ID: questionIndex,
           };
-  
-          // Await the promise returned by AddNewOption
+
           await this.ChoiseService.AddNewChoise(myoption).toPromise();
         }
       }
-  
+
       this.exam.questions = [];
       this.router.navigate(['/Instructordashboard']);
       this.examSaved = true;
-  
+
       setTimeout(() => {
         this.examSaved = false;
       }, 3000);

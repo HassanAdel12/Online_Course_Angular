@@ -3,6 +3,7 @@ import { GradeService } from '../../../../Service/grade.service';
 import { CommonModule } from '@angular/common';
 import {
   FormControl,
+  FormBuilder,
   FormGroup,
   FormsModule,
   ReactiveFormsModule,
@@ -17,7 +18,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   selector: 'app-createsession',
   standalone: true,
   imports: [CommonModule, FormsModule, ReactiveFormsModule],
-  providers: [GroupService, SessionService , AccountService],
+  providers: [GroupService, SessionService, AccountService],
   templateUrl: './createsession.component.html',
   styleUrl: './createsession.component.css',
 })
@@ -27,7 +28,8 @@ export class CreatesessionComponent implements OnInit {
   group_ID: any;
   Name: any;
   url: any;
-  group : any;
+  group: any;
+  myform : FormGroup;
 
   constructor(
     private readonly GroupService: GroupService,
@@ -35,8 +37,23 @@ export class CreatesessionComponent implements OnInit {
     private AccountService: AccountService,
     private Actived: ActivatedRoute,
     private router: Router,
+    private FormBuilder: FormBuilder
   ) {
     this.group_ID = this.Actived.snapshot.params['id'];
+    
+    this.myform = this.FormBuilder.group({
+      Name: new FormControl(null, [
+        Validators.minLength(3),
+        Validators.maxLength(50),
+        Validators.required,
+      ]),
+      URLZoom: new FormControl(null, [Validators.required]),
+      URLOnlineVideo: new FormControl(null, [Validators.required]),
+      EndDate: new FormControl(null, Validators.required),
+      CreationDate: new FormControl(null, Validators.required),
+    },
+    { validator: this.CreationDateOrEndDate });
+
   }
 
   private async getAccountID(): Promise<any> {
@@ -48,33 +65,37 @@ export class CreatesessionComponent implements OnInit {
     });
   }
 
-  myform = new FormGroup({
-    Name: new FormControl(null, [
-      Validators.min(3),
-      Validators.max(50),
-      Validators.required,
-    ]),
-    URLZoom: new FormControl(null, [Validators.required]),
-    URLOnlineVideo: new FormControl(null, [Validators.required]),
+  
 
-    EndDate: new FormControl(null, Validators.required),
+  CreationDateOrEndDate(form: FormGroup) {
 
-    CreationDate: new FormControl(null, Validators.required),
-  });
+    const getCreationDate = form.get('CreationDate');
+    const getEndDate = form.get('EndDate');
+
+    if (getCreationDate && getEndDate) {
+      const CreationDateValue = getCreationDate.value;
+      const EndDateValue = getEndDate.value;
+
+      if (new Date >= new Date(CreationDateValue) || CreationDateValue == null) {
+        getCreationDate.setErrors({ NowCreationmatch: true });
+      } else {
+        getCreationDate.setErrors(null);
+      }
+
+      if (CreationDateValue >= EndDateValue || EndDateValue == null) {
+        getEndDate.setErrors({ CreationEndmatch: true });
+      } else {
+        getEndDate.setErrors(null);
+      }
+
+    }
+
+  }
 
   async ngOnInit(): Promise<void> {
-
     const instructor_id = await this.getAccountID();
     this.instructor_id = instructor_id;
-    
-    // this.QuizService.getAllQuizs().subscribe({
-    //   next: (data) => {
-    //     this.grade = data;
-    //   },
-    //   error: (err) => {
-    //     console.log(err);
-    //   },
-    // });
+
     this.GroupService.getGroupByID(this.group_ID).subscribe({
       next: (data) => {
         this.group = data;
@@ -84,10 +105,6 @@ export class CreatesessionComponent implements OnInit {
       },
     });
   }
-
-  // onchange(group_ID: any) {
-  //   this.group_ID = group_ID;
-  // }
 
   submitForm() {
     const formData = {
@@ -101,12 +118,10 @@ export class CreatesessionComponent implements OnInit {
       onlineVideo: this.myform.value.URLOnlineVideo,
     };
 
-    if(this.myform.valid){
+    if (this.myform.valid) {
       this.SessionService.AddNewSession(formData).subscribe({
         next: (data) => {
-  
-          this.router.navigate(['/Instructordashboard'])
-  
+          this.router.navigate(['/Instructordashboard']);
         },
         error: (err) => {
           window.alert(
@@ -116,22 +131,24 @@ export class CreatesessionComponent implements OnInit {
         },
       });
     }
-    
   }
 
-  get sessionNamevalid() {
-    return this.myform.controls['Name'].valid;
-  }
-  get URLZoomvalid() {
-    return this.myform.controls['URLZoom'].valid;
-  }
+  // get sessionNamevalid() {
+  //   return this.myform.controls['Name'].valid;
+  // }
+  // get URLZoomvalid() {
+  //   return this.myform.controls['URLZoom'].valid;
+  // }
 
-  get URLOnlineVideovalid() {
-    return this.myform.controls['URLOnlineVideo'].valid;
-  }
+  // get URLOnlineVideovalid() {
+  //   return this.myform.controls['URLOnlineVideo'].valid;
+  // }
 
-  get EndDate() {
-    return this.myform.controls['EndDate'].valid;
-  }
+  // get EndDate() {
+  //   return this.myform.controls['EndDate'].valid;
+  // }
 
+  // get CreationDate() {
+  //   return this.myform.controls['CreationDate'].valid;
+  // }
 }
