@@ -89,14 +89,15 @@ export class UpdateGroupComponent {
 
     //console.log(this.session)
     if (getCreationDate && getEndDate) {
+      
       const CreationDateValue = getCreationDate.value;
       const EndDateValue = getEndDate.value;
 
-      if (new Date >= new Date(CreationDateValue) || CreationDateValue == null) {
-        getCreationDate.setErrors({ NowCreationmatch: true });
-      } else {
-        getCreationDate.setErrors(null);
-      }
+      // if (new Date >= new Date(CreationDateValue) || CreationDateValue == null) {
+      //   getCreationDate.setErrors({ NowCreationmatch: true });
+      // } else {
+      //   getCreationDate.setErrors(null);
+      // }
 
       if (CreationDateValue >= EndDateValue || EndDateValue == null) {
         getEndDate.setErrors({ CreationEndmatch: true });

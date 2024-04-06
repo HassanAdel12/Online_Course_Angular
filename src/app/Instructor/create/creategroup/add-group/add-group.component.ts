@@ -67,8 +67,8 @@ export class AddGroupComponent {
       Validators.maxLength(50),
       Validators.required,
     ]),
-    selectedGrade: new FormControl([null, Validators.required]),
-    selectedCourse: new FormControl([null, Validators.required]),
+    selectedGrade: new FormControl(null, [Validators.required]),
+    selectedCourse: new FormControl(null,[Validators.required]),
     Price: new FormControl(null, [Validators.required , Validators.min(0),Validators.max(1000)])
   });
 

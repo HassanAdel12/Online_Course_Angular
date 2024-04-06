@@ -15,7 +15,8 @@
       <tr>
         <th scope="col">Quiz Name</th>
         <th scope="col">Number of Question</th>
-        <!-- <th>Actions</th> -->
+        <th scope="col">Quiz Available</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -27,6 +28,11 @@
             (click)="updateexam(exam.Group_ID, exam)">Update</button> -->
           <!-- <button type="button" class="btn btn-outline-danger m-2" (click)="deleteGroup(exam.Group_ID)">Delete</button>  -->
         </td>
+        <td>{{ exam.quiz_Available }}</td>
+        <td>
+          <button type="button" class="btn btn-outline-success m-2" (click)="Available(exam)">Available</button>
+        <button type="button" class="btn btn-outline-danger m-2" (click)="NotAvailable(exam)">not Available</button> 
+      </td>
       </tr>
     </tbody>
   </table>

@@ -21,6 +21,7 @@ interface Question {
 
 interface Exam {
   name: string;
+  quiz_Available : boolean;
   questions: Question[];
 }
 
@@ -33,21 +34,10 @@ interface Exam {
   styleUrl: './createexam.component.css',
 })
 export class CreateexamComponent {
-  //grade: any;
-  //groups: any;
-
   async ngOnInit(): Promise<void> {
     const instructor_id = await this.getAccountID();
     this.instructor_id = instructor_id;
 
-    // this.QuizService.getAllQuizs().subscribe({
-    //   next: (data) => {
-    //     this.grade = data;
-    //   },
-    //   error: (err) => {
-    //     console.log(err);
-    //   },
-    // });
     this.GroupService.getGroupByID(this.group_ID).subscribe({
       next: (data) => {
         this.group = data;
@@ -58,18 +48,14 @@ export class CreateexamComponent {
     });
   }
 
-  // onchange(group_ID: any) {
-  //   this.group_ID = group_ID;
-  // }
-
   instructor_id: any;
   group_ID: any;
   group: any;
-
-  examSaved: boolean = false;
+  examSaved: boolean = true;
 
   exam: Exam = {
     name: '',
+    quiz_Available : false,
     questions: [
       {
         question: '',
@@ -82,6 +68,11 @@ export class CreateexamComponent {
       },
     ],
   };
+
+  // examvaild(examname :any):boolean{
+
+  //   return examname.va
+  // }
 
   private async getAccountID(): Promise<any> {
     return new Promise((resolve, reject) => {
@@ -118,91 +109,61 @@ export class CreateexamComponent {
   }
 
   add() {}
+
   deleteQuestion(index: number) {
     this.exam.questions.splice(index, 1);
   }
 
-  // async saveExam(examname: any) {
-  //   //console.log('Saving exam:', this.exam);
-
-  //   var examIndex: any;
-  //   var questionIndex: any;
-  //   var optionIndex: any;
-
-  //   var myExam = {
-  //     quiz_Name: this.exam.name,
-  //     instructor_ID: this.instructor_id,
-  //     group_ID: this.group_ID,
-  //   };
-
-  //   await this.QuizService.AddNewQuiz(myExam).subscribe({
-  //     next: (data) => {
-  //       examIndex = data;
-  //     },
-  //     error: (err) => {
-  //       this.router.navigate([
-  //         '/Error',
-  //         { errormessage: err.message as string },
-  //       ]);
-  //     },
-  //   });
-
-  //   var questionitem = 0;
-  //   this.exam.questions.forEach((question) => {
-  //     var myquestion = {
-  //       question_Text: question.question,
-  //       quiz_ID: examIndex,
-  //     };
-  //     this.QuestionService.AddNewQuestion(myquestion).subscribe({
-  //       next: (data) => {
-  //         questionIndex = data;
-  //       },
-  //       error: (err) => {
-  //         this.router.navigate([
-  //           '/Error',
-  //           { errormessage: err.message as string },
-  //         ]);
-  //       },
-  //     });
-
-  //     this.exam.questions[questionitem].options.forEach((option) => {
-  //       var myoption = {
-  //         text: option.option,
-  //         isCorrect: option.selected,
-  //         question_ID: questionIndex,
-  //       };
-  //       this.QuestionService.AddNewQuestion(myoption).subscribe({
-  //         next: (data) => {
-  //           optionIndex = data;
-  //         },
-  //         error: (err) => {
-  //           this.router.navigate([
-  //             '/Error',
-  //             { errormessage: err.message as string },
-  //           ]);
-  //         },
-  //       });
-  //     });
-  //     questionitem++;
-  //   });
-
-  //   this.exam.questions = [];
-
-  //   this.router.navigate(['/Instructordashboard']);
-  //   this.examSaved = true;
-
-  //   setTimeout(() => {
-  //     this.examSaved = false;
-  //   }, 3000);
-  // }
+  checkone(): boolean {
+    return !this.exam.questions.every((q) => q.options.some((o) => o.selected));
+  }
 
   async saveExam(examname: any) {
+    this.examSaved = true;
+
+    if (this.exam.questions.length < 2) {
+      this.examSaved = false;
+    }
+    
+    
+    if (!examname) {
+      this.examSaved = false;
+    }
+
+    var check = false;
+    this.exam.questions.forEach((question) => {
+      if (question.question == '') {
+        this.examSaved = false;
+      }
+
+      question.options.forEach((option) => {
+        if (option.option == '') {
+          this.examSaved = false;
+        }
+
+        if (option.selected) {
+          check = true;
+        }
+      });
+
+      if (!check) {
+        this.examSaved = false;
+      }
+
+      check = false;
+    });
+
+    if (!this.examSaved) {
+      return;
+    }
+
     try {
       let examIndex: any;
       const myExam = {
         quiz_Name: this.exam.name,
         instructor_ID: this.instructor_id,
         group_ID: this.group_ID,
+        quiz_Available : this.exam.quiz_Available
       };
 
       examIndex = await this.QuizService.AddNewQuiz(myExam).toPromise();
@@ -232,10 +193,6 @@ export class CreateexamComponent {
       this.exam.questions = [];
       this.router.navigate(['/Instructordashboard']);
       this.examSaved = true;
-
-      setTimeout(() => {
-        this.examSaved = false;
-      }, 3000);
     } catch (err) {
       this.router.navigate(['/Error']);
     }

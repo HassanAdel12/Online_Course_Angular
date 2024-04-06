@@ -8,28 +8,11 @@
     <label for="examName">
       <h5>Exam Name:</h5>
     </label>
-    <input #examname type="text" class="form-control" id="examName" [(ngModel)]="exam.name"
+    <input #examname="ngModel" type="text" class="form-control" id="examName" [(ngModel)]="exam.name"
       placeholder="Enter exam name" required>
+    <span style="color: red;" *ngIf="examname.invalid">Exam Name required !</span>
   </div>
 
-  <!-- <div class="dropdown">
-    <button class="dropbtn" style="margin:10px">choose Grade</button>
-    <div class="dropdown-content">
-      <a *ngFor="let g of grade" href="#">{{g.gradename}}</a>
-      
-    </div>
-  </div> -->
-
-  <!-- <div class="dropdown">
-    <button class="dropbtn" style="margin:10px">choose group</button>
-
-    <div class="dropdown-content">
-      <a *ngFor="let g of groups">{{g.groupName}}</a>
-      @for (group of groups; track group.id) {
-
-      }
-    </div>
-  </div> -->
   <hr class="my-4 w-75">
   <h5>Group :</h5>
 
@@ -50,24 +33,32 @@
       <div class="question-form">
         <div *ngFor="let question of exam.questions; let questionIndex = index" class="question-container">
           <label>Question {{ questionIndex + 1 }}:</label><br>
-          <input #question type="text" [(ngModel)]="question.question" style="margin:10px;"
-            placeholder="Enter your question here" required><br>
+          <input #questionText="ngModel" type="text" [(ngModel)]="question.question" style="margin:10px;"
+            placeholder="Enter your question here" required>
+          <span style="color: red;" *ngIf="questionText.invalid">Question Text required !</span>
+          <br>
+
           <div class="option-container" *ngFor="let option of question.options; let optionIndex = index">
             <div class="form-check">
               <input class="form-check-input" type="radio" (click)="CheckOption(questionIndex , optionIndex)"
                 name="{{questionIndex}}" required>
-              <input #option type="text" [(ngModel)]="option.option" placeholder="Enter option {{ optionIndex + 1 }}"
-                required>
+              <input #optionText="ngModel" type="text" [(ngModel)]="option.option"
+                placeholder="Enter option {{ optionIndex + 1 }}" required>
+
               <button class="btn btn-sm btn-danger" style="margin-left:10px;"
                 (click)="deleteOption(questionIndex, optionIndex)">Delete
                 Option</button>
+              <p style="color: red;" *ngIf="optionText.invalid">Option Text required !</p>
             </div>
+
           </div>
           <button class="btn btn-sm btn-primary" style="margin-right:10px;" (click)="addOption(questionIndex)">Add
             Option</button>
           <button class="btn btn-sm btn-danger" (click)="deleteQuestion(questionIndex)">Delete Question</button>
         </div>
         <button class="btn btn-primary" style="margin-top:10px;" (click)="addQuestion()">Add Question</button>
+
+        <p style="color: red;" *ngIf="checkone()">Check Option required !</p>
 
         <hr>
 
@@ -91,11 +82,16 @@
   </div>
 
 
+  <!-- <input class="form-check-input" type="radio" [(ngModel)]="exam.quiz_Available" name="Quiz_Available" required>
+  <label>Quiz Available</label> -->
+
+  <p style="color: red;" *ngIf="exam.questions.length < 2">must enter 2 Questions required to create exam !</p>
+
   <button class="btn btn-success" style="margin-top:20px" (click)="saveExam(examname.value)">Save Exam</button>
 
-  <div *ngIf="examSaved" class="alert alert-success mt-3" role="alert">
+  <!-- <div *ngIf="examSaved" class="alert alert-success mt-3" role="alert">
     Exam saved successfully!
-  </div>
+  </div> -->
 
 
 </div>

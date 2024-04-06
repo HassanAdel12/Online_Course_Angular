@@ -137,30 +137,30 @@ export class GetAllExamsComponent implements OnInit {
   //   });
   // }
 
-  updateexam(id: number, updateexam: any): void {
-    // this.QuizServices.updateQuiz(id, updateexam).subscribe({
-    //   next: () => {
-    //     console.log('Group updated successfully');
+  // updateexam(id: number, updateexam: any): void {
+  //   // this.QuizServices.updateQuiz(id, updateexam).subscribe({
+  //   //   next: () => {
+  //   //     console.log('Group updated successfully');
 
-    //     this.loadexams();
-    //   },
-    //   error: (err) => {
-    //     console.error('Error updating group:', err);
-    //   },
-    // });
-  }
-  deleteGroup(id: number): void {
-    this.QuizServices.deleteQuiz(id).subscribe({
-      next: () => {
-        console.log('Group deleted successfully');
+  //   //     this.loadexams();
+  //   //   },
+  //   //   error: (err) => {
+  //   //     console.error('Error updating group:', err);
+  //   //   },
+  //   // });
+  // }
+  // deleteGroup(id: number): void {
+  //   this.QuizServices.deleteQuiz(id).subscribe({
+  //     next: () => {
+  //       console.log('Group deleted successfully');
 
-        this.loadexams();
-      },
-      error: (err) => {
-        console.error('Error deleting group:', err);
-      },
-    });
-  }
+  //       this.loadexams();
+  //     },
+  //     error: (err) => {
+  //       console.error('Error deleting group:', err);
+  //     },
+  //   });
+  // }
 
 
   Create(){
@@ -173,4 +173,37 @@ export class GetAllExamsComponent implements OnInit {
     }
 
   }
+
+
+  Available(exam :any){
+    exam.quiz_Available = true;
+    console.log(exam)
+    this.QuizServices.updateQuiz(exam.quiz_ID,exam).subscribe({
+      next: () => {
+        console.log('update successfully');
+
+        this.loadexams();
+      },
+      error: (err) => {
+        console.error('Error update exam:', err);
+      },
+    });
+  }
+
+
+  NotAvailable(exam :any){
+    exam.quiz_Available = false;
+
+    this.QuizServices.updateQuiz(exam.quiz_ID,exam).subscribe({
+      next: () => {
+        console.log('update successfully');
+
+        this.loadexams();
+      },
+      error: (err) => {
+        console.error('Error update exam:', err);
+      },
+    });
+  }
+
 }
