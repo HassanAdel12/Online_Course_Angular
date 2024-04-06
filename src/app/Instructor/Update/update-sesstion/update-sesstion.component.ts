@@ -41,6 +41,7 @@ export class UpdateGroupComponent {
         Validators.minLength(3),
         Validators.maxLength(50),
         Validators.required,
+        this.sessionNameValidator()
       ]),
       URLZoom: new FormControl(null, [Validators.required]),
       URLOnlineVideo: new FormControl(null, [Validators.required]),
@@ -51,7 +52,19 @@ export class UpdateGroupComponent {
 
    }
 
+   sessionNameValidator() {
+    return (control: { value: string }) => {
+      var value = control.value;
+      var containsLetter = /[a-zA-Z]/.test(value);
+      var containsNumber = /[0-9]/.test(value);
 
+      if (!containsLetter && containsNumber ) {
+        return { invalidSessionName: true };
+      }
+
+      return null;
+    };
+  }
 
   async ngOnInit(): Promise<void> {
     

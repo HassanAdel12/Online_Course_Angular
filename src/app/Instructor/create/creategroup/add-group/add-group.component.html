@@ -27,7 +27,7 @@
                 <input type="text" class="form-control" name="GroupName" formControlName="groupName" id="GroupName"
                     placeholder="Group Name" required>
                 <div *ngIf="myform.get('groupName')?.errors && myform.get('groupName')?.touched"
-                    class="form-text text-center text-danger">Group Name is required and must be at least 3 chars </div>
+                    class="form-text text-center text-danger">Group Name is required and must be letters not numbers only and must be at least 3 chars  </div>
             </div>
 
             <div class="mb-3">

@@ -115,6 +115,26 @@ export class CreateexamComponent {
     return !this.exam.questions.every((q) => q.options.some((o) => o.selected));
   }
 
+  isValidExamName(name: string): boolean {
+    var containsLetters = /[a-zA-Z]/.test(name);
+    var isNotDigitsOnly = !/^\d+$/.test(name);
+
+    return containsLetters && isNotDigitsOnly;
+  }
+
+  isValidQuestion(question: string): boolean {
+    var containsLetters = /[a-zA-Z]/.test(question);
+    var isNotDigitsOnly = !/^\d+$/.test(question);
+   
+    return containsLetters && isNotDigitsOnly;
+  }
+  isValidoptions( options: { option: string; selected: boolean }[]):boolean
+  {
+    var hasAtLeastTwoOptions = options.length >= 2;
+    return  hasAtLeastTwoOptions;
+  }
+
+
   async saveExam(examname: any) {
     this.examSaved = true;
 
@@ -127,9 +147,14 @@ export class CreateexamComponent {
       this.examSaved = false;
     }
 
+    if (!this.isValidExamName(examname)) {
+      this.examSaved = false;
+    }
+ 
+
     var check = false;
     this.exam.questions.forEach((question) => {
-      if (question.question == '') {
+      if (question.question == ''&&!this.isValidQuestion(question.question)&& !this.isValidoptions(question.options)) {
         this.examSaved = false;
       }
 

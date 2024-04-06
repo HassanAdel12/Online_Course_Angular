@@ -1,8 +1,7 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import {
   FormBuilder,
-  FormControl,
   FormGroup,
   FormsModule,
   ReactiveFormsModule,
@@ -11,7 +10,6 @@ import {
 import { JwtService } from '../../Service/jwt.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-
 @Component({
   selector: 'app-register',
   standalone: true,
@@ -29,6 +27,8 @@ export class RegisterComponent {
   usernameExists = false;
 
   errormessage: any;
+  registrationSuccess: boolean = false;
+
 
   constructor(
     private fb: FormBuilder,
@@ -85,8 +85,14 @@ export class RegisterComponent {
           // } else if (userType === 'Instructor') {
           //   this.router.navigate(['/Dashboard']);
           // }
+          this.registrationSuccess = true;
           console.log('registration');
-          this.router.navigate(['/Login']);
+          setTimeout(() => {
+            
+            this.router.navigate(['/Login']);
+            this.registrationSuccess = false;
+          }, 3000);
+         
         },
         error: (err) => {
           console.log(err.error);

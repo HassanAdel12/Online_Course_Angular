@@ -9,8 +9,12 @@
       <h5>Exam Name:</h5>
     </label>
     <input #examname="ngModel" type="text" class="form-control" id="examName" [(ngModel)]="exam.name"
-      placeholder="Enter exam name" required>
+      placeholder="Enter exam name"  required>
     <span style="color: red;" *ngIf="examname.invalid">Exam Name required !</span>
+
+    <span style="color: red;" *ngIf="!isValidExamName(exam.name) && (examname.dirty || examname.touched)">
+      Exam Name must contain letters and should not be only digits
+    </span>
   </div>
 
   <hr class="my-4 w-75">
@@ -36,6 +40,13 @@
           <input #questionText="ngModel" type="text" [(ngModel)]="question.question" style="margin:10px;"
             placeholder="Enter your question here" required>
           <span style="color: red;" *ngIf="questionText.invalid">Question Text required !</span>
+          <span style="color: red;" *ngIf="!isValidQuestion(question.question) && (questionText.dirty || questionText.touched)">
+            Question must be letters not be only digits
+          </span>
+          <span style="color: red;" *ngIf="!isValidoptions(question.options) && (questionText.dirty || questionText.touched)">
+            Question must has at least 2 options
+          </span>
+          
           <br>
 
           <div class="option-container" *ngFor="let option of question.options; let optionIndex = index">
@@ -57,7 +68,7 @@
           <button class="btn btn-sm btn-danger" (click)="deleteQuestion(questionIndex)">Delete Question</button>
         </div>
         <button class="btn btn-primary" style="margin-top:10px;" (click)="addQuestion()">Add Question</button>
-
+        
         <p style="color: red;" *ngIf="checkone()">Check Option required !</p>
 
         <hr>
@@ -84,7 +95,7 @@
 
   
 
-  <p style="color: red;" *ngIf="exam.questions.length < 2">must enter 2 Questions required to create exam !</p>
+  <p style="color: red;" *ngIf="exam.questions.length<2">must enter 2 Questions required to create exam !</p>
 
   <input class="form-check-input me-3" type="checkbox" [(ngModel)]="exam.quiz_Available" name="Quiz_Available" required>
   <label>Quiz Available</label>

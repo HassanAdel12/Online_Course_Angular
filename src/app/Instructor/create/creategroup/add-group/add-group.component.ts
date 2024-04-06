@@ -60,12 +60,26 @@ export class AddGroupComponent {
   ) {
     //this.grade_ID = 0;
   }
+  groupNameValidator() {
+    return (control: { value: string }) => {
+      const value = control.value;
+      const containsLetter = /[a-zA-Z]/.test(value);
+      const containsNumber = /[0-9]/.test(value);
+
+      if (!containsLetter && containsNumber ) {
+        return { invalidGroupName: true };
+      }
+
+      return null;
+    };
+  }
 
   myform = new FormGroup({
     groupName: new FormControl(null, [
       Validators.minLength(3),
       Validators.maxLength(50),
       Validators.required,
+      this.groupNameValidator()
     ]),
     selectedGrade: new FormControl(null, [Validators.required]),
     selectedCourse: new FormControl(null,[Validators.required]),

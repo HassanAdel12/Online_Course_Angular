@@ -41,11 +41,13 @@ export class CreatesessionComponent implements OnInit {
   ) {
     this.group_ID = this.Actived.snapshot.params['id'];
     
+    
     this.myform = this.FormBuilder.group({
       Name: new FormControl(null, [
         Validators.minLength(3),
         Validators.maxLength(50),
         Validators.required,
+        this.sessionNameValidator()
       ]),
       URLZoom: new FormControl(null, [Validators.required]),
       URLOnlineVideo: new FormControl(null, [Validators.required]),
@@ -54,6 +56,19 @@ export class CreatesessionComponent implements OnInit {
     },
     { validator: this.CreationDateOrEndDate });
 
+  }
+  sessionNameValidator() {
+    return (control: { value: string }) => {
+      const value = control.value;
+      const containsLetter = /[a-zA-Z]/.test(value);
+      const containsNumber = /[0-9]/.test(value);
+
+      if (!containsLetter && containsNumber ) {
+        return { invalidSessionName: true };
+      }
+
+      return null;
+    };
   }
 
   private async getAccountID(): Promise<any> {

@@ -9,7 +9,7 @@
         <input type="text" class="form-control" name="Name" formControlName="Name" id="Name" placeholder=" Name"
           required>
         <div *ngIf="myform.get('Name')?.errors && myform.get('Name')?.touched"
-          class="form-text text-center text-danger">Session Name is required and must be at least 3 chars </div>
+          class="form-text text-center text-danger">Session Name is required and must be letters not numbers only and must be at least 3 chars </div>
       </div>
 
       <div class="mb-3">
