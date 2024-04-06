@@ -22,8 +22,10 @@ export class QuizService {
     return this.myClient.get("http://localhost:48190/api/AllExams/Group/"+id);
   }
 
+
   getQuizByGroupIDStudent(id:any , studentId :any){
-    return this.myClient.get("http://localhost:48190/api/AllExams/GroupOrstudent/"+id , studentId);
+    //console.log(studentId)
+    return this.myClient.get("http://localhost:48190/api/AllExams/GroupOrstudent/"+id+"/"+studentId);
   }
 
 

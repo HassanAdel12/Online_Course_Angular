@@ -69,10 +69,7 @@ export class CreateexamComponent {
     ],
   };
 
-  // examvaild(examname :any):boolean{
-
-  //   return examname.va
-  // }
+ 
 
   private async getAccountID(): Promise<any> {
     return new Promise((resolve, reject) => {

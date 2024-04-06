@@ -30,8 +30,8 @@
         </td>
         <td>{{ exam.quiz_Available }}</td>
         <td>
-          <button type="button" class="btn btn-outline-success m-2" (click)="Available(exam)">Available</button>
-        <button type="button" class="btn btn-outline-danger m-2" (click)="NotAvailable(exam)">not Available</button> 
+          <button type="button" class="btn btn-outline-success m-2" (click)="Available(exam.quiz_ID,exam)">Available</button>
+        <button type="button" class="btn btn-outline-danger m-2" (click)="NotAvailable(exam.quiz_ID,exam)">not Available</button> 
       </td>
       </tr>
     </tbody>

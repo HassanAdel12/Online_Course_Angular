@@ -14,6 +14,10 @@ export class StudentQuizService {
     return this.myClient.get(this.DB_URL);
   }
 
+  getAllStudentbyQuiz(QuizId : any){
+    return this.myClient.get("http://localhost:48190/api/AllStudentsByExam/" + QuizId);
+  }
+
   getStudentQuizByID(id:any){
     return this.myClient.get(this.DB_URL+"/"+id);
   }

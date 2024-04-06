@@ -16,25 +16,30 @@
       </div>
     </div>
 
-    <div class="col-9">
-      <div class="session-details mt-4">
-        <div class="card bg-lightblue shadow">
-          <div class="card-body">
-            <h2 class="card-title text-center">{{ selectedSession?.sessionName }}</h2>
-            <p class="card-text">Start Date: {{ selectedSession?.start_Date }}</p>
-            <p class="card-text">End Date: {{ selectedSession?.end_at }}</p>
-            <p class="card-text">Group Name: {{ selectedSession?.group_ID }}</p>
-            <p class="card-text">Online Video: {{ selectedSession?.OnlineVideo }}</p>
-            <div class="video-container">
-              <div *ngIf="selectedSession && selectedSession.onlineVideo" class="video-container">
-                <video [src]=selectedSession.onlineVideo controls class="video-player" style="width: 100%; height: auto;"></video>
+    @if (selectedSession){
+      <div class="col-9">
+        <div class="session-details mt-4">
+          <div class="card bg-lightblue shadow">
+            <div class="card-body">
+              <h2 class="card-title text-center">{{ selectedSession?.sessionName }}</h2>
+              <p class="card-text">Start Date: {{ selectedSession?.start_Date }}</p>
+              <p class="card-text">End Date: {{ selectedSession?.end_at }}</p>
+              <p class="card-text">Group Name: {{ group?.groupName }}</p>
+              <p class="card-text">Online Video: {{ selectedSession?.OnlineVideo }}</p>
+              <div class="video-container">
+                <div *ngIf="selectedSession && selectedSession.onlineVideo" class="video-container">
+                  <video [src]=selectedSession.onlineVideo controls class="video-player" style="width: 100%; height: auto;"></video>
+                </div>
               </div>
+              <button *ngIf="selectedSession?.zoom" class="btn position-absolute top-0 end-1 mt-3" style="background-color: gold; color: black; padding: 5px;" (click)="openZoom(selectedSession?.zoom)">Join Zoom</button>
             </div>
-            <button *ngIf="selectedSession?.zoom" class="btn position-absolute top-0 end-1 mt-3" style="background-color: gold; color: black; padding: 5px;" (click)="openZoom(selectedSession?.zoom)">Join Zoom</button>
           </div>
         </div>
       </div>
-    </div>
+    }
+    
+
+
   </div>
 </div>
 

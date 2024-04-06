@@ -18,16 +18,7 @@ import { AccountService } from '../../../../../Service/Account.service';
 })
 export class GetAllExamsComponent implements OnInit {
   
-  //options = ['Option 1', 'Option 2', 'Option 3']; // Array of options
-  // selectedOption: any; // Property to bind to the selected option
-
-  // onDropdownChange() {
-  //   console.log('Selected option:', this.selectedGroup);
-
-  // }
-
-
-
+  
   instructor_id: any;
   exams: any;
   showgroup: any;
@@ -57,21 +48,10 @@ export class GetAllExamsComponent implements OnInit {
     const instructor_id = await this.getAccountID();
     this.instructor_id = instructor_id;
 
-    this.loadGroups();
-
-    //this.loadexams();
-    
+    this.loadGroups();    
     
   }
   
-
-  // form: any;
-
-  // ngOnChanges(changes: SimpleChanges): void {
-  //   //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
-  //   //Add '${implements OnChanges}' to the class.
-  //   this.loadexams()
-  // }
   
   loadexams() {
     
@@ -107,60 +87,7 @@ export class GetAllExamsComponent implements OnInit {
     });
   }
 
-  // loadGroups() {
-  //   this.groupservces.getAllGroups().subscribe({
-  //     next: (data) => {
-  //       this.showgroup = data;
-  //       console.log(data);
-  //     },
-  //     error: (err) => {
-  //       this.router.navigate([
-  //         '/Error',
-  //         { errormessage: err.message as string },
-  //       ]);
-  //     },
-  //   });
-
-
-  //}
-
-
-  // onGroupSelect() {
-  //   this.QuizServices.getAllQuizs().subscribe({
-  //     next: (data) => {
-  //       this.exams = data;
-  //       console.log(data);
-  //     },
-  //     error: (err) => {
-  //       this.router.navigate(['/Error', { errormessage: err.message as string }]);
-  //     }
-  //   });
-  // }
-
-  // updateexam(id: number, updateexam: any): void {
-  //   // this.QuizServices.updateQuiz(id, updateexam).subscribe({
-  //   //   next: () => {
-  //   //     console.log('Group updated successfully');
-
-  //   //     this.loadexams();
-  //   //   },
-  //   //   error: (err) => {
-  //   //     console.error('Error updating group:', err);
-  //   //   },
-  //   // });
-  // }
-  // deleteGroup(id: number): void {
-  //   this.QuizServices.deleteQuiz(id).subscribe({
-  //     next: () => {
-  //       console.log('Group deleted successfully');
-
-  //       this.loadexams();
-  //     },
-  //     error: (err) => {
-  //       console.error('Error deleting group:', err);
-  //     },
-  //   });
-  // }
+  
 
 
   Create(){
@@ -175,10 +102,16 @@ export class GetAllExamsComponent implements OnInit {
   }
 
 
-  Available(exam :any){
-    exam.quiz_Available = true;
-    console.log(exam)
-    this.QuizServices.updateQuiz(exam.quiz_ID,exam).subscribe({
+  Available(quiz_ID : any ,exam :any){
+    const Newexam = {
+      quiz_ID : exam.quiz_ID,
+      quiz_Name : exam.quiz_Name ,
+      quiz_Available : true,
+      instructor_ID : exam.instructor_ID ,
+      group_ID: exam.group_ID
+    }
+    //console.log(exam)
+    this.QuizServices.updateQuiz(quiz_ID,Newexam).subscribe({
       next: () => {
         console.log('update successfully');
 
@@ -191,10 +124,16 @@ export class GetAllExamsComponent implements OnInit {
   }
 
 
-  NotAvailable(exam :any){
-    exam.quiz_Available = false;
-
-    this.QuizServices.updateQuiz(exam.quiz_ID,exam).subscribe({
+  NotAvailable(quiz_ID : any ,exam :any){
+    const Newexam = {
+      quiz_ID : exam.quiz_ID,
+      quiz_Name : exam.quiz_Name ,
+      quiz_Available : false,
+      instructor_ID : exam.instructor_ID ,
+      group_ID: exam.group_ID
+    }
+    //console.log(exam)
+    this.QuizServices.updateQuiz(quiz_ID,Newexam).subscribe({
       next: () => {
         console.log('update successfully');
 

@@ -14,17 +14,10 @@
                                 @for (Choise of Question.choises; track Choise.choise_ID) 
                                 {
                                     <li class="mt-2">
-                                        <!-- @if (Choise.isCorrect) 
-                                        { -->
                                             <input class="ms-2" name="{{Question.question_ID}}" id="{{Choise.choise_ID}}"
                                                 (change)="onChange(Question.question_ID,Choise.isCorrect)" type="radio">
                                             <label style="word-wrap: break-word;" for="{{Choise.choise_ID}}">{{Choise.text}}</label>
-                                        <!-- } -->
-                                        <!-- @else 
-                                        { -->
-                                            <!-- <input class="ms-2" name="{{Question.question_ID}}" id="{{Choise.choise_ID}}" type="radio">
-                                            <label style="word-wrap: break-word;" for="{{Choise.choise_ID}}">{{Choise.text}}</label>
-                                        } -->
+                                      
                                     </li>
                                 }
                             </ol>

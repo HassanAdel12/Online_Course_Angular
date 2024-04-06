@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, RouterLink, RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { SessionService } from '../../Service/session.service';
+import { GroupService } from '../../Service/group.service';
 //import {  Video } from './session.model';
 
 @Component({
@@ -42,14 +43,21 @@ export class ShowsessionsComponent {
   selectedSession: any; 
   groupId:any;
   sessionId:any;
-  session:any
-  constructor(private SessionService: SessionService
+  session:any ;
+  group : any;
+  
+  constructor(private SessionService: SessionService , private GroupService: GroupService
     , private route: ActivatedRoute) { 
     this.groupId = this.route.snapshot.paramMap.get('id');
   }
   
   ngOnInit(): void {
     this.loadSessions();
+
+    this.GroupService.getGroupByID(this.groupId).subscribe((data) => {
+      this.group = data;
+    });
+    
   }
 
   loadSessions() {

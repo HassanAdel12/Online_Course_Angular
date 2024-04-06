@@ -38,7 +38,7 @@ export class StdExamEnrollComponent {
   }
 
   async ngOnInit(): Promise<void> {
-    this.GroupService.getGroupByID(this.Groupid).subscribe({
+    await this.GroupService.getGroupByID(this.Groupid).subscribe({
       next: (data) => {
         this.Group = data;
       },
@@ -53,12 +53,15 @@ export class StdExamEnrollComponent {
     const studentId = await this.getAccountID();
     this.studentId = studentId;
 
+    //console.log(this.studentId)
     this.QuizService.getQuizByGroupIDStudent(
       this.Groupid,
       this.studentId
     ).subscribe({
       next: (data) => {
         this.quizs = data;
+        //console.log(data);
+        //console.log(this.studentId)
       },
       error: (err) => {
         this.router.navigate([

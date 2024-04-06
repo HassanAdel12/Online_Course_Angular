@@ -38,6 +38,7 @@ import { CreatesessionComponent } from './Instructor/create/createsession/create
 import { MygroupsComponent } from './mygroups/mygroups.component';
 import { ShowsessionsComponent } from './showsessions/showsessions.component';
 import { UpdateGroupComponent } from './Instructor/Update/update-sesstion/update-sesstion.component';
+import { AboutComponent } from './about/about.component';
 //import { StdExamComponent } from './Student/showExam/std-exam/std-exam.component';
 
 export const routes: Routes = [
@@ -45,6 +46,8 @@ export const routes: Routes = [
     {path:"Home",component:HomeComponent},
     {path:"Login",component:LoginComponent},
     {path:"Register",component:RegisterComponent},
+    {path:"About",component:AboutComponent},
+
 
     {path:"grade/:id",component:GradeComponent},//canActivate:[studentGuard]
 
