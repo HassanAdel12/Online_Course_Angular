@@ -61,27 +61,39 @@ export class PaymentComponent {
     });
   }
 
-  updateUser() {
-    this.group.num_Students++;
+  // async updateUser() {
+  //   await this.group.num_Students++;
 
-    this.groupservice.updateGroup(this.group.group_ID, this.group).subscribe(
-      (data) => {
-        console.log('Updated ');
-      },
-      (error) => {
-        console.log('Error', error);
-      }
-    );
+  //   await this.groupservice.updateGroup(this.group.group_ID, this.group).subscribe(
+  //     (data) => {
+  //       console.log('Updated ');
+  //     },
+  //     (error) => {
+  //       console.log('Error', error);
+  //     }
+  //   );
+  // }
+
+  async updateUser() {
+    try {
+      await this.group.num_Students++;
+  
+      await this.groupservice.updateGroup(this.group.group_ID, this.group).toPromise();
+      console.log('Updated');
+    } catch (error) {
+      console.log('Error', error);
+    }
   }
 
-  addnewStudentGroup() {
+  
+  async addnewStudentGroup() {
     const newStudentGroup = {
       student_ID: this.studentId,
       group_ID: this.group.group_ID,
       enroll_Date: new Date(),
     };
 
-    this.studentgroup.AddNewStudentgroup(newStudentGroup).subscribe(
+    await this.studentgroup.AddNewStudentgroup(newStudentGroup).subscribe(
       (response) => {
         console.log('added', response);
         
@@ -92,9 +104,9 @@ export class PaymentComponent {
     );
   }
 
-  SendEmail() {
+  async SendEmail() {
 
-    this.EmailSenderService.SendEmail(this.group.group_ID).subscribe(
+    await this.EmailSenderService.SendEmail(this.group.group_ID).subscribe(
       (data) => {
         console.log('sended ');
         this.router.navigate(['/Showsessions/' + this.group.group_ID]);
@@ -121,13 +133,13 @@ export class PaymentComponent {
         },
 
         onApprove: (data, actions) => {
-          return actions.order.capture().then((details: any) => {
+          return actions.order.capture().then(async (details: any) => {
             //console.log(details);
-            this.addnewStudentGroup();
+            await this.addnewStudentGroup();
 
-            this.updateUser();
+            await this.updateUser();
 
-            this.SendEmail();
+            await this.SendEmail();
           });
         },
         onError: (err) => {
