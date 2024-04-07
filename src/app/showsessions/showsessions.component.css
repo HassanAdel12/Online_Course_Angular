@@ -40,6 +40,7 @@
 
 .btn-exam {
   margin-top: 10px;
+  margin-left: 10px;
 }
 
 .sidebar-item {
@@ -56,8 +57,8 @@
   background-color: #4d94ff;
   color: #fff;
   border-radius: 20px;
-  padding: 3px 120px; 
-  margin: 5px;
+  padding: 3px 70px; 
+  margin: 2px;
   font-size: 30px;
 }
 
@@ -96,7 +97,8 @@
 }
 
 .btn-join-zoom {
-  margin-top: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   display: block;
-  width: 100%;
+  width: 20%;
 }
