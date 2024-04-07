@@ -12,7 +12,7 @@ export const instructorGuard: CanActivateFn = (route, state) => {
     return true;
   }
   else{
-    router.navigate(['/login']);
+    router.navigate(['/Login']);
     return false;
   }
   

@@ -15,6 +15,7 @@ import { AccountService } from '../../../../../Service/Account.service';
   styleUrl: './std-exam-enroll.component.css',
 })
 export class StdExamEnrollComponent {
+  
   exam: any;
   Group: any;
   @Input() Groupid: any;

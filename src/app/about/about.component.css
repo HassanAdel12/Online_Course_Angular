@@ -42,7 +42,7 @@ body {
   margin: auto auto;
     width: 70%;;
     text-align: center;
-    background-color: rgb(247, 224, 20);
+    background-color: rgb(140, 202, 162);
   }
   #mission h2
   {
@@ -113,7 +113,7 @@ body {
     display: inline-block;
     width: 200px;
     height: 150px;
-    background-color: rgb(247, 224, 20);
+    background-color: rgb(140, 202, 162);
     border-radius: 10px;
     margin: 10px;
 }
