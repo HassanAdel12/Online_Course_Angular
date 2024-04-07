@@ -16,7 +16,7 @@
 .btn-enroll {
   display: block;
   margin: 0 auto; /* Center the button horizontally */
-  background-color: gold; /* Change the background color */
+  background-color: #55b02b; /* Change the background color */
   color: black; /* Change the text color */
   padding: 10px 20px; /* Add padding to increase button size */
   font-size: 16px; /* Increase font size */

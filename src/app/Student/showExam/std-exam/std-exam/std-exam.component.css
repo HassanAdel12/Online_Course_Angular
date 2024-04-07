@@ -66,3 +66,18 @@
     text-align: center;
     width: 50%;
 }
+
+
+.success-alert {
+    position: fixed;
+    top: 70px; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    background-color: #4caf50; 
+    color: white; 
+    text-align: center; 
+    padding: 20px; 
+    border-radius: 10px; 
+    z-index: 9999; 
+  }

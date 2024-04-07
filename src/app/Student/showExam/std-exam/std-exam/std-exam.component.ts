@@ -34,6 +34,7 @@ export class StdExamComponent implements OnInit {
   quiz: any;
   @Input() examid: any;
   Questions: any;
+  submitQuiz :boolean = false;
 
   constructor(
     private QuizService: QuizService,
@@ -133,14 +134,25 @@ export class StdExamComponent implements OnInit {
 
     this.StudentQuizService.AddNewStudentQuiz(StudentQuiz).subscribe({
       next: (data) => {
-        window.alert(
-          'grade : ' +
-          this.grade
-        );
-        this.router.navigate(['/Exam/'+this.quiz.group_ID]);
+        // window.alert(
+        //   'grade : ' +
+        //   this.grade
+        // );
+        this.submitQuiz = true;
+        //this.router.navigate(['/Exam/'+this.quiz.group_ID]);
+
+        setTimeout(() => {
+            
+          this.router.navigate(['/Exam/'+this.quiz.group_ID]);
+          this.submitQuiz = false;
+        }, 1000);
       },
       error: (err) => {
-        window.alert('sorry there is an error when add: ');
+        //window.alert('sorry there is an error when add: ');
+        this.router.navigate([
+          '/Error',
+          { errormessage: err.message as string },
+        ]);
       },
     });
 
