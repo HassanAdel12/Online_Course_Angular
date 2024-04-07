@@ -7,7 +7,7 @@ body {
 }
 
 header {
-    background-color: #333;
+    background-color: #55b02baf;
     color: #fff;
     text-align: center;
     padding: 20px 0;
@@ -48,14 +48,14 @@ header {
 
 .box-body {
     padding: 10px;
-    background-color: beige;
+    background-color: #ddd;
     border-radius: 20px; 
 }
 
 button {
     padding: 10px 30px;
     margin: 20px;
-  background-color: gold;
+  background-color: #55b02baf;
    
     border: none;
     border-radius: 20px;

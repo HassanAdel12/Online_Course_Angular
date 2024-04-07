@@ -1,9 +1,10 @@
+<body style="background-image: url('assets/images/shape.jpg');">
 <div class="container">
   <div class="top-section">
     <button class="btn btn-add-exam" [disabled]="!selectedGroup" (click)="Create()">
       <p>Create New Exam</p>
     </button>
-
+    <span style="margin-right: 10px;">Choose Group</span>
     <select class="form-control" [(ngModel)]="selectedGroup" (change)="loadexams()" required>
       <option *ngFor="let group of showgroup" [value]="group.group_ID">{{ group.groupName }}</option>
     </select>
@@ -37,3 +38,4 @@
     </tbody>
   </table>
 </div>
+</body>

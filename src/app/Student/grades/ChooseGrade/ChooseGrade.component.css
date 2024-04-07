@@ -1,41 +1,41 @@
-.center-container {  
-  display: flex;  
-  justify-content: center;  
-  align-items: center;  
-}  
 
-.super-beauty-button {  
-  display: flex;   
-  justify-content: center;  
-  padding: 30px 150px;   
-  font-size: 23px;   
-  font-weight: bold;   
-  text-transform: uppercase;   
-  color: #383838;   
-  background-color: beige;   
-  border: none;   
-  border-radius: 50px;   
-  cursor: pointer;   
-  box-shadow: 0px 4px 10px gold;   
-  transition: background-color 0.3s ease;  
-  margin: 20px; 
-  width: 100%;
-}  
-
-.super-beauty-button:hover {   
-  transform: translateY(-2px);   
-  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
-  background-color: #ffffff;    
-}   
-
-.super-beauty-button:active {   
-  transform: translateY(1px);   
-  box-shadow: none;   
-}   
 header {
+  text-align: center;
   background-color: #333;
   color: #fff;
-  text-align: center;
   padding: 20px 0;
+  width: 100%;
 }
 
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  max-width: 800px; 
+  width: 90%; 
+}
+
+.super-beauty-button {
+  display: inline-block;
+  padding: 35px 70px; 
+  margin: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: #55b02b;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+
+
+.super-beauty-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+}

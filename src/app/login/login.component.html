@@ -1,11 +1,11 @@
-<body style="background-image: url('assets/images/photo.jpeg');">
+<body style="background-image: url('assets/images/login2.jpeg');">
   <div class="container">
     <h1>Login</h1>
 
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div class="inputbox">
 
-        <input type="text" formControlName="username">
+        <input type="text" formControlName="username" placeholder="User Name">
         <img src="assets/images/user.png" margin-top="10px">
         <div *ngIf="loginForm.get('username')?.errors && loginForm.get('username')?.touched" 
                class="form-text text-center text-danger">Username is required and must be at least 3 chars and not space</div>
@@ -16,7 +16,7 @@
 
       <div class="inputbox">
 
-        <input type="password" formControlName="password">
+        <input type="password" formControlName="password" placeholder="Password">
         <img src="assets/images/lock.png" margin-top="10px">
         <div *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.touched" 
                class="form-text text-center text-danger">Password is required and must between 6 and 20 chars</div>
@@ -32,9 +32,9 @@
     <div *ngIf="errormessage"
           class="form-text text-center text-danger">{{errormessage}}</div>
         
-      <button id="redirectButton" class="button" type="submit">Login</button>
+      <button id="redirectButton" class="button" type="submit"  style="background-color:#55b02baf;">Login</button>
       <div class="register">
-        <p>Don't Have an Acount? <a routerLink="/Register">Register</a></p>
+        <p style="color: black;">Don't Have an Acount? <a routerLink="/Register" style="color: black;">Register</a></p>
       </div>
       <span id="span"></span>
     </form>

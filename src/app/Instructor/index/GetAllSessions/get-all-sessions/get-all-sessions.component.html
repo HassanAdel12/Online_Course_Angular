@@ -1,10 +1,12 @@
+<body style="background-image: url('assets/images/shape.jpg');">
 <div class="container">
 
   <div class="top-section">
 
     <button class="btn btn-add-Session" [disabled]="!selectedGroup" (click)="Create()">Create New Session</button>
-
-    <select class="form-control" [(ngModel)]="selectedGroup" (change)="loadsessions()" required>
+    <span>Choose Group</span>
+    <select class="form-control" [(ngModel)]="selectedGroup" placeholder="choose the Group" (change)="loadsessions()" required>
+      
       <option *ngFor="let group of showgroup" [value]="group.group_ID">{{ group.groupName }}</option>
     </select>
   </div>
@@ -35,3 +37,4 @@
     </tbody>
   </table>
 </div>
+</body>

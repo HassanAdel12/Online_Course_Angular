@@ -16,12 +16,12 @@ header {
 .box {
     width: calc(33.33% - 20px);
     margin-bottom: 20px;
-    background-color: beige;
+    background-color: #55b02b;
     padding: 10px;
     box-sizing: border-box;
     text-align: center;
     cursor: pointer; 
-    box-shadow: 0px 4px 10px gold;  
+    box-shadow: 0px 4px 10px black;  
     transition: background-color 0.3s; 
 }
 .box:hover {

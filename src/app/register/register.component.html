@@ -1,8 +1,8 @@
-<body style="background-image: url('assets/images/photo.jpeg');">
+<body style="background-image: url('assets/images/login2.jpeg');">
 
   <div class="wrapper">
     <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
-      <h1 style="color:black">Sign UP</h1>
+      <h1 style="color:black">Sign up</h1>
       <div class="inputbox">
         <div class="inputfield">
           <input type="text" placeholder="name" formControlName="name">
@@ -63,7 +63,7 @@
           class="form-text text-center text-danger">{{errormessage}}
         </div>
         
-      <button type="submit" [disabled]="registrationForm.invalid">Sign UP</button>
+      <button type="submit" [disabled]="registrationForm.invalid"  style="background-color: #55b02baf;">Sign up</button>
       
       
     </form>

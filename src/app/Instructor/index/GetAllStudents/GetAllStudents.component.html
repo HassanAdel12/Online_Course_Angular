@@ -1,12 +1,13 @@
+<body style="background-image: url('assets/images/shape.jpg');">
 <div class="container">
   <div class="top-section">
     
-
+<span style="margin-right: 10px;">Choose Group</span>
     <select class="form-control" [(ngModel)]="selectedGroup" (change)="loadexams()" required>
       <option *ngFor="let group of showgroup" [value]="group.group_ID">{{ group.groupName }}</option>
     </select>
 
-
+    <span style="margin-right: 10px;margin-left: 10px;">Choose Exam</span>
     <select class="form-control" [(ngModel)]="selectedExam" (change)="loadstudents()" required>
       <option *ngFor="let exam of exams" [value]="exam.quiz_ID">{{ exam.quiz_Name }}</option>
     </select>
@@ -32,3 +33,4 @@
     </tbody>
   </table>
 </div>
+</body>
