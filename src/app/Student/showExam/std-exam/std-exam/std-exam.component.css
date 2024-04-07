@@ -1,68 +1,27 @@
-#e
-{
-    /* --vh: 13.66px; */
-    color: #21242c;
-    
-    /* border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    box-sizing: inherit; */
-    /* padding-left: 0px !important;
-    padding-right: 0px !important; */
-    background-color: rgb(241, 241, 241);
-    min-height: 100% !important;
-    /* width: 100% !important; */
-    padding:20px 0;
-    /* overflow-x   : auto !important; */
-    
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   
+    margin: 0;
+    padding: 0;
 }
-#e2
-{
-    padding:20px 0 ;
+.container {
+   
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, .2);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+  color:#060505 ; 
+  border-radius: 10px;
+  padding: 30px 40px;
+  margin:70px auto;
+   
 }
-#header
-{
+h2 {
     text-align: center;
-    width: 50%;
+    color: #45a049;
+    margin-top: 0;
+    font-size: 35px;
+    margin-bottom: 20px;
+    border:1px solid #45a049 ; 
 }
-#header h2
-{
-    text-transform: uppercase;
-    padding: 0 10px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid rgb(180, 180, 180);
 
-}
-#body
-{
-    padding-top: 40px;
-    width: 50%;
-}
-#body h3
-{
-    font-size: 20px;
-    text-transform: uppercase;
-    padding: 0 10px;
-    padding-bottom: 5px;
-    border-bottom: 1px solid rgb(180, 180, 180);
-}
-#body ol li 
-{
-    font-size: 16px;
-    font-weight: 400;
-    text-transform: uppercase;
-}
-#button 
-{
-    
-    text-align: center;
-}
-#button input
-{
-    padding: 10px 30px;
-}
-#e3
-{
-    text-align: center;
-    width: 50%;
-}
