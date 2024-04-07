@@ -4,8 +4,10 @@ export const studentGuard: CanActivateFn = (route, state) => {
   
 
   const router = new Router();
-  var User = localStorage.getItem('DataUser');
-  var DataUser = JSON.parse(DataUser);
+  var DataUser :any;
+  DataUser = localStorage.getItem('DataUser');
+  DataUser = JSON.parse(DataUser);
+  console.log(DataUser)
   if(DataUser.roles == "Student")
   {
     return true;

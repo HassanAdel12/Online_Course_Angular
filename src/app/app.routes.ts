@@ -39,6 +39,8 @@ import { MygroupsComponent } from './mygroups/mygroups.component';
 import { ShowsessionsComponent } from './showsessions/showsessions.component';
 import { UpdateGroupComponent } from './Instructor/Update/update-sesstion/update-sesstion.component';
 import { AboutComponent } from './about/about.component';
+import { studentGuard } from './student.guard';
+import { instructorGuard } from './instructor.guard';
 //import { StdExamComponent } from './Student/showExam/std-exam/std-exam.component';
 
 export const routes: Routes = [
@@ -49,47 +51,47 @@ export const routes: Routes = [
     {path:"About",component:AboutComponent},
 
 
-    {path:"grade/:id",component:GradeComponent},//canActivate:[studentGuard]
+    {path:"grade/:id",component:GradeComponent,canActivate:[studentGuard]},//canActivate:[studentGuard]
 
-    {path:"choocegrade",component:choosegradeComponent},//canActivate:[studentGuard]
-    {path:"chooseinstructor/:id",component:ChooseinstructorComponent},//canActivate:[studentGuard]
-    {path:"courseselected/:id",component:CourseselectedComponent},
-    {path:"courses", component:CoursesComponent},
-    {path:"main", component:MainComponent},
-    {path:"Exam/:id",component:ExamPageComponent},
+    {path:"choocegrade",component:choosegradeComponent,canActivate:[studentGuard]},//canActivate:[studentGuard]
+    {path:"chooseinstructor/:id",component:ChooseinstructorComponent,canActivate:[studentGuard]},//canActivate:[studentGuard]
+    {path:"courseselected/:id",component:CourseselectedComponent,canActivate:[studentGuard]},
+    {path:"courses", component:CoursesComponent,canActivate:[studentGuard]},
+    {path:"main", component:MainComponent,canActivate:[studentGuard]},
+    {path:"Exam/:id",component:ExamPageComponent,canActivate:[studentGuard]},
 
-    {path:"StdExam/:id",component:StdExamComponent},//canActivate:[studentGuard]
-    {path:"SesstionAndVidos/:id",component:SesstionAndVidosComponent},//canActivate:[studentGuard]
-    {path:"Send/:id",component:SendComponent},//canActivate:[studentGuard]
+    {path:"StdExam/:id",component:StdExamComponent,canActivate:[studentGuard]},//canActivate:[studentGuard]
+    {path:"SesstionAndVidos/:id",component:SesstionAndVidosComponent,canActivate:[studentGuard]},//canActivate:[studentGuard]
+    {path:"Send/:id",component:SendComponent,canActivate:[studentGuard]},//canActivate:[studentGuard]
 
 
-    {path:"Instructordashboard",component : InstructordashboardComponent},//canActivate:[instructorGuard]
-    {path:"profile",component:ProfileComponent},//canActivate:[instructorGuard]
-    {path:"stepscreate",component:InstructorDateHeaderComponent},//canActivate:[instructorGuard]
-    {path:"step1",component:InstructorDataComponent},//canActivate:[instructorGuard]
-    {path:"step2",component:InstructordatatwoComponent},//canActivate:[instructorGuard]
-    {path:"step3",component:TermsAndAdvicesComponent},//canActivate:[instructorGuard]
-    {path:"MYGroup",component:InstgroupsComponent},//canActivate:[instructorGuard]
-    {path:"createExam/:id",component:CreateexamComponent},//canActivate:[instructorGuard]
-    {path:"createGroup",component:AddGroupComponent},//canActivate:[instructorGuard]
-    {path:"Createsession/:id",component:CreatesessionComponent},//canActivate:[instructorGuard]
-    {path:"First",component:DashBoardGradeOneComponent},//canActivate:[instructorGuard]
-    {path:"Payment/:id",component:PaymentComponent},//canActivate:[studentGuard]
-    {path:"Instructordashboard",component : InstructordashboardComponent},
-    {path:"profile",component:ProfileComponent},
-    {path:"stepscreate",component:InstructorDateHeaderComponent},
-    {path:"step1",component:InstructorDataComponent},
-    {path:"step2",component:InstructordatatwoComponent},
-    {path:"step3",component:TermsAndAdvicesComponent},
-    {path:"MYGroup",component:InstgroupsComponent},
-    {path:"mygroups",component:MygroupsComponent},
+    {path:"Instructordashboard",component : InstructordashboardComponent,canActivate:[instructorGuard]},//canActivate:[instructorGuard]
+    {path:"profile",component:ProfileComponent,canActivate:[instructorGuard]},//canActivate:[instructorGuard]
+    {path:"stepscreate",component:InstructorDateHeaderComponent,canActivate:[instructorGuard]},//canActivate:[instructorGuard]
+    {path:"step1",component:InstructorDataComponent,canActivate:[instructorGuard]},//canActivate:[instructorGuard]
+    {path:"step2",component:InstructordatatwoComponent,canActivate:[instructorGuard]},//canActivate:[instructorGuard]
+    {path:"step3",component:TermsAndAdvicesComponent,canActivate:[instructorGuard]},//canActivate:[instructorGuard]
+    {path:"MYGroup",component:InstgroupsComponent,canActivate:[instructorGuard]},//canActivate:[instructorGuard]
+    {path:"createExam/:id",component:CreateexamComponent,canActivate:[instructorGuard]},//canActivate:[instructorGuard]
+    {path:"createGroup",component:AddGroupComponent,canActivate:[instructorGuard]},//canActivate:[instructorGuard]
+    {path:"Createsession/:id",component:CreatesessionComponent,canActivate:[instructorGuard]},//canActivate:[instructorGuard]
+    {path:"First",component:DashBoardGradeOneComponent,canActivate:[instructorGuard]},//canActivate:[instructorGuard]
+    {path:"Payment/:id",component:PaymentComponent,canActivate:[studentGuard]},//canActivate:[studentGuard]
+    {path:"Instructordashboard",component : InstructordashboardComponent,canActivate:[instructorGuard]},
+    {path:"profile",component:ProfileComponent,canActivate:[instructorGuard]},
+    {path:"stepscreate",component:InstructorDateHeaderComponent,canActivate:[instructorGuard]},
+    {path:"step1",component:InstructorDataComponent,canActivate:[instructorGuard]},
+    {path:"step2",component:InstructordatatwoComponent,canActivate:[instructorGuard]},
+    {path:"step3",component:TermsAndAdvicesComponent,canActivate:[instructorGuard]},
+    {path:"MYGroup",component:InstgroupsComponent,canActivate:[studentGuard]},
+    {path:"mygroups",component:MygroupsComponent,canActivate:[studentGuard]},
 
-    {path:"createExam",component:CreateexamComponent },
-    {path:"createGroup",component:AddGroupComponent },
-    {path:"First",component:DashBoardGradeOneComponent},
+    {path:"createExam",component:CreateexamComponent ,canActivate:[instructorGuard]},
+    {path:"createGroup",component:AddGroupComponent ,canActivate:[instructorGuard]},
+    {path:"First",component:DashBoardGradeOneComponent,canActivate:[instructorGuard]},
 
-    {path:"Showsessions/:id",component:ShowsessionsComponent},
-    {path:"UpdateSesstion/:id",component:UpdateGroupComponent},
+    {path:"Showsessions/:id",component:ShowsessionsComponent,canActivate:[studentGuard]},
+    {path:"UpdateSesstion/:id",component:UpdateGroupComponent,canActivate:[instructorGuard]},
     
    
 

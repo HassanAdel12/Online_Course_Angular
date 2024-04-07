@@ -54,7 +54,6 @@ nav a:hover {
   display: block;
   width: 100%;
   padding: 10px 15px;
-  margin-bottom: 10px;
   background-color: #555;
   color: white;
   border: none;
@@ -75,7 +74,6 @@ nav a:hover {
   background-color: #f9f9f9;
   border-left: 1px solid #ccc;
   flex-grow: 1; 
-  padding: 20px;
   background-color: #f9f9f9;
   border-left: 1px solid #ccc;
   overflow-y: auto;
