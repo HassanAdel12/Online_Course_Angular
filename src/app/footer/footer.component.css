@@ -38,7 +38,7 @@ footer {
 /* Custom Shape Styles */
 .custom-shape {
     clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
-    background-color: #0056b3;
+    background-color: #55b02baf;
     padding: 20px;
     margin-bottom: -10px; /* Adjust to fit your design */
 }

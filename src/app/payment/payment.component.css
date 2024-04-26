@@ -6,7 +6,6 @@
     justify-content: center;
    
     height: calc(100vh - 30px); 
-    margin-top: 50px;
     padding: 50px;
   }
   
@@ -16,7 +15,7 @@
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: beige;
+    background-color: whitesmoke;
     margin-bottom: 20px; 
   }
   

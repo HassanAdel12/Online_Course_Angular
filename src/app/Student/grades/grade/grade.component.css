@@ -16,7 +16,7 @@ header {
 .box {
     width: calc(33.33% - 20px);
     margin-bottom: 20px;
-    background-color: #55b02b;
+    background-color: #55b02baf;
     padding: 10px;
     box-sizing: border-box;
     text-align: center;
